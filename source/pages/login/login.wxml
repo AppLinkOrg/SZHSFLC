@@ -1,0 +1,32 @@
+<view class='padding-60'>
+  <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-50 radius-50'></image>
+
+  <view class='height-50'></view>
+
+  <view class='txt-black h4 txt-bold '>欢迎使用数字化室分流程管理系统</view>
+
+  <view class='height-50'></view>
+
+  <view class='flex-row column'>
+    <view class='txt-bold txt-black'>用户名</view>
+    <input class='margin-top-20 padding-10 txt-black' style='border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入用户名'></input>
+  </view>
+
+  <view class='height-50'></view>
+
+  <view class='flex-row column ' style='border-bottom:1rpx solid #c2c0c4'>
+    <view class='txt-bold txt-black'>手机号码</view>
+
+    <view class='flex-row flex-center'>
+      <input class='margin-top-20 padding-10 txt-black flex-1' placeholder-style='color:#c2c5c8' placeholder='请输入手机号码'></input>
+      <button class='btn h5 txt-white margin-top-10' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
+    </view>
+  </view>
+
+  <view bindtap="toast" class="usermotto">
+    <button class="user-motto" type='bak_ble' class='h5 margin-top txt-white' style='background:#7581FF' bindtap='login'>登录</button>
+  </view>
+
+</view>
+
+<image class='img' src='{{uploadpath}}resource/{{res.loginbottom}}' mode="widthFix"></image>

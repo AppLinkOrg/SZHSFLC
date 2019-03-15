@@ -1,0 +1,62 @@
+<!--pages/site/site.wxml-->
+<view class="margin-bottom-15">
+  <view class='flex-row flex-center margin-top-20'>
+    <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='margin-top-20 txt-bold txt-black'>后台创建的名称</view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40 margin-top-20 txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20 margin-top-20 txt-black h5'>2月19日 18：30</view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40 margin-top-15 txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75 margin-top-15 txt-black h5'>选址</view>
+  </view>
+</view>
+
+<view style='height:10rpx;background:#eeeeee;width:100%'></view>
+
+<view class="margin-bottom-70">
+  <view class='flex-row flex-center margin-top-20 margin-bottom-10'>
+    <image class='icon-25 margin-left-30 margin-top-20' src='{{uploadpath}}resource/{{res.sitetime}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入选址完成的时间'></input>
+  </view>
+  <view class='flex-row flex-center margin-bottom-10'>
+    <image class='icon-30 margin-left-25' src='{{uploadpath}}resource/{{res.person}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入物业关键人姓名'></input>
+  </view>
+  <view class='flex-row flex-center margin-bottom-10'>
+    <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.phone}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入物业关键人电话'></input>
+  </view>
+
+  <view>
+    <view class='flex-row flex-center margin-bottom-10'>
+      <image class='icon-22 margin-left-30' src='{{uploadpath}}resource/{{res.dot}}'></image>
+      <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入红线内管道'></input>
+    </view>
+    <view class='flex-row flex-center margin-left-80 margin-top-20'>
+      <view class='h5 margin-left-25'>上传图片：</view>
+      <image class='icon-25'></image>
+    </view>
+  </view>
+
+  <view>
+    <view class='flex-row flex-center margin-bottom-10'>
+      <image class='icon-22 margin-left-34' src='{{uploadpath}}resource/{{res.rectangle}}'></image>
+      <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入机房面积'></input>
+    </view>
+    <view class='flex-row flex-center margin-left-80 margin-top-20'>
+      <view class='h5 margin-left-25'>上传图片：</view>
+      <image class='icon-25'></image>
+    </view>
+  </view>
+
+</view>
+
+<button class='txt-white h5' style='width:450rpx;background:#03A8F3;'>完成</button>

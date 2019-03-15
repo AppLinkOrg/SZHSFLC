@@ -1,0 +1,15 @@
+/* pages/login/login.wxss */
+.img{
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+
+}
+.btn{
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 120rpx;
+  background: #7581FF;
+  
+}

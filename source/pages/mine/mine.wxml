@@ -1,0 +1,7 @@
+<!--pages/mine/mine.wxml-->
+<view style='width:220px;padding:10px;background:gary'>
+  <view class='padding-50' flex-row>
+    <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-50 radius-50'></image>
+    <view>小了白了兔</view>
+  </view>
+</view>
