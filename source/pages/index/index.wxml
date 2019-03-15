@@ -1,13 +1,81 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class='flex-row flex-center top_title'>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcontact' style='background-color:#03A8F3'>
+    <view class=' text-center   {{ctt==1?"to-white":"" }} top txt-bold text-decoration:line-underline ' bindtap='bindcontact'>新任务</view>
+    <view wx:if='{{ctt!=1}}' style='height:4rpx;width:120rpx;' class=''></view>
+
+    <view wx:if='{{ctt==1}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted' style='background-color:#03A8F3'>
+    <view class=' text-center  txt-#BFBFBF {{ctt==2?"to-white":""}} top txt-bold  ' bindtap='bindwaitcompleted'>进行中</view>
+    <view wx:if='{{ctt!=2}}' style='height:4rpx;width:120rpx;' class=''></view>
+    <view wx:if='{{ctt==2}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
   </view>
+</view>
+
+
+<view wx:if='{{ctt==1}}' wx:for='{{2}}'>
+  <navigator url='' class='bg-white padding-bottom-20 margin-bottom-18' style=''>
+  
+    <view class='flex-row flex-center'>
+
+      <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+      <view class='margin-top-20 txt-bold txt-black'>后台创建的名称</view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <view class='icon-25'></view>
+      <view class='margin-left-40 margin-top-20 txt-black h5' style='color:#4A4949'>任务截止时间：</view>
+      <view class='margin-left-20 margin-top-20 txt-black h5' style='color:#4A4949'>2月19日 18：30</view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <view class='icon-25'></view>
+      <view class='margin-left-40 margin-top-15 txt-black h5' style='color:#4A4949'>任务名称：</view>
+      <view></view>
+      <view class='margin-left-75 margin-top-15 txt-black h5' style='color:#4A4949'>选址</view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <button class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3'>领取任务</button>
+      <view></view>
+      <button class='margin-right-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3'>暂时挂起</button>
+    </view>
+
+    
+  </navigator>
+
+  <!-- <view>
+  <view></view>
+<view></view>
+<view></view>
+
+</view> -->
+</view>
+
+<view wx:if='{{ctt==2}}' wx:for='{{2}}'>
+  <navigator url='' class='bg-white padding-bottom-20 margin-bottom-18' style=''>
+    <view class='flex-row flex-center'>
+      <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+      <view class='margin-top-20 txt-bold txt-black'>后台创建的名称</view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <view class='icon-25'></view>
+      <view class='margin-left-40 margin-top-20 txt-black h5' style='color:#4A4949'>任务截止时间：</view>
+      <view class='margin-left-20 margin-top-20 txt-black h5' style='color:#4A4949'>2月19日 18：30</view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <view class='icon-25'></view>
+      <view class='margin-left-40 margin-top-15 txt-black h5' style='color:#4A4949'>任务名称：</view>
+      <view></view>
+      <view class='margin-left-75 margin-top-15 txt-black h5' style='color:#4A4949'>选址</view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <button class=' margin-top-20 h5 txt-white' style='width:350rpx;background:#03A8F3'>填写任务信息</button>
+    </view>
+  </navigator>
 </view>

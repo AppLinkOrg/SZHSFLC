@@ -1,1 +1,8 @@
-{}
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#03A8F3",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "数据化室分流程管理系统",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

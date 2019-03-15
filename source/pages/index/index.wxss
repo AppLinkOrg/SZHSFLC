@@ -1,4 +1,7 @@
 /**index.wxss**/
+page{
+  background:#EEEEEE;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +21,7 @@
 
 .usermotto {
   margin-top: 200px;
+}
+.to-white{
+
 }

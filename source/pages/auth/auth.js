@@ -1,41 +1,66 @@
-import {
-  AppBase
-} from "../../appbase";
-import {
-  ApiConfig
-} from "../../apis/apiconfig";
-import {
-  InstApi
-} from "../../apis/inst.api.js";
+// pages/auth/auth.js
+Page({
 
-class Content extends AppBase {
-  constructor() {
-    super();
-  }
-  onLoad(options) {
-    this.Base.Page = this;
-    //options.id=5;
-    super.onLoad(options);
-    this.Base.needauth = false;
-  }
-  onMyShow() {
-    var that = this;
-  }
-  checkPermission() {
+  /**
+   * 页面的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
 
   }
-
-  getUserInfo(e) {
-    console.log(666666666);
-    wx.switchTab({
-      url: '/pages/home/home',
-    });
-    //open-type="getUserInfo" bindgetuserinfo="getUserInfo"
-  }
-}
-var content = new Content();
-var body = content.generateBodyJson();
-body.onLoad = content.onLoad; 
-body.onMyShow = content.onMyShow;
-body.getUserInfo = content.getUserInfo;
-Page(body)
+})
