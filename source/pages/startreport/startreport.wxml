@@ -1,21 +1,22 @@
-<!--pages/site/site.wxml-->
+<!--pages/site/site.wxml  开工报告-->
+
 <view class="margin-bottom-15">
   <view class='flex-row flex-center margin-top-40'>
     <image class='icon-25 margin-left-20 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
     <view class=' txt-bold txt-black'>后台创建的名称</view>
   </view>
 
-  <view class='flex-row flex-center' style='padding-20'>
+  <view class='flex-row flex-center margin-top-15'>
     <view class='icon-25'></view>
     <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
     <view class='margin-left-20  txt-black h5'>2月19日 18：30</view>
   </view>
 
-  <view class='flex-row flex-center'>
+  <view class='flex-row flex-center margin-top-15' >
     <view class='icon-25'></view>
-    <view class='margin-left-40 margin-top-15 txt-black h5'>任务名称：</view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
     <view></view>
-    <view class='margin-left-75 margin-top-15 txt-black h5'>开工报告</view>
+    <view class='margin-left-75  txt-black h5'>开工报告</view>
   </view>
 </view>
 
@@ -30,7 +31,12 @@
 
 
   <view class='flex-row flex-center margin-top-40'>
-    <image class='icon-25' src='{{uploadpath}}resource/{{res.sitetime}}'></image>
+    <image class='icon-25' src='{{uploadpath}}resource/{{res.photoa}}'></image>
+    <input class='padding-10 txt-black h5 margin-left-20' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入方案设计完成时间'></input>
+  </view>
+
+   <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25' src='{{uploadpath}}resource/{{res.photob}}'></image>
     <input class='padding-10 txt-black h5 margin-left-20' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入方案设计完成时间'></input>
   </view>
 </view>

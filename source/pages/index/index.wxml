@@ -1,3 +1,5 @@
+<!--pages/index/index.wxml  首页-->
+
 <view class='flex-row flex-center top_title'>
 
   <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcontact' style='background-color:#03A8F3'>

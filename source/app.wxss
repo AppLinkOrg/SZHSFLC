@@ -434,6 +434,9 @@ button[disabled][type=primary] {
 .margin-left-60{
   margin-left:60rpx;
 }
+.margin-left-65{
+  margin-left:65rpx;
+}
 .margin-left-70{
   margin-left:70rpx;
 }
@@ -448,6 +451,9 @@ button[disabled][type=primary] {
 }
 .margin-left-120{
   margin-left:120rpx;
+}
+.margin-left-130{
+  margin-left:130rpx;
 }
 .margin-right-10{
   margin-right:10rpx;

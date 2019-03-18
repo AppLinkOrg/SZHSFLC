@@ -1,21 +1,22 @@
-<!--pages/site/site.wxml-->
+<!--pages/fillcontract/fillcontract.wxml 填写合同-->
+
 <view class="margin-bottom-15">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>后台创建的名称</view>
+  </view>
+
   <view class='flex-row flex-center margin-top-20'>
-    <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
-    <view class='margin-top-20 txt-bold txt-black'>后台创建的名称</view>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>2月19日 18：30</view>
   </view>
 
-  <view class='flex-row flex-center'>
+  <view class='flex-row flex-center margin-top-15'>
     <view class='icon-25'></view>
-    <view class='margin-left-40 margin-top-20 txt-black h5'>任务截止时间：</view>
-    <view class='margin-left-20 margin-top-20 txt-black h5'>2月19日 18：30</view>
-  </view>
-
-  <view class='flex-row flex-center'>
-    <view class='icon-25'></view>
-    <view class='margin-left-40 margin-top-15 txt-black h5'>任务名称：</view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
     <view></view>
-    <view class='margin-left-75 margin-top-15 txt-black h5 '>填写合同资料</view>
+    <view class='margin-left-75  txt-black h5 '>填写合同资料</view>
   </view>
 </view>
 

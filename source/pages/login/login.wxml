@@ -1,3 +1,5 @@
+<!--pages/login/login.wxml  首页-->
+
 <view class='padding-60'>
   <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-50 radius-50'></image>
 
@@ -24,7 +26,7 @@
   </view>
 
   <view bindtap="toast" class="usermotto">
-    <button class="user-motto" type='bak_ble' class='h5 margin-top txt-white' style='background:#7581FF' bindtap='login'>登录</button>
+    <button class="user-motto" type='bak_ble' class='h5 margin-top-40 txt-white' style='background:#7581FF' bindtap='login'>登录</button>
   </view>
 
 </view>

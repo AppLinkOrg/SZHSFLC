@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -78,6 +78,90 @@
 					"id": -1,
 					"name": "开工报告",
 					"pathName": "pages/startreport/startreport",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "领货",
+					"pathName": "pages/getcargo/getcargo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "调货",
+					"pathName": "pages/diaohuo/diaohuo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "施工",
+					"pathName": "pages/construction/construction",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "开通",
+					"pathName": "pages/openup/openup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "验收",
+					"pathName": "pages/acceptance/acceptance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "已完成任务",
+					"pathName": "pages/finish/finish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "挂起的任务",
+					"pathName": "pages/hangup/hangup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "超时任务",
+					"pathName": "pages/overtime/overtime",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选址任务完成详情",
+					"pathName": "pages/sitedetails/sitedetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "填写合同资料",
+					"pathName": "pages/fillcontractdetails/fillcontractdetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "方案设计完成详情",
+					"pathName": "pages/designdetail/designdetail",
 					"scene": null
 				}
 			]
