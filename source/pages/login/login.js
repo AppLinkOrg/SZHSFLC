@@ -32,7 +32,6 @@ class Content extends AppBase {
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
   }
-
 }
 
 var content = new Content();

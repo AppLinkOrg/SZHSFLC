@@ -18,7 +18,13 @@
     "pages/hangup/hangup",
     "pages/overtime/overtime",
     "pages/fillcontractdetails/fillcontractdetails",
-    "pages/designdetail/designdetail"
+    "pages/designdetail/designdetail",
+    "pages/startreportdetails/startreportdetails",
+    "pages/getcargodetails/getcargodetails",
+    "pages/diaohuodetails/diaohuodetails",
+    "pages/constructiondetails/constructiondetails",
+    "pages/openupdetails/openupdetails",
+    "pages/acceptancedetails/acceptancedetails"
   ],
   "permission": {
     "scope.userLocation": {

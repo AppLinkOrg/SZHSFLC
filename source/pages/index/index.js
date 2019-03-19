@@ -8,6 +8,9 @@ import {
 import {
   InstApi
 } from "../../apis/inst.api.js";
+import {
+  TaskApi
+} from "../../apis/task.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -25,6 +28,40 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var taskapi=new TaskApi();
+    taskapi.newtasklist({}, (newtasklist)=>{
+     this.Base.setMyData({
+       newtasklist
+     })
+    })
+
+  }
+  asd(){
+    wx.showModal({
+      title: '确认挂起吗？',
+      content: '挂起任务可在我的中心查看',
+      success: function (res) {
+        if (res.confirm) {//这里是点击了确定以后
+          console.log('用户点击确定')
+        } else {//这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+  linqurenwu(){
+    wx.showToast({
+      title: '领取成功',
+      icon: 'success',
+      duration: 1000//持续的时间
+    })
+  }
+  tianxie(e) {
+    var id=e.currentTarget.id;
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/taskdetails/taskdetails?id='+id,
+    })
   }
   
   bindwaitcompleted(e) {
@@ -33,14 +70,13 @@ class Content extends AppBase {
     })
     this.onMyShow();
   }
+  
   bindcontact(e) {
     this.Base.setMyData({
       ctt: 1
     })
     this.onMyShow();
   }
-
-
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -49,4 +85,7 @@ body.onMyShow = content.onMyShow;
 body.bindcompleted = content.bindcompleted;
 body.bindwaitcompleted = content.bindwaitcompleted;
 body.bindcontact = content.bindcontact;
+body.asd = content.asd;
+body.linqurenwu = content.linqurenwu;
+body.tianxie = content.tianxie;
 Page(body)

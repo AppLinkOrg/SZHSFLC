@@ -1,5 +1,4 @@
 <!--pages/site/site.wxml  选址-->
-
 <view class="margin-bottom-15">
   <view class='flex-row flex-center margin-top-40'>
     <image class='icon-25 margin-left-20 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>

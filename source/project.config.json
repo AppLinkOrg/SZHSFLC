@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 23,
 			"list": [
 				{
 					"id": 0,
@@ -152,8 +152,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "填写合同资料",
+					"id": 16,
+					"name": "填写合同资料任务完成详情",
 					"pathName": "pages/fillcontractdetails/fillcontractdetails",
 					"query": "",
 					"scene": null
@@ -162,6 +162,49 @@
 					"id": -1,
 					"name": "方案设计完成详情",
 					"pathName": "pages/designdetail/designdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "开工报告任务完成详情",
+					"pathName": "pages/startreportdetails/startreportdetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "领货任务完成详情",
+					"pathName": "pages/getcargodetails/getcargodetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "调货任务完成详情",
+					"pathName": "pages/diaohuodetails/diaohuodetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "施工任务完成详情",
+					"pathName": "pages/constructiondetails/constructiondetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "开通任务完成详情",
+					"pathName": "pages/openupdetails/openupdetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "验收任务完成详情",
+					"pathName": "pages/acceptancedetails/acceptancedetails",
+					"query": "",
 					"scene": null
 				}
 			]
