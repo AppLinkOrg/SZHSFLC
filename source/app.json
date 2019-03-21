@@ -1,5 +1,6 @@
 {
   "pages": [
+  
     "pages/login/login",
     "pages/index/index",
     "pages/site/site",
@@ -24,7 +25,8 @@
     "pages/diaohuodetails/diaohuodetails",
     "pages/constructiondetails/constructiondetails",
     "pages/openupdetails/openupdetails",
-    "pages/acceptancedetails/acceptancedetails"
+    "pages/acceptancedetails/acceptancedetails",
+    "pages/taskdetails/taskdetails"
   ],
   "permission": {
     "scope.userLocation": {

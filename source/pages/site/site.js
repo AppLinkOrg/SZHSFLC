@@ -19,8 +19,14 @@ class Content extends AppBase {
     super.onLoad(options);
 
     this.Base.setMyData({
-      ctt: 1
+      id: options.id
     });
+    this.setData({
+      user_id: options.user_id
+    })
+    console.log(this.data.user_id)
+
+
 
   }
   onMyShow() {

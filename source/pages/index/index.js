@@ -20,7 +20,6 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    
     this.Base.setMyData({
       ctt: 1
     });
@@ -28,49 +27,60 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var taskapi=new TaskApi();
-    taskapi.newtasklist({}, (newtasklist)=>{
-     this.Base.setMyData({
-       newtasklist
-     })
+    var taskapi = new TaskApi();
+    taskapi.newtasklist({}, (newtasklist) => {
+      this.Base.setMyData({
+        newtasklist
+      })
     })
 
   }
-  asd(){
+  asd() {
     wx.showModal({
       title: '确认挂起吗？',
       content: '挂起任务可在我的中心查看',
-      success: function (res) {
-        if (res.confirm) {//这里是点击了确定以后
+      success: function(res) {
+        if (res.confirm) { //这里是点击了确定以后
           console.log('用户点击确定')
-        } else {//这里是点击了取消以后
+        } else { //这里是点击了取消以后
           console.log('用户点击取消')
         }
       }
     })
   }
-  linqurenwu(){
+  linqurenwu(e) {
+    var type = e.currentTarget.type;
+    var id = e.currentTarget.id;
+    var url = '';
+    if (type == "selectio") {
+      url: '/pages/site/site'
+    }
+    wx.navigateTo({
+      url: url,
+    })
     wx.showToast({
       title: '领取成功',
       icon: 'success',
-      duration: 1000//持续的时间
+      duration: 1000 //持续的时间
     })
   }
   tianxie(e) {
-    var id=e.currentTarget.id;
-    console.log(id);
+    var id = e.currentTarget.id;
+    var aa = e.currentTarget.dataset.name;
+    console.log(aa);
+    //return;
     wx.navigateTo({
-      url: '/pages/taskdetails/taskdetails?id='+id,
+      url: '/pages/taskdetails/taskdetails?aaa=' + id + '&id=' + aa,
     })
   }
-  
+
   bindwaitcompleted(e) {
     this.Base.setMyData({
       ctt: 2
     })
     this.onMyShow();
   }
-  
+
   bindcontact(e) {
     this.Base.setMyData({
       ctt: 1

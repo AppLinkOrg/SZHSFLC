@@ -17,14 +17,14 @@
 </view>
 
 
-<view wx:if='{{ctt==1}}' >
+<view wx:if='{{ctt==1}}'>
 
   <view wx:for='{{newtasklist}}' wx:key='k' url='' class='bg-white padding-bottom-20 margin-bottom-18' style=''>
-  
+
     <view class='flex-row flex-center'>
 
       <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
-      <view class='margin-top-20 txt-bold txt-black'>{{item.name_name}}</view>
+      <view class='margin-top-20 txt-bold txt-black'>{{item.name}}</view>
     </view>
 
     <view class='flex-row flex-center'>
@@ -41,7 +41,7 @@
     </view>
 
     <view class='flex-row flex-center'>
-      <button class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='linqurenwu'>领取任务</button>
+      <button  class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='linqurenwu' type='{{item.type}}' id='{{item.id}}'>领取任务</button>
       <view></view>
       <button class='margin-right-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='asd'>暂时挂起</button>
     </view>
@@ -73,11 +73,11 @@
       <view class='icon-25'></view>
       <view class='margin-left-40 margin-top-15 txt-black h5' style='color:#4A4949'>任务名称：</view>
       <view></view>
-      <view class='margin-left-75 margin-top-15 txt-black h5' style='color:#4A4949'>选址</view>
+      <view class='margin-left-75 margin-top-15 txt-black h5' style='color:#4A4949'>{{item.taskname_name}}</view>
     </view>
 
     <view class='flex-row flex-center'>
-      <button class=' margin-top-20 h5 txt-white' style='width:350rpx;background:#03A8F3' bindtap='tianxie' id='{{item.id}}'>填写任务信息</button>
+      <button class=' margin-top-20 h5 txt-white' style='width:350rpx;background:#03A8F3' bindtap='tianxie' data-name='{{item.id}}' id='{{item.taskname}}'>查看任务信息</button>
     </view>
   </view>
 </view>

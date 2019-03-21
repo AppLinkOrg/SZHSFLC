@@ -3,7 +3,7 @@
 <view style='width:100%;padding:10px;background:#eeeeee'>
   <view class='flex-row flex-center padding-50'>
     <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-50 radius-50'></image>
-    <view class='margin-left-40'>小了白了兔</view>
+    <view class='margin-left-40'>豆豆</view>
   </view>
 </view>
 
