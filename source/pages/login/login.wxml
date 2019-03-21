@@ -20,7 +20,7 @@
     <view class='txt-bold txt-black'>手机号码</view>
 
     <view class='flex-row flex-center'>
-      <input class='margin-top-20 padding-10 txt-black flex-1' placeholder-style='color:#c2c5c8' placeholder='请输入手机号码'></input>
+      <input class='margin-top-20 padding-10 txt-black flex-1' type='number' placeholder-style='color:#c2c5c8' placeholder='请输入手机号码'></input>
       <button class='btn h5 txt-white margin-top-10' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
     </view>
   </view>

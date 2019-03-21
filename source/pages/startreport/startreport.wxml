@@ -26,7 +26,7 @@
 
   <view class='flex-row flex-center '>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.money}}'></image>
-    <input class='padding-10 txt-black h5 margin-left-20' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额'></input>
+    <input class='padding-10 txt-black h5 margin-left-20' type='number' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额'></input>
   </view>
 
 
