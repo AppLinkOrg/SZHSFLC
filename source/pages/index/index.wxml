@@ -41,7 +41,7 @@
     </view>
 
     <view class='flex-row flex-center'>
-      <button  class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='linqurenwu' type='{{item.type}}' id='{{item.id}}'>领取任务</button>
+      <button  class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='linqurenwu' data-type='{{item.type}}' id='{{item.id}}'>领取任务</button>
       <view></view>
       <button class='margin-right-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='asd'>暂时挂起</button>
     </view>

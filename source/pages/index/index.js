@@ -49,12 +49,30 @@ class Content extends AppBase {
     })
   }
   linqurenwu(e) {
-    var type = e.currentTarget.type;
+    var type = e.currentTarget.dataset.type;
+    console.log(type);
     var id = e.currentTarget.id;
     var url = '';
-    if (type == "selectio") {
-      url: '/pages/site/site'
+    if (type == 'selectio') {
+      url = '/pages/site/site?id=' + id
+    } else if (type == 'contract_data') {
+      url = '/pages/fillcontract/fillcontract?id=' + id
+    } else if (type == 'project') {
+      url = '/pages/design/design?id=' + id
+    } else if (type == 'start') {
+      url = '/pages/startreport/startreport?id=' + id
+    } else if (type == 'receive') {
+      url = '/pages/getcargo/getcargo?id=' + id
+    } else if (type == 'allocation') {
+      url = '/pages/diaohuo/diaohuo?id=' + id
+    } else if (type == 'construction') {
+      url = '/pages/construction/construction?id=' + id
+    } else if (type == 'open') {
+      url = '/pages/openup/openup?id=' + id
+    } else if (type == 'acceptance') {
+      url = '/pages/acceptance/acceptance?id=' + id
     }
+    console.log(url)
     wx.navigateTo({
       url: url,
     })
