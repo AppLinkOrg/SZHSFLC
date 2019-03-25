@@ -34,6 +34,7 @@ export class AppBase {
       title: instinfo.name,
     })
   }
+  
   generateBodyJson() {
     var base = this;
     return {

@@ -11,11 +11,16 @@ import {
 import {
   TaskApi
 } from "../../apis/task.api.js";
+import {
+  StatusApi
+} from "../../apis/status.api.js";
 
 class Content extends AppBase {
   constructor() {
     super();
   }
+
+
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
@@ -23,19 +28,39 @@ class Content extends AppBase {
     this.Base.setMyData({
       ctt: 1
     });
-
   }
   onMyShow() {
     var that = this;
     var taskapi = new TaskApi();
     taskapi.newtasklist({}, (newtasklist) => {
+      var list = [];
+      var list1 = [];
+      for (var i = 0; i < newtasklist.length; i++) {
+        if (newtasklist[i].status == 'A') {
+          list.push(newtasklist[i])
+        } else if(newtasklist[i].status == 'B'){
+          list1.push(newtasklist[i])
+        }
+      }
       this.Base.setMyData({
-        newtasklist
+        newtasklist: list,
+        ontasklist: list1
+      })
+      console.log(list);
+    })
+    taskapi.taskinfo({}, (taskinfo) => {
+      this.Base.setMyData({
+        taskinfo
       })
     })
+    // taskapi.hetongtask({}, (hetongtask) => {
+    //   this.Base.setMyData({
+    //     hetongtask
+    //   })
+    // })
 
   }
-  asd() {
+  guaqi() {
     wx.showModal({
       title: '确认挂起吗？',
       content: '挂起任务可在我的中心查看',
@@ -49,11 +74,71 @@ class Content extends AppBase {
     })
   }
   linqurenwu(e) {
+    var that = this;
+    var statusapi = new StatusApi();
     var type = e.currentTarget.dataset.type;
     console.log(type);
     var id = e.currentTarget.id;
     var url = '';
+    wx.showModal({
+      title: '确认领取吗？',
+      //content: '挂起任务可在我的中心查看',
+      success: function(res) {
+        if (res.confirm) {
+          if (type == 'selectio') {
+            url = '/pages/site/site?id=' + id
+          } else if (type == 'contract_data') {
+            url = '/pages/fillcontract/fillcontract?id=' + id
+          } else if (type == 'project') {
+            url = '/pages/design/design?id=' + id
+          } else if (type == 'start') {
+            url = '/pages/startreport/startreport?id=' + id
+          } else if (type == 'receive') {
+            url = '/pages/getcargo/getcargo?id=' + id
+          } else if (type == 'allocation') {
+            url = '/pages/diaohuo/diaohuo?id=' + id
+          } else if (type == 'construction') {
+            url = '/pages/construction/construction?id=' + id
+          } else if (type == 'open') {
+            url = '/pages/openup/openup?id=' + id
+          } else if (type == 'acceptance') {
+            url = '/pages/acceptance/acceptance?id=' + id
+          }
+          console.log(url)
+          wx.navigateTo({
+            url: url,
+          })
+          wx.showToast({
+            title: '领取成功',
+            icon: 'success',
+            duration: 1000 //持续的时间
+          })
+          statusapi.site({
+            id: id
+          }, (site) => {
+            console.log(site)
+          })
+        } else {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+  chakan(e) {
+    var id = e.currentTarget.id;
+    var type = e.currentTarget.dataset.type;
+    console.log(type);
+    var url = '';
+    //   var aa = e.currentTarget.dataset.name;
+    //   console.log(aa);
+    //   //return;
+    //   wx.navigateTo({
+    //     url: '/pages/site/site?aaa=' + id + '&id=' + aa,
+    //   })
+    // 
+    
     if (type == 'selectio') {
+      console.log(111);
       url = '/pages/site/site?id=' + id
     } else if (type == 'contract_data') {
       url = '/pages/fillcontract/fillcontract?id=' + id
@@ -76,29 +161,13 @@ class Content extends AppBase {
     wx.navigateTo({
       url: url,
     })
-    wx.showToast({
-      title: '领取成功',
-      icon: 'success',
-      duration: 1000 //持续的时间
-    })
   }
-  tianxie(e) {
-    var id = e.currentTarget.id;
-    var aa = e.currentTarget.dataset.name;
-    console.log(aa);
-    //return;
-    wx.navigateTo({
-      url: '/pages/taskdetails/taskdetails?aaa=' + id + '&id=' + aa,
-    })
-  }
-
   bindwaitcompleted(e) {
     this.Base.setMyData({
       ctt: 2
     })
     this.onMyShow();
   }
-
   bindcontact(e) {
     this.Base.setMyData({
       ctt: 1
@@ -113,7 +182,7 @@ body.onMyShow = content.onMyShow;
 body.bindcompleted = content.bindcompleted;
 body.bindwaitcompleted = content.bindwaitcompleted;
 body.bindcontact = content.bindcontact;
-body.asd = content.asd;
+body.guaqi = content.guaqi;
 body.linqurenwu = content.linqurenwu;
-body.tianxie = content.tianxie;
+body.chakan = content.chakan;
 Page(body)

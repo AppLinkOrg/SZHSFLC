@@ -3,14 +3,14 @@
 <view class='flex-row flex-center top_title'>
 
   <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcontact' style='background-color:#03A8F3'>
-    <view class=' text-center   {{ctt==1?"to-white":"" }} top txt-bold text-decoration:line-underline ' bindtap='bindcontact'>新任务</view>
+    <view class=' text-center   {{ctt==1?"to-white":"" }} top txt-bold text-decoration:line-underline ' bindtap='bindcontact'>新任务 {{newtasklist.length}}</view>
     <view wx:if='{{ctt!=1}}' style='height:4rpx;width:120rpx;' class=''></view>
 
     <view wx:if='{{ctt==1}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
   </view>
 
   <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted' style='background-color:#03A8F3'>
-    <view class=' text-center  txt-#BFBFBF {{ctt==2?"to-white":""}} top txt-bold  ' bindtap='bindwaitcompleted'>进行中</view>
+    <view class=' text-center  txt-#BFBFBF {{ctt==2?"to-white":""}} top txt-bold  ' bindtap='bindwaitcompleted'>进行中 {{ontasklist.length}}</view>
     <view wx:if='{{ctt!=2}}' style='height:4rpx;width:120rpx;' class=''></view>
     <view wx:if='{{ctt==2}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
   </view>
@@ -43,7 +43,7 @@
     <view class='flex-row flex-center'>
       <button class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='linqurenwu' data-type='{{item.type}}' id='{{item.id}}'>领取任务</button>
       <view></view>
-      <button class='margin-right-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='asd'>暂时挂起</button>
+      <button class='margin-right-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='guaqi'>暂时挂起</button>
     </view>
 
   </view>
@@ -52,7 +52,7 @@
 </view>
 
 <view wx:if='{{ctt==2}}'>
-  <view wx:for='{{newtasklist}}' wx:key='k' url='' class='bg-white padding-bottom-20 margin-bottom-18' style=''>
+  <view wx:for='{{ontasklist}}' wx:key='k' url='' class='bg-white padding-bottom-20 margin-bottom-18' style=''>
     <view class='flex-row flex-center'>
       <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
       <view class='margin-top-20 txt-bold txt-black'>{{item.name}}</view>
@@ -72,7 +72,7 @@
     </view>
 
     <view class='flex-row flex-center'>
-      <button class=' margin-top-20 h5 txt-white' style='width:350rpx;background:#03A8F3' bindtap='tianxie' data-name='{{item.id}}' id='{{item.taskname}}'>查看任务信息</button>
+      <button class=' margin-top-20 h5 txt-white' style='width:350rpx;background:#03A8F3' bindtap='chakan' data-name='{{item.id}}' id='{{item.taskname}}'>查看任务信息</button>
     </view>
   </view>
 </view>

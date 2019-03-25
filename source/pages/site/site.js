@@ -8,6 +8,15 @@ import {
 import {
   InstApi
 } from "../../apis/inst.api.js";
+import {
+  TaskApi
+} from "../../apis/task.api.js";
+import {
+  ExampleApi 
+} from '../../apis/example.api';
+
+
+
 
 class Content extends AppBase {
   constructor() {
@@ -19,40 +28,33 @@ class Content extends AppBase {
     super.onLoad(options);
 
     this.Base.setMyData({
-      id: options.id
+      id: this.options.id
     });
     this.setData({
       user_id: options.user_id
     })
     console.log(this.data.user_id)
-
-
-
   }
   onMyShow() {
-    var that = this;
-  }
-
-  bindwaitcompleted(e) {
-    this.Base.setMyData({
-      ctt: 2
+    // var that = this;
+    var taskapi = new TaskApi();
+    var exampleApi = new ExampleApi();
+    taskapi.newtasklist({}, (newtasklist) => {
+      this.Base.setMyData({
+        newtasklist
+      })
     })
-    this.onMyShow();
-  }
-  bindcontact(e) {
-    this.Base.setMyData({
-      ctt: 1
+    taskapi.taskinfo({ id:this.options.id}, (taskinfo) => {
+      this.Base.setMyData({
+        taskinfo
+      })
     })
-    this.onMyShow();
   }
-
-
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcompleted = content.bindcompleted;
-body.bindwaitcompleted = content.bindwaitcompleted;
-body.bindcontact = content.bindcontact;
+
 Page(body)
