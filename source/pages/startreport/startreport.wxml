@@ -12,7 +12,7 @@
     <view class='margin-left-20  txt-black h5'>{{startreport.time}}</view>
   </view>
 
-  <view class='flex-row flex-center margin-top-15' >
+  <view class='flex-row flex-center margin-top-15'>
     <view class='icon-25'></view>
     <view class='margin-left-40  txt-black h5'>任务名称：</view>
     <view></view>
@@ -23,24 +23,63 @@
 <view style='height:10rpx;background:#eeeeee;width:100%'></view>
 
 <view class="padding-40">
-
   <view class='flex-row flex-center '>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.money}}'></image>
     <input class='padding-10 txt-black h5 margin-left-20' type='number' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额'></input>
   </view>
-
-
-  <view class='flex-row flex-center margin-top-40'>
-    <image class='icon-25' src='{{uploadpath}}resource/{{res.photoa}}'></image>
-    <input class='padding-10 txt-black h5 margin-left-20' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入方案设计完成时间'></input>
-  </view>
-
-   <view class='flex-row flex-center margin-top-40'>
-    <image class='icon-25' src='{{uploadpath}}resource/{{res.photob}}'></image>
-    <input class='padding-10 txt-black h5 margin-left-20' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入方案设计完成时间'></input>
-  </view>
 </view>
 
-<view class='height-50'></view>
+  <view class='margin-10 '>
+    <view class='f-32 bg-gray padding-10 '>上传开工报告照片:</view>
+    <view class='flex-row'>
+      <view class='flex-1'></view>
+      <view class='img-box'>
+        <view class='img-list'>
+          <view class='' wx:for="{{images1}}" wx:key="index">
+            <image src='{{uploadpath}}photo/{{item}}' bindlongpress="shangcphoto1" id='{{index}}' class='image' mode='aspectFill'></image>
+          </view>
 
-<button class='txt-white h5' style='width:450rpx;background:#03A8F3;'>完成</button>
+          <view class='chooseimg' bindtap='uploadimg1' wx:if="{{images1.length<6}}">
+            <view class="weui-uploader__input-box"></view>
+          </view>
+        </view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <view class='tips'>长按可删除</view>
+          <view class='flex-1'></view>
+        </view>
+
+      </view>
+      <view class='flex-1'></view>
+    </view>
+  </view>
+
+  <view class='margin-10 '>
+    <view class='f-32 bg-gray padding-10 '>上传问题报告照片:</view>
+    <view class='flex-row'>
+      <view class='flex-1'></view>
+      <view class='img-box'>
+        <view class='img-list'>
+          <view class='' wx:for="{{images2}}" wx:key="index">
+            <image src='{{uploadpath}}photo/{{item}}' bindlongpress="shangcphoto2" id='{{index}}' class='image' mode='aspectFill'></image>
+          </view>
+
+          <view class='chooseimg' bindtap='uploadimg2' wx:if="{{images2.length<6}}">
+            <view class="weui-uploader__input-box"></view>
+          </view>
+        </view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <view class='tips'>长按可删除</view>
+          <view class='flex-1'></view>
+        </view>
+
+      </view>
+      <view class='flex-1'></view>
+    </view>
+  </view>
+
+
+<view class='height-20'></view>
+
+<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>
