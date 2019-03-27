@@ -17,7 +17,9 @@ import {
 import {
   PhotoApi
 } from "../../apis/photo.api.js";
-
+import {
+  StatusApi
+} from "../../apis/status.api.js";
 
 
 class Content extends AppBase {
@@ -47,9 +49,9 @@ class Content extends AppBase {
       images2: []
     });
     this.setData({
-      user_id: options.user_id
+      id: options.id
     })
-    console.log(this.data.user_id)
+    console.log(this.data.id)
   }
   onMyShow() {
     // var that = this;
@@ -127,8 +129,67 @@ class Content extends AppBase {
     });
   }
 
-  confirm(e) {
+  // confirm(e) {
+  //   var that = this;
+  //   var id = that.Base.getMyData().id;
+  //   if (!id) {
+  //     id = that.Base.getMyData().id;
+  //   }
+  //   // if (this.Base.getMyData().images.length == 0) {
+  //   //   this.Base.info("请至少上传一张验收签字表图片");
+  //   //   return;
+  //   // }
+
+  //   var images1 = that.Base.getMyData().images1;
+  //   var xuanzhiphoto_img1 = images1[0];
+  //   var xuanzhiphoto_img2 = images1[1];
+  //   var xuanzhiphoto_img3 = images1[2];
+  //   var xuanzhiphoto_img4 = images1[3];
+  //   var xuanzhiphoto_img5 = images1[4];
+  //   var xuanzhiphoto_img6 = images1[5];
+
+  //   var images2 = that.Base.getMyData().images2;
+  //   var mianjiphoto_img1 = images2[0];
+  //   var mianjiphoto_img2 = images2[1];
+  //   var mianjiphoto_img3 = images2[2];
+  //   var mianjiphoto_img4 = images2[3];
+  //   var mianjiphoto_img5 = images2[4];
+  //   var mianjiphoto_img6 = images2[5];
+  //   console.log(that.Base.getMyData().id)
+
+  //   var data = {
+  //     id: id,
+  //     xuanzhiphoto_img1: xuanzhiphoto_img1,
+  //     xuanzhiphoto_img2: xuanzhiphoto_img2,
+  //     xuanzhiphoto_img3: xuanzhiphoto_img3,
+  //     xuanzhiphoto_img4: xuanzhiphoto_img4,
+  //     xuanzhiphoto_img5: xuanzhiphoto_img5,
+  //     xuanzhiphoto_img6: xuanzhiphoto_img6,
+  //     mianjiphoto_img1: mianjiphoto_img1,
+  //     mianjiphoto_img2: mianjiphoto_img2,
+  //     mianjiphoto_img3: mianjiphoto_img3,
+  //     mianjiphoto_img4: mianjiphoto_img4,
+  //     mianjiphoto_img5: mianjiphoto_img5,
+  //     mianjiphoto_img6: mianjiphoto_img6,
+  //   }
+
+  //   var photoapi = new PhotoApi();
+  //   photoapi.uploadimg(data, (res) => {
+  //     console.log(res)
+  //     wx.redirectTo({
+  //       url: '/pages/finish/finish',
+  //     })
+  //     wx.showToast({
+  //       title: '上传成功',
+  //       icon: 'success',
+  //       duration: 1000
+  //     })
+  //   })
+  // }
+
+  confirm1(e) {
     var that = this;
+    var data = this.Base.getMyData();
     var id = that.Base.getMyData().id;
     if (!id) {
       id = that.Base.getMyData().id;
@@ -137,6 +198,22 @@ class Content extends AppBase {
     //   this.Base.info("请至少上传一张验收签字表图片");
     //   return;
     // }
+    if (data.date == undefined) {
+      this.Base.info("请录入选址完成的时间");
+      return;
+    }
+    if (data.name.length == 0) {
+      this.Base.info("请输入物业姓名");
+      return;
+    }
+    if (data.phone == null || data.phone.length != 11 || data.phone[0] != "1") {
+      this.Base.info("请正确输入物业号码");
+      return;
+    }
+    if (data.mianji == null) {
+      this.Base.info("请输入机房面积");
+      return;
+    }
 
     var images1 = that.Base.getMyData().images1;
     var xuanzhiphoto_img1 = images1[0];
@@ -178,13 +255,27 @@ class Content extends AppBase {
         url: '/pages/finish/finish',
       })
       wx.showToast({
-        title: '上传成功',
+        title: '完成',
         icon: 'success',
         duration: 1000
       })
     })
+
+    var api = new TaskApi();
+    var req = {
+      // route: JSON.stringify(data.route),
+      date: data.date,
+      name: data.name,
+      phone: data.phone,
+      mianji: data.mianji
+    };
+  }
+
+  nameChange(e) {
+    this.Base.setMyData({ name: e.detail.value });
   }
 }
+
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
@@ -195,4 +286,6 @@ body.shangcphoto1 = content.shangcphoto1;
 body.shangcphoto2 = content.shangcphoto2;
 body.changeDate = content.changeDate;
 body.confirm = content.confirm;
+body.confirm1 = content.confirm1;
+body.nameChange = content.nameChange;
 Page(body)

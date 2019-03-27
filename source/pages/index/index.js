@@ -20,7 +20,6 @@ class Content extends AppBase {
     super();
   }
 
-
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
@@ -38,7 +37,8 @@ class Content extends AppBase {
       for (var i = 0; i < newtasklist.length; i++) {
         if (newtasklist[i].status == 'A') {
           list.push(newtasklist[i])
-        } else if(newtasklist[i].status == 'B'){
+        } 
+        else if (newtasklist[i].status == 'B') {
           list1.push(newtasklist[i])
         }
       }
@@ -48,31 +48,101 @@ class Content extends AppBase {
       })
       console.log(list);
     })
-    taskapi.taskinfo({}, (taskinfo) => {
-      this.Base.setMyData({
-        taskinfo
-      })
-    })
-    // taskapi.hetongtask({}, (hetongtask) => {
-    //   this.Base.setMyData({
-    //     hetongtask
-    //   })
-    // })
-
   }
-  guaqi() {
+  guaqi(e) {
+    var that = this;
+    var statusapi = new StatusApi();
+    var type = e.currentTarget.dataset.type;
+    console.log(type);
+    var id = e.currentTarget.id;
     wx.showModal({
       title: '确认挂起吗？',
       content: '挂起任务可在我的中心查看',
       success: function(res) {
         if (res.confirm) { //这里是点击了确定以后
-          console.log('用户点击确定')
-        } else { //这里是点击了取消以后
-          console.log('用户点击取消')
+
+          if (type == 'selectio') {
+            statusapi.guaqi({
+              id: id,
+              gq: "A"
+            }, (guaqi) => {
+            })
+          }
+
+          else if (type == 'contract_data') {
+            statusapi.guaqi({
+              id: id,
+              gq: "B"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'project') {
+            statusapi.guaqi({
+              id: id,
+              gq: "C"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'start') {
+            statusapi.guaqi({
+              id: id,
+              gq: "D"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'receive') {
+            statusapi.guaqi({
+              id: id,
+              gq: "E"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'allocation') {
+            statusapi.guaqi({
+              id: id,
+              gq: "F"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'construction') {
+            statusapi.guaqi({
+              id: id,
+              gq: "G"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'open') {
+            statusapi.guaqi({
+              id: id,
+              gq: "H"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } 
+          else if (type == 'acceptance') {
+            statusapi.guaqi({
+              id: id,
+              gq: "I"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } wx.showToast({
+            title: '挂起任务成功',
+            icon: 'success',
+            duration: 1000 //持续的时间
+          })
+          that.onMyShow();
         }
       }
     })
   }
+
   linqurenwu(e) {
     var that = this;
     var statusapi = new StatusApi();
@@ -81,64 +151,114 @@ class Content extends AppBase {
     var id = e.currentTarget.id;
     var url = '';
     wx.showModal({
-      title: '确认领取吗？',
+      content: '确认领取吗？',
       //content: '挂起任务可在我的中心查看',
       success: function(res) {
         if (res.confirm) {
           if (type == 'selectio') {
             url = '/pages/site/site?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "A"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'contract_data') {
             url = '/pages/fillcontract/fillcontract?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "B"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'project') {
             url = '/pages/design/design?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "C"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'start') {
             url = '/pages/startreport/startreport?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "D"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'receive') {
             url = '/pages/getcargo/getcargo?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "E"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'allocation') {
             url = '/pages/diaohuo/diaohuo?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "F"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'construction') {
             url = '/pages/construction/construction?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "G"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'open') {
             url = '/pages/openup/openup?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "H"
+            }, (site) => {
+              console.log(site)
+            })
           } else if (type == 'acceptance') {
             url = '/pages/acceptance/acceptance?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "I"
+            }, (site) => {
+              console.log(site)
+            })
           }
           console.log(url)
+
           wx.navigateTo({
             url: url,
           })
+
           wx.showToast({
             title: '领取成功',
             icon: 'success',
             duration: 1000 //持续的时间
           })
-          statusapi.site({
-            id: id
-          }, (site) => {
-            console.log(site)
-          })
-        } else {
-          console.log('用户点击取消')
+          
         }
       }
+      
     })
   }
+
+
+
+  
   chakan(e) {
-    var id = e.currentTarget.id;
+    var that = this;
+    var taskapi = new TaskApi();
+    var statusapi = new StatusApi();
     var type = e.currentTarget.dataset.type;
     console.log(type);
+    // return;
+    var id = e.currentTarget.id;
     var url = '';
-    //   var aa = e.currentTarget.dataset.name;
-    //   console.log(aa);
-    //   //return;
-    //   wx.navigateTo({
-    //     url: '/pages/site/site?aaa=' + id + '&id=' + aa,
-    //   })
-    // 
-    
     if (type == 'selectio') {
-      console.log(111);
       url = '/pages/site/site?id=' + id
     } else if (type == 'contract_data') {
       url = '/pages/fillcontract/fillcontract?id=' + id

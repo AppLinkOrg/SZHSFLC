@@ -36,6 +36,7 @@
   "window": {
     "navigationBarBackgroundColor": "#03A8F3",
     "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
     "navigationBarTitleText": "数据化室分流程管理",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
