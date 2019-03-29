@@ -16,6 +16,9 @@ import {
 import {
   TimeApi
 } from "../../apis/time.api.js";
+import {
+  StatusApi
+} from "../../apis/status.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -66,6 +69,7 @@ class Content extends AppBase {
     })
   }
 
+  
   changeDate1(e) {
     console.log(e);
     this.Base.setMyData({
@@ -93,7 +97,135 @@ class Content extends AppBase {
       date4: e.detail.value
     });
   }
+  submit1(e) {
+    var that = this;
+    var data = this.Base.getMyData();
+    var id = that.Base.getMyData().id;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    if (data.date1 == undefined) {
+      this.Base.info("请录入合同资料提交的时间");
+      return;
+    }
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 1000 //持续的时间
+    })
+  }
 
+  submit2(e) {
+    var that = this;
+    var data = this.Base.getMyData();
+    var id = that.Base.getMyData().id;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    if (data.date2 == undefined) {
+      this.Base.info("请录入合同资料审核完成时间");
+      return;
+    }
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 1000 //持续的时间
+    })
+  }
+
+  submit3(e) {
+    var that = this;
+    var data = this.Base.getMyData();
+    var id = that.Base.getMyData().id;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    if (data.date3 == undefined) {
+      this.Base.info("请录入合同双签时间");
+      return;
+    }
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 1000 //持续的时间
+    })
+  }
+
+  submit4(e) {
+    var that = this;
+    var data = this.Base.getMyData();
+    var id = that.Base.getMyData().id;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    if (data.date4 == undefined) {
+      this.Base.info("请录入初次租金电费申请时间");
+      return;
+    }
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 1000 //持续的时间
+    })
+  }
+
+
+  confirm(e) {
+    var that = this;
+    var data = this.Base.getMyData();
+    var taskapi = new TaskApi();
+    var statusapi = new StatusApi();
+    var id = that.Base.getMyData().id;
+    var type = that.Base.getMyData().type;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    // if (this.Base.getMyData().images.length == 0) {
+    //   this.Base.info("请至少上传一张验收签字表图片");
+    //   return;
+    // }
+    // if (data.date == undefined) {
+    //   this.Base.info("请录入选址完成的时间");
+    //   return;
+    // }
+    // if (data.name == undefined) {
+    //   this.Base.info("请输入物业姓名");
+    //   return;
+    // }
+    // if (data.phone == null || data.phone.length != 11 || data.phone[0] != "1") {
+    //   this.Base.info("请正确输入物业号码");
+    //   return;
+    // }
+    // if (data.mianji == null) {
+    //   this.Base.info("请输入机房面积");
+    //   return;
+    // }
+
+    statusapi.finish({
+      id: id,
+      wc: "B"
+    }, (finish) => {
+      console.log(finish)
+    })
+
+
+    wx.redirectTo({
+      url: '/pages/finish/finish',
+    })
+    wx.showToast({
+      title: '完成',
+      icon: 'success',
+      duration: 1000
+    })
+    var api = new TaskApi();
+    var req = {
+      // route: JSON.stringify(data.route),
+      date1: data.date1,
+      date2: data.date2,
+      date3: data.date3,
+      date4: data.date4
+    };
+  }
 
 }
 var content = new Content();
@@ -103,8 +235,13 @@ body.onMyShow = content.onMyShow;
 body.bindcompleted = content.bindcompleted;
 body.bindwaitcompleted = content.bindwaitcompleted;
 body.bindcontact = content.bindcontact;
+body.confirm = content.confirm;
 body.changeDate1 = content.changeDate1;
 body.changeDate2 = content.changeDate2;
 body.changeDate3 = content.changeDate3;
 body.changeDate4 = content.changeDate4;
+body.submit1 = content.submit1;
+body.submit2 = content.submit2;
+body.submit3 = content.submit3;
+body.submit4 = content.submit4;
 Page(body)

@@ -37,7 +37,7 @@
   <view class='flex-row margin-bottom-20'>
     <view class='margin-left-110 margin-top-20 h5'>备注:</view>
     <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
-    <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+    <button class='margin-top-20 h6 txt-white' bindtap='submit1' style='background:#03A8F3'>提交</button>
   </view>
 
 
@@ -54,7 +54,7 @@
   <view class='flex-row margin-bottom-20'>
     <view class='margin-left-110 margin-top-20 h5'>备注:</view>
     <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
-    <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+    <button class='margin-top-20 h6 txt-white' bindtap='submit2' style='background:#03A8F3'>提交</button>
   </view>
 
 
@@ -73,7 +73,7 @@
   <view class='flex-row margin-bottom-20'>
     <view class='margin-left-110 margin-top-20 h5'>备注:</view>
     <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
-    <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+    <button class='margin-top-20 h6 txt-white' bindtap='submit3' style='background:#03A8F3'>提交</button>
   </view>
 
 
@@ -93,7 +93,7 @@
     <view class='flex-row '>
       <view class='margin-left-110 margin-top-20 h5'>备注:</view>
       <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
-      <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+      <button class='margin-top-20 h6 txt-white' bindtap='submit4' style='background:#03A8F3'>提交</button>
     </view>
   </view>
 
@@ -102,4 +102,4 @@
 
 </view>
 
-<button class='txt-white margin-bottom-60 h5' style='width:450rpx;background:#03A8F3;'>完成</button>
+<button class='txt-white margin-bottom-60 h5' bindtap='confirm'  id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>

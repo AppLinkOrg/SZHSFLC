@@ -20,6 +20,9 @@ import {
 import {
   StatusApi
 } from "../../apis/status.api.js";
+import {
+  TimeApi
+} from "../../apis/time.api.js";
 
 
 class Content extends AppBase {
@@ -78,7 +81,7 @@ class Content extends AppBase {
   }
   uploadimg1() {
     var that = this;
-    this.Base.uploadImage("photo", (ret) => {
+    this.Base.uploadImage("selection", (ret) => {
       console.log(ret)
       var images1 = that.Base.getMyData().images1;
       images1.push(ret);
@@ -105,7 +108,7 @@ class Content extends AppBase {
 
   uploadimg2() {
     var that = this;
-    this.Base.uploadImage("photo", (ret) => {
+    this.Base.uploadImage("selection", (ret) => {
       console.log(ret)
       var images2 = that.Base.getMyData().images2;
       images2.push(ret);
@@ -129,67 +132,12 @@ class Content extends AppBase {
     });
   }
 
-  // confirm(e) {
-  //   var that = this;
-  //   var id = that.Base.getMyData().id;
-  //   if (!id) {
-  //     id = that.Base.getMyData().id;
-  //   }
-  //   // if (this.Base.getMyData().images.length == 0) {
-  //   //   this.Base.info("请至少上传一张验收签字表图片");
-  //   //   return;
-  //   // }
 
-  //   var images1 = that.Base.getMyData().images1;
-  //   var xuanzhiphoto_img1 = images1[0];
-  //   var xuanzhiphoto_img2 = images1[1];
-  //   var xuanzhiphoto_img3 = images1[2];
-  //   var xuanzhiphoto_img4 = images1[3];
-  //   var xuanzhiphoto_img5 = images1[4];
-  //   var xuanzhiphoto_img6 = images1[5];
-
-  //   var images2 = that.Base.getMyData().images2;
-  //   var mianjiphoto_img1 = images2[0];
-  //   var mianjiphoto_img2 = images2[1];
-  //   var mianjiphoto_img3 = images2[2];
-  //   var mianjiphoto_img4 = images2[3];
-  //   var mianjiphoto_img5 = images2[4];
-  //   var mianjiphoto_img6 = images2[5];
-  //   console.log(that.Base.getMyData().id)
-
-  //   var data = {
-  //     id: id,
-  //     xuanzhiphoto_img1: xuanzhiphoto_img1,
-  //     xuanzhiphoto_img2: xuanzhiphoto_img2,
-  //     xuanzhiphoto_img3: xuanzhiphoto_img3,
-  //     xuanzhiphoto_img4: xuanzhiphoto_img4,
-  //     xuanzhiphoto_img5: xuanzhiphoto_img5,
-  //     xuanzhiphoto_img6: xuanzhiphoto_img6,
-  //     mianjiphoto_img1: mianjiphoto_img1,
-  //     mianjiphoto_img2: mianjiphoto_img2,
-  //     mianjiphoto_img3: mianjiphoto_img3,
-  //     mianjiphoto_img4: mianjiphoto_img4,
-  //     mianjiphoto_img5: mianjiphoto_img5,
-  //     mianjiphoto_img6: mianjiphoto_img6,
-  //   }
-
-  //   var photoapi = new PhotoApi();
-  //   photoapi.uploadimg(data, (res) => {
-  //     console.log(res)
-  //     wx.redirectTo({
-  //       url: '/pages/finish/finish',
-  //     })
-  //     wx.showToast({
-  //       title: '上传成功',
-  //       icon: 'success',
-  //       duration: 1000
-  //     })
-  //   })
-  // }
-
-  confirm1(e) {
+  confirm(e) {
     var that = this;
     var data = this.Base.getMyData();
+    var taskapi = new TaskApi();
+    var statusapi = new StatusApi();
     var id = that.Base.getMyData().id;
     if (!id) {
       id = that.Base.getMyData().id;
@@ -202,7 +150,7 @@ class Content extends AppBase {
       this.Base.info("请录入选址完成的时间");
       return;
     }
-    if (data.name.length == 0) {
+    if (data.name == undefined) {
       this.Base.info("请输入物业姓名");
       return;
     }
@@ -222,6 +170,9 @@ class Content extends AppBase {
     var xuanzhiphoto_img4 = images1[3];
     var xuanzhiphoto_img5 = images1[4];
     var xuanzhiphoto_img6 = images1[5];
+    var xuanzhiphoto_img7 = images1[6];
+    var xuanzhiphoto_img8 = images1[7];
+    var xuanzhiphoto_img9 = images1[8];
 
     var images2 = that.Base.getMyData().images2;
     var mianjiphoto_img1 = images2[0];
@@ -230,7 +181,10 @@ class Content extends AppBase {
     var mianjiphoto_img4 = images2[3];
     var mianjiphoto_img5 = images2[4];
     var mianjiphoto_img6 = images2[5];
-    console.log(that.Base.getMyData().id)
+    var mianjiphoto_img7 = images2[6];
+    var mianjiphoto_img8 = images2[7];
+    var mianjiphoto_img9 = images2[8];
+    //console.log(that.Base.getMyData().id)
 
     var data = {
       id: id,
@@ -240,16 +194,31 @@ class Content extends AppBase {
       xuanzhiphoto_img4: xuanzhiphoto_img4,
       xuanzhiphoto_img5: xuanzhiphoto_img5,
       xuanzhiphoto_img6: xuanzhiphoto_img6,
+      xuanzhiphoto_img7: xuanzhiphoto_img7,
+      xuanzhiphoto_img8: xuanzhiphoto_img8,
+      xuanzhiphoto_img9: xuanzhiphoto_img9,
       mianjiphoto_img1: mianjiphoto_img1,
       mianjiphoto_img2: mianjiphoto_img2,
       mianjiphoto_img3: mianjiphoto_img3,
       mianjiphoto_img4: mianjiphoto_img4,
       mianjiphoto_img5: mianjiphoto_img5,
       mianjiphoto_img6: mianjiphoto_img6,
+      mianjiphoto_img7: mianjiphoto_img7,
+      mianjiphoto_img8: mianjiphoto_img8,
+      mianjiphoto_img9: mianjiphoto_img9,
     }
-
+    // console.log(id);
+    // return;
+      statusapi.finish({
+        id: id,
+        wc: "A"
+      }, (finish) => {
+        console.log(finish)
+      })
+    
+    
     var photoapi = new PhotoApi();
-    photoapi.uploadimg(data, (res) => {
+    photoapi.xuanzhiphoto(data, (res) => {
       console.log(res)
       wx.redirectTo({
         url: '/pages/finish/finish',
@@ -260,6 +229,7 @@ class Content extends AppBase {
         duration: 1000
       })
     })
+    
 
     var api = new TaskApi();
     var req = {
@@ -274,6 +244,13 @@ class Content extends AppBase {
   nameChange(e) {
     this.Base.setMyData({ name: e.detail.value });
   }
+  phoneChange(e){
+    this.Base.setMyData({ phone: e.detail.value });
+  }
+  mianjiChange(e){
+    this.Base.setMyData({ mianji: e.detail.value });
+  }
+
 }
 
 var content = new Content();
@@ -286,6 +263,7 @@ body.shangcphoto1 = content.shangcphoto1;
 body.shangcphoto2 = content.shangcphoto2;
 body.changeDate = content.changeDate;
 body.confirm = content.confirm;
-body.confirm1 = content.confirm1;
 body.nameChange = content.nameChange;
+body.phoneChange = content.phoneChange;
+body.mianjiChange = content.mianjiChange;
 Page(body)

@@ -16,6 +16,10 @@ import {
 import {
   PhotoApi
 } from "../../apis/photo.api.js";
+import {
+  StatusApi
+} from "../../apis/status.api.js";
+
 
 class Content extends AppBase {
   constructor() {
@@ -122,6 +126,9 @@ class Content extends AppBase {
 
 confirm(e) {
   var that = this;
+  var data = this.Base.getMyData();
+  var taskapi = new TaskApi();
+  var statusapi = new StatusApi();
   var id = that.Base.getMyData().id;
   if (!id) {
     id = that.Base.getMyData().id;
@@ -164,19 +171,31 @@ confirm(e) {
     mianjiphoto_img6: mianjiphoto_img6,
   }
 
-  var photoapi = new PhotoApi();
-  photoapi.uploadimg(data, (res) => {
-    console.log(res)
+    statusapi.finish({
+      id: id,
+      wc: "D"
+    }, (finish) => {
+      console.log(finish)
+    })
+
+
     wx.redirectTo({
       url: '/pages/finish/finish',
     })
     wx.showToast({
-      title: '上传成功',
+      title: '完成',
       icon: 'success',
       duration: 1000
     })
-  })
-}
+    var api = new TaskApi();
+    var req = {
+      // route: JSON.stringify(data.route),
+      date: data.date,
+      name: data.name,
+      phone: data.phone,
+      mianji: data.mianji
+    };
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
