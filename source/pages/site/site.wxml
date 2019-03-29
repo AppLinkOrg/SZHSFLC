@@ -45,7 +45,7 @@
 <view>
   <view class='flex-row flex-center margin-bottom-10'>
     <image class='icon-22 margin-left-30' src='{{uploadpath}}resource/{{res.dot}}'></image>
-    <input class=' margin-left-29 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入红线内管道'></input>
+    <input class=' margin-left-29 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入红线内管道' value='{{guandao}}' bindinput='guandaoChange'></input>
   </view>
 </view>
 <view class='margin-10 '>

@@ -25,7 +25,7 @@
 <view class="padding-40">
   <view class='flex-row flex-center '>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.money}}'></image>
-    <input class='padding-10 txt-black h5 margin-left-20' type='number' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额'></input>
+    <input class='padding-10 txt-black h5 margin-left-20' bindchange="changeMoney" value="{{money}}" style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额'></input>
   </view>
 </view>
 
@@ -36,7 +36,7 @@
       <view class='img-box'>
         <view class='img-list'>
           <view class='' wx:for="{{images1}}" wx:key="index">
-            <image src='{{uploadpath}}photo/{{item}}' bindlongpress="shangcphoto1" id='{{index}}' class='image' mode='aspectFill'></image>
+            <image src='{{uploadpath}}start/{{item}}' bindlongpress="shangcphoto1" id='{{index}}' class='image' mode='aspectFill'></image>
           </view>
 
           <view class='chooseimg' bindtap='uploadimg1' wx:if="{{images1.length<6}}">
@@ -61,7 +61,7 @@
       <view class='img-box'>
         <view class='img-list'>
           <view class='' wx:for="{{images2}}" wx:key="index">
-            <image src='{{uploadpath}}photo/{{item}}' bindlongpress="shangcphoto2" id='{{index}}' class='image' mode='aspectFill'></image>
+            <image src='{{uploadpath}}start/{{item}}' bindlongpress="shangcphoto2" id='{{index}}' class='image' mode='aspectFill'></image>
           </view>
 
           <view class='chooseimg' bindtap='uploadimg2' wx:if="{{images2.length<6}}">

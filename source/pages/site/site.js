@@ -79,6 +79,7 @@ class Content extends AppBase {
       date: e.detail.value
     });
   }
+  
   uploadimg1() {
     var that = this;
     this.Base.uploadImage("selection", (ret) => {
@@ -90,7 +91,7 @@ class Content extends AppBase {
       });
     });
   }
-  
+
   shangcphoto1(e) {
     var that = this;
     var seq = e.currentTarget.id;
@@ -185,9 +186,19 @@ class Content extends AppBase {
     var mianjiphoto_img8 = images2[7];
     var mianjiphoto_img9 = images2[8];
     //console.log(that.Base.getMyData().id)
-
+    var abc = this.Base.getMyData().taskinfo;
     var data = {
-      id: id,
+      primary_id: id,
+      number: abc.number,
+      supervisor: abc.supervisor,
+      name: abc.name,
+      time: abc.time,
+      taskname: abc.taskname,
+      status: 'C',
+      location_time: this.Base.getMyData().date,
+      property_name: this.Base.getMyData().name,
+      property_phone: this.Base.getMyData().phone,
+      guandao: this.Base.getMyData().guandao,
       xuanzhiphoto_img1: xuanzhiphoto_img1,
       xuanzhiphoto_img2: xuanzhiphoto_img2,
       xuanzhiphoto_img3: xuanzhiphoto_img3,
@@ -207,16 +218,16 @@ class Content extends AppBase {
       mianjiphoto_img8: mianjiphoto_img8,
       mianjiphoto_img9: mianjiphoto_img9,
     }
-    // console.log(id);
-    // return;
-      statusapi.finish({
-        id: id,
-        wc: "A"
-      }, (finish) => {
-        console.log(finish)
-      })
-    
-    
+    console.log(data);
+  
+    statusapi.finish({
+      id: id,
+      wc: "A"
+    }, (finish) => {
+      console.log(finish)
+    })
+
+
     var photoapi = new PhotoApi();
     photoapi.xuanzhiphoto(data, (res) => {
       console.log(res)
@@ -229,7 +240,7 @@ class Content extends AppBase {
         duration: 1000
       })
     })
-    
+
 
     var api = new TaskApi();
     var req = {
@@ -237,18 +248,30 @@ class Content extends AppBase {
       date: data.date,
       name: data.name,
       phone: data.phone,
+      guandao: data.guandao,
       mianji: data.mianji
     };
   }
 
   nameChange(e) {
-    this.Base.setMyData({ name: e.detail.value });
+    this.Base.setMyData({
+      name: e.detail.value
+    });
   }
-  phoneChange(e){
-    this.Base.setMyData({ phone: e.detail.value });
+  phoneChange(e) {
+    this.Base.setMyData({
+      phone: e.detail.value
+    });
   }
-  mianjiChange(e){
-    this.Base.setMyData({ mianji: e.detail.value });
+  mianjiChange(e) {
+    this.Base.setMyData({
+      mianji: e.detail.value
+    });
+  }
+  guandaoChange(e) {
+    this.Base.setMyData({
+      guandao: e.detail.value
+    });
   }
 
 }
@@ -265,5 +288,6 @@ body.changeDate = content.changeDate;
 body.confirm = content.confirm;
 body.nameChange = content.nameChange;
 body.phoneChange = content.phoneChange;
+body.guandaoChange = content.guandaoChange;
 body.mianjiChange = content.mianjiChange;
 Page(body)

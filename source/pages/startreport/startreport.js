@@ -124,52 +124,61 @@ class Content extends AppBase {
     });
   }
 
-confirm(e) {
-  var that = this;
-  var data = this.Base.getMyData();
-  var taskapi = new TaskApi();
-  var statusapi = new StatusApi();
-  var id = that.Base.getMyData().id;
-  if (!id) {
-    id = that.Base.getMyData().id;
-  }
-  // if (this.Base.getMyData().images.length == 0) {
-  //   this.Base.info("请至少上传一张验收签字表图片");
-  //   return;
-  // }
+  confirm(e) {
+    var that = this;
+    var data = this.Base.getMyData();
+    var taskapi = new TaskApi();
+    var statusapi = new StatusApi();
+    var id = that.Base.getMyData().id;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    // if (this.Base.getMyData().images.length == 0) {
+    //   this.Base.info("请至少上传一张验收签字表图片");
+    //   return;
+    // }
 
-  var images1 = that.Base.getMyData().images1;
-  var xuanzhiphoto_img1 = images1[0];
-  var xuanzhiphoto_img2 = images1[1];
-  var xuanzhiphoto_img3 = images1[2];
-  var xuanzhiphoto_img4 = images1[3];
-  var xuanzhiphoto_img5 = images1[4];
-  var xuanzhiphoto_img6 = images1[5];
+    var images1 = that.Base.getMyData().images1;
+    var startphoto_img1 = images1[0];
+    var startphoto_img2 = images1[1];
+    var startphoto_img3 = images1[2];
+    var startphoto_img4 = images1[3];
+    var startphoto_img5 = images1[4];
+    var startphoto_img6 = images1[5];
 
-  var images2 = that.Base.getMyData().images2;
-  var mianjiphoto_img1 = images2[0];
-  var mianjiphoto_img2 = images2[1];
-  var mianjiphoto_img3 = images2[2];
-  var mianjiphoto_img4 = images2[3];
-  var mianjiphoto_img5 = images2[4];
-  var mianjiphoto_img6 = images2[5];
-  console.log(that.Base.getMyData().id)
+    var images2 = that.Base.getMyData().images2;
+    var problemphoto_img1 = images2[0];
+    var problemphoto_img2 = images2[1];
+    var problemphoto_img3 = images2[2];
+    var problemphoto_img4 = images2[3];
+    var problemphoto_img5 = images2[4];
+    var problemphoto_img6 = images2[5];
+    console.log(that.Base.getMyData().id)
 
-  var data = {
-    id: id,
-    xuanzhiphoto_img1: xuanzhiphoto_img1,
-    xuanzhiphoto_img2: xuanzhiphoto_img2,
-    xuanzhiphoto_img3: xuanzhiphoto_img3,
-    xuanzhiphoto_img4: xuanzhiphoto_img4,
-    xuanzhiphoto_img5: xuanzhiphoto_img5,
-    xuanzhiphoto_img6: xuanzhiphoto_img6,
-    mianjiphoto_img1: mianjiphoto_img1,
-    mianjiphoto_img2: mianjiphoto_img2,
-    mianjiphoto_img3: mianjiphoto_img3,
-    mianjiphoto_img4: mianjiphoto_img4,
-    mianjiphoto_img5: mianjiphoto_img5,
-    mianjiphoto_img6: mianjiphoto_img6,
-  }
+
+    var abc = this.Base.getMyData().startreport;
+    var data = {
+      primary_id: id,
+      number: abc.number,
+      supervisor: abc.supervisor,
+      name: abc.name,
+      time: abc.time,
+      taskname: abc.taskname,
+      status: 'C',
+      reportamount: this.Base.getMyData().money,
+      startphoto_img1: startphoto_img1,
+      startphoto_img2: startphoto_img2,
+      startphoto_img3: startphoto_img3,
+      startphoto_img4: startphoto_img4,
+      startphoto_img5: startphoto_img5,
+      startphoto_img6: startphoto_img6,
+      problemphoto_img1: problemphoto_img1,
+      problemphoto_img2: problemphoto_img2,
+      problemphoto_img3: problemphoto_img3,
+      problemphoto_img4: problemphoto_img4,
+      problemphoto_img5: problemphoto_img5,
+      problemphoto_img6: problemphoto_img6,
+    }
 
     statusapi.finish({
       id: id,
@@ -178,15 +187,20 @@ confirm(e) {
       console.log(finish)
     })
 
+    var photoapi = new PhotoApi();
+    photoapi.startphoto(data, (res) => {
+      console.log(res)
+      wx.redirectTo({
+        url: '/pages/finish/finish',
+      })
+      wx.showToast({
+        title: '完成',
+        icon: 'success',
+        duration: 1000
+      })
+    })
 
-    wx.redirectTo({
-      url: '/pages/finish/finish',
-    })
-    wx.showToast({
-      title: '完成',
-      icon: 'success',
-      duration: 1000
-    })
+
     var api = new TaskApi();
     var req = {
       // route: JSON.stringify(data.route),
@@ -195,6 +209,65 @@ confirm(e) {
       phone: data.phone,
       mianji: data.mianji
     };
+  }
+
+  uploadimg1() {
+    var that = this;
+    this.Base.uploadImage("start", (ret) => {
+      console.log(ret)
+      var images1 = that.Base.getMyData().images1;
+      images1.push(ret);
+      that.Base.setMyData({
+        images1
+      });
+    });
+  }
+
+  shangcphoto1(e) {
+    var that = this;
+    var seq = e.currentTarget.id;
+    var images1 = that.Base.getMyData().images1;
+    var imgs = [];
+    for (var i = 0; i < images1.length; i++) {
+      if (seq != i) {
+        imgs.push(images1[i]);
+      }
+    }
+    that.Base.setMyData({
+      images1: imgs
+    });
+  }
+
+  uploadimg2() {
+    var that = this;
+    this.Base.uploadImage("start", (ret) => {
+      console.log(ret)
+      var images2 = that.Base.getMyData().images2;
+      images2.push(ret);
+      that.Base.setMyData({
+        images2
+      });
+    });
+  }
+  shangcphoto2(e) {
+    var that = this;
+    var seq = e.currentTarget.id;
+    var images2 = that.Base.getMyData().images2;
+    var imgs = [];
+    for (var i = 0; i < images2.length; i++) {
+      if (seq != i) {
+        imgs.push(images2[i]);
+      }
+    }
+    that.Base.setMyData({
+      images2: imgs
+    });
+  }
+  changeMoney(e) {
+    console.log(e);
+    this.Base.setMyData({
+      money: e.detail.value
+    });
   }
 }
 var content = new Content();
@@ -206,4 +279,5 @@ body.shangcphoto1 = content.shangcphoto1;
 body.uploadimg2 = content.uploadimg2;
 body.shangcphoto2 = content.shangcphoto2;
 body.confirm = content.confirm;
+body.changeMoney = content.changeMoney;
 Page(body)
