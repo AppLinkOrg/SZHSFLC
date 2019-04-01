@@ -25,8 +25,8 @@
     <view class='txt-black margin-left-20'>超时任务</view>
   </navigator>
 
-  <navigator url='/pages/service/service' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <!-- <navigator url='/pages/service/service' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.service}}'></image>
     <view class='txt-black margin-left-20'>联系客服</view>
-  </navigator>
+  </navigator> -->
 </view>

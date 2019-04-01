@@ -36,7 +36,7 @@
   <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
   <view class='flex-row margin-bottom-20'>
     <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark1}}" placeholder='请填写备注信息'></input>
     <button class='margin-top-20 h6 txt-white' bindtap='submit1' style='background:#03A8F3'>提交</button>
   </view>
 
@@ -53,7 +53,7 @@
   <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
   <view class='flex-row margin-bottom-20'>
     <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange2' value="{{remark2}}" placeholder='请填写备注信息'></input>
     <button class='margin-top-20 h6 txt-white' bindtap='submit2' style='background:#03A8F3'>提交</button>
   </view>
 
@@ -72,7 +72,7 @@
   <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
   <view class='flex-row margin-bottom-20'>
     <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remark3}}" placeholder='请填写备注信息'></input>
     <button class='margin-top-20 h6 txt-white' bindtap='submit3' style='background:#03A8F3'>提交</button>
   </view>
 
@@ -92,11 +92,10 @@
   <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
     <view class='flex-row '>
       <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-      <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+      <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange4' value="{{remark4}}" placeholder='请填写备注信息'></input>
       <button class='margin-top-20 h6 txt-white' bindtap='submit4' style='background:#03A8F3'>提交</button>
     </view>
   </view>
-
 
 
 

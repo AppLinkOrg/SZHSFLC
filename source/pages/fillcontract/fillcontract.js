@@ -69,6 +69,30 @@ class Content extends AppBase {
     })
   }
 
+  inputChange1(e) {
+    console.log(e);
+    this.Base.setMyData({
+      remark1: e.detail.value
+    });
+  }
+  inputChange2(e) {
+    console.log(e);
+    this.Base.setMyData({
+      remark2: e.detail.value
+    });
+  }
+  inputChange3(e) {
+    console.log(e);
+    this.Base.setMyData({
+      remark3: e.detail.value
+    });
+  }
+  inputChange4(e) {
+    console.log(e);
+    this.Base.setMyData({
+      remark4: e.detail.value
+    });
+  }
   
   changeDate1(e) {
     console.log(e);
@@ -108,6 +132,21 @@ class Content extends AppBase {
       this.Base.info("请录入合同资料提交的时间");
       return;
     }
+    var a = this.Base.getMyData().hetongtask;
+    var data = {
+      primary_id: id,
+      number: a.number,
+      supervisor: a.supervisor,
+      name: a.name,
+      time: a.time,
+      taskname: a.taskname,
+      status: 'C',
+      remark1: this.Base.getMyData().remark1
+    }
+    var timeapi = new TimeApi();
+    timeapi.hetongtime(data, (res) => {
+      console.log(res)
+      })
     wx.showToast({
       title: '提交成功',
       icon: 'success',
@@ -180,27 +219,7 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-    // if (this.Base.getMyData().images.length == 0) {
-    //   this.Base.info("请至少上传一张验收签字表图片");
-    //   return;
-    // }
-    // if (data.date == undefined) {
-    //   this.Base.info("请录入选址完成的时间");
-    //   return;
-    // }
-    // if (data.name == undefined) {
-    //   this.Base.info("请输入物业姓名");
-    //   return;
-    // }
-    // if (data.phone == null || data.phone.length != 11 || data.phone[0] != "1") {
-    //   this.Base.info("请正确输入物业号码");
-    //   return;
-    // }
-    // if (data.mianji == null) {
-    //   this.Base.info("请输入机房面积");
-    //   return;
-    // }
-
+  
     statusapi.finish({
       id: id,
       wc: "B"
@@ -244,4 +263,8 @@ body.submit1 = content.submit1;
 body.submit2 = content.submit2;
 body.submit3 = content.submit3;
 body.submit4 = content.submit4;
+body.inputChange1 = content.inputChange1;
+body.inputChange2 = content.inputChange2;
+body.inputChange3 = content.inputChange3;
+body.inputChange4 = content.inputChange4;
 Page(body)

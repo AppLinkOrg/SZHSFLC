@@ -8,6 +8,9 @@ import {
 import {
   InstApi
 } from "../../apis/inst.api.js";
+import {
+  MemberApi
+} from "../../apis/member.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -36,7 +39,7 @@ class Content extends AppBase {
     });
   }
 
-  confirm(e) {
+  login(e) {
     var that = this;
     var data = e.detail.value;
     if (data.name == "") {
@@ -47,21 +50,43 @@ class Content extends AppBase {
       this.Base.info("请点击绑定手机号");
       return;
     }
-  }
-  login() {
-    wx.switchTab({
-      url: '../index/index',
+
+    var mobile = data.mobile;
+    var name = data.name;
+    var openid = AppBase.UserInfo.openid;
+    var session_key = AppBase.UserInfo.session_key;
+    var api = new MemberApi();
+
+    api.register({
+      mobile,
+      name,
+      openid,
+      session_key
+    }, (ret) => {
+      console.log(ret)
+      if (ret.code == 0) {
+        api.info({}, (res) => {
+          if (res.supervisor == 1 && res.name == name) {
+            wx.reLaunch({
+              url: '/pages/index/index',
+            })
+          } else {
+            this.Base.info("请联系管理员添加登录权限");
+          }
+        })
+
+      } else {
+        this.Base.info("用户信息不正确");
+      }
     })
   }
-
 }
-
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.getPhone = content.getPhone;
-body.phonenoCallback = content.phonenoCallback;
 body.login = content.login;
+body.phonenoCallback = content.phonenoCallback;
 body.getPhoneNumber = content.getPhoneNumber;
 Page(body)

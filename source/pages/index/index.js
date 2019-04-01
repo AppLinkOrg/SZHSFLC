@@ -34,6 +34,7 @@ class Content extends AppBase {
     taskapi.newtasklist({}, (newtasklist) => {
       var list = [];
       var list1 = [];
+      console.log(newtasklist);
       for (var i = 0; i < newtasklist.length; i++) {
         if (newtasklist[i].status == 'A') {
           list.push(newtasklist[i])
