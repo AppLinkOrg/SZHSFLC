@@ -93,7 +93,7 @@ class Content extends AppBase {
       remark4: e.detail.value
     });
   }
-  
+
   changeDate1(e) {
     console.log(e);
     this.Base.setMyData({
@@ -137,16 +137,22 @@ class Content extends AppBase {
       primary_id: id,
       number: a.number,
       supervisor: a.supervisor,
+      id: this.Base.getMyData().id,
       name: a.name,
       time: a.time,
       taskname: a.taskname,
-      status: 'C',
-      remark1: this.Base.getMyData().remark1
+      status: 'B',
+      remark1: this.Base.getMyData().remark1,
+      date1: this.Base.getMyData().date1
+
     }
+    console.log(data.date1);
+    // console.log(data);
+     
     var timeapi = new TimeApi();
     timeapi.hetongtime(data, (res) => {
       console.log(res)
-      })
+    })
     wx.showToast({
       title: '提交成功',
       icon: 'success',
@@ -165,6 +171,24 @@ class Content extends AppBase {
       this.Base.info("请录入合同资料审核完成时间");
       return;
     }
+    var a = this.Base.getMyData().hetongtask;
+    var data = {
+      primary_id: id,
+      number: a.number,
+      supervisor: a.supervisor,
+      name: a.name,
+      time: a.time,
+      taskname: a.taskname,
+      status: 'B',
+      remark2: this.Base.getMyData().remark2,
+      date2: this.Base.getMyData().date2
+    }
+    // console.log(data);
+    // return
+    var timeapi = new TimeApi();
+    timeapi.hetongtime2(data, (res) => {
+      console.log(res)
+    })
     wx.showToast({
       title: '提交成功',
       icon: 'success',
@@ -183,6 +207,24 @@ class Content extends AppBase {
       this.Base.info("请录入合同双签时间");
       return;
     }
+    var a = this.Base.getMyData().hetongtask;
+    var data = {
+      primary_id: id,
+      number: a.number,
+      supervisor: a.supervisor,
+      name: a.name,
+      time: a.time,
+      taskname: a.taskname,
+      status: 'B',
+      remark3: this.Base.getMyData().remark3,
+      date3: this.Base.getMyData().date3
+    }
+    // console.log(data);
+    // return
+    var timeapi = new TimeApi();
+    timeapi.hetongtime3(data, (res) => {
+      console.log(res)
+    })
     wx.showToast({
       title: '提交成功',
       icon: 'success',
@@ -201,6 +243,24 @@ class Content extends AppBase {
       this.Base.info("请录入初次租金电费申请时间");
       return;
     }
+    var a = this.Base.getMyData().hetongtask;
+    var data = {
+      primary_id: id,
+      number: a.number,
+      supervisor: a.supervisor,
+      name: a.name,
+      time: a.time,
+      taskname: a.taskname,
+      status: 'B',
+      remark4: this.Base.getMyData().remark4,
+      date4: this.Base.getMyData().date4
+    }
+    // console.log(data);
+    // return
+    var timeapi = new TimeApi();
+    timeapi.hetongtime4(data, (res) => {
+      console.log(res)
+    })
     wx.showToast({
       title: '提交成功',
       icon: 'success',
@@ -219,15 +279,13 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-  
+
     statusapi.finish({
       id: id,
       wc: "B"
     }, (finish) => {
       console.log(finish)
     })
-
-
     wx.redirectTo({
       url: '/pages/finish/finish',
     })
