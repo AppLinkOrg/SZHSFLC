@@ -60,6 +60,7 @@ class Content extends AppBase {
     // var that = this;
     var taskapi = new TaskApi();
     var exampleApi = new ExampleApi();
+    var id = this.Base.getMyData().memberinfo.id;
     taskapi.newtasklist({}, (newtasklist) => {
       this.Base.setMyData({
         newtasklist
@@ -199,6 +200,7 @@ class Content extends AppBase {
       property_name: this.Base.getMyData().name,
       property_phone: this.Base.getMyData().phone,
       guandao: this.Base.getMyData().guandao,
+      mianji: this.Base.getMyData().mianji,
       xuanzhiphoto_img1: xuanzhiphoto_img1,
       xuanzhiphoto_img2: xuanzhiphoto_img2,
       xuanzhiphoto_img3: xuanzhiphoto_img3,
@@ -243,6 +245,14 @@ class Content extends AppBase {
 
 
     var api = new TaskApi();
+
+
+
+    console.log(data.mianji+"三十多岁");
+    return;
+
+
+
     var req = {
       // route: JSON.stringify(data.route),
       date: data.date,

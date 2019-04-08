@@ -58,7 +58,8 @@ class Content extends AppBase {
     // var that = this;
     var taskapi = new TaskApi();
     // var exampleApi = new ExampleApi();
-    taskapi.newtasklist({}, (newtasklist) => {
+    var id = this.Base.getMyData().memberinfo.id;
+    taskapi.newtasklist({ supervisor: AppBase.dd.id}, (newtasklist) => {
       this.Base.setMyData({
         newtasklist
       })
@@ -137,6 +138,11 @@ class Content extends AppBase {
     //   this.Base.info("请至少上传一张验收签字表图片");
     //   return;
     // }
+    if (data.money == undefined) {
+      this.Base.info("请输入站点金额");
+      return;
+    }
+
 
     var images1 = that.Base.getMyData().images1;
     var startphoto_img1 = images1[0];

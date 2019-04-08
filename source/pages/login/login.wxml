@@ -11,7 +11,7 @@
 
   <view class='flex-row column'>
     <view class='txt-bold txt-black'>用户名</view>
-    <input class='margin-top-20 padding-10 txt-black' style='border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' name='name' placeholder='请输入用户名'></input>
+    <input class='margin-top-20 padding-10 txt-black' style='border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' name='name' value='{{name}}' bindinput='nameChange' placeholder='请输入用户名'></input>
   </view>
 
   <view class='height-50'></view>
@@ -20,15 +20,14 @@
     <view class='txt-bold txt-black'>手机号码</view>
 
     <view class='flex-row flex-center'>
-      <input class='margin-top-20 padding-10 txt-black flex-1' type='number' name='mobile' value='{{phone}}' placeholder-style='color:#c2c5c8' placeholder='请输入手机号码'></input>
-      <button class='btn h5 txt-white margin-top-10' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
+      <input class='margin-top-20 padding-10 txt-black flex-1' name='mobile' value='{{mobile}}' placeholder-style='color:#c2c5c8' placeholder='请输入手机号码'></input>
+      <button class='btn h5 txt-white margin-top-10' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo">授权</button>
     </view>
   </view>
 
-  <view bindtap="toast" class="usermotto">
-    <button class="user-motto" type='bak_ble' class='h5 margin-top-40 txt-white' style='background:#7581FF' bindtap='login'>登录</button>
+  <view >
+    <button  class='h5 margin-top-40 txt-white'  style='background:#03A8F3' bindtap='confirm'>登录</button>
   </view>
-
 </view>
 
 <image class='img' src='{{uploadpath}}resource/{{res.loginbottom}}' mode="widthFix"></image>

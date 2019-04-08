@@ -32,13 +32,14 @@ class Content extends AppBase {
     var tomorrow = now.getTime() + 24 * 60 * 60 * 1000;
     var aftermonth = tomorrow + 30 * 24 * 60 * 60 * 1000;
     var startdate = this.Base.util.FormatDate(new Date(tomorrow));
-    var enddate = this.Base.util.FormatDate(new Date(aftermonth));
+    // var enddate = this.Base.util.FormatDate(new Date(aftermonth));
     this.Base.setMyData({
       mobile: "",
       realname: "",
       remark: "",
       startdate: startdate,
       enddate: enddate
+      // date3:""
     });
     console.log('tomorrow:' + enddate)
     this.Base.setMyData({
@@ -148,7 +149,7 @@ class Content extends AppBase {
     }
     console.log(data.date1);
     // console.log(data);
-     
+
     var timeapi = new TimeApi();
     timeapi.hetongtime(data, (res) => {
       console.log(res)
@@ -309,9 +310,6 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.bindcompleted = content.bindcompleted;
-body.bindwaitcompleted = content.bindwaitcompleted;
-body.bindcontact = content.bindcontact;
 body.confirm = content.confirm;
 body.changeDate1 = content.changeDate1;
 body.changeDate2 = content.changeDate2;

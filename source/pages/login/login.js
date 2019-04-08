@@ -20,65 +20,64 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({ name: "", mobile:""});
   }
   onMyShow() {
     var that = this;
   }
 
-  getPhone(e) {
-    console.log(e)
+  nameChange(e) {
     this.Base.setMyData({
-      mobile: e.detail.mobile
+      nameChange: e.detail.value
     });
   }
-
+  
   phonenoCallback(phoneno, e) {
     console.log(phoneno);
     this.Base.setMyData({
-      phone: phone
+      mobile: phoneno
     });
   }
 
-  login(e) {
+  confirm(e) {
     var that = this;
+    console.log(e);
     var data = e.detail.value;
-    if (data.name == "") {
-      this.Base.info("请输入您的姓名");
+    var name = this.Base.getMyData().nameChange;
+    var mobile = this.Base.getMyData().mobile;
+    console.log(data);
+    var id = that.Base.getMyData().id;
+    if (!id) {
+      id = that.Base.getMyData().id;
+    }
+    if (name == "") {
+      this.Base.info("请输入用户名");
       return;
     }
-    if (data.phone == "") {
+    if (mobile == "") {
       this.Base.info("请点击绑定手机号");
       return;
     }
-
-    var mobile = data.mobile;
-    var name = data.name;
-    var openid = AppBase.UserInfo.openid;
-    var session_key = AppBase.UserInfo.session_key;
+  
     var api = new MemberApi();
-
     api.register({
       mobile,
-      name,
-      openid,
-      session_key
+      name
     }, (ret) => {
       console.log(ret)
-      if (ret.code == 0) {
-        api.info({}, (res) => {
-          if (res.supervisor == 1 && res.name == name) {
+           
+        
+      
+          if (ret.code == 0) {
+            AppBase.dd = ret.result;
             wx.reLaunch({
               url: '/pages/index/index',
             })
           } else {
-            this.Base.info("请联系管理员添加登录权限");
+            this.Base.info("用户信息不正确");
           }
-        })
-
-      } else {
-        this.Base.info("用户信息不正确");
-      }
-    })
+       
+      })
   }
 }
 var content = new Content();
@@ -86,7 +85,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.getPhone = content.getPhone;
-body.login = content.login;
+body.confirm = content.confirm;
 body.phonenoCallback = content.phonenoCallback;
-body.getPhoneNumber = content.getPhoneNumber;
+body.nameChange = content.nameChange;
 Page(body)

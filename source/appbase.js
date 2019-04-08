@@ -13,8 +13,10 @@ export class AppBase {
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
   static InstInfo = {};
+  static dd = {};
   unicode = "szhsflc";
   needauth = false;
+
   pagetitle = null;
   app = null;
   options = null;
@@ -189,7 +191,7 @@ export class AppBase {
 
 
                 memberapi.update(AppBase.UserInfo, () => {
-
+                  console.log("hh1");
                   console.log(AppBase.UserInfo);
                   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
@@ -200,18 +202,29 @@ export class AppBase {
                 //that.Base.getAddress();
               });
             },
-            fail: res => {
+            fail: userloginres => {
               console.log("auth fail");
+              console.log(userloginres);
               console.log(res);
-              //that.Base.gotoOpenUserInfoSetting();
-              if (this.Base.needauth == true) {
-                wx.redirectTo({
-                  url: '/pages/auth/auth',
-                })
-              } else {
-                that.onMyShow();
-              }
-              //that.getAddress();
+              var memberapi = new MemberApi();
+              memberapi.getuserinfo({ code: res.code, grant_type: "authorization_code" }, data => {
+                console.log("here");
+                console.log(data);
+                AppBase.UserInfo.openid = data.openid;
+                AppBase.UserInfo.session_key = data.session_key;
+                console.log(AppBase.UserInfo);
+                ApiConfig.SetToken(data.openid);
+                memberapi.update(AppBase.UserInfo, () => {
+           console.log("haha2");
+                  console.log(AppBase.UserInfo);
+                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+
+                  that.checkPermission();
+
+                });
+                console.log("goto update info");
+
+              });
             }
           });
 
@@ -250,7 +263,7 @@ export class AppBase {
   loadtabtype() {
     console.log("loadtabtype");
     var memberapi = new MemberApi();
-    memberapi.update(AppBase.UserInfo, () => { });
+    memberapi.update(AppBase.UserInfo, () => { console.log("hh3"); });
   }
 
   onMyShow() {
@@ -302,16 +315,20 @@ export class AppBase {
     console.log(e);
     var api = new WechatApi();
     var data = this.Base.getMyData();
-    console.log(data);
+    console.log("aaa?");
 
-    e.detail.session_key = AppBase.session_key;
-    e.detail.openid = AppBase.openid;
+    e.detail.session_key = AppBase.UserInfo.session_key;
+    e.detail.openid = AppBase.UserInfo.openid;
     console.log(e.detail);
     api.decrypteddata(e.detail, (ret) => {
       console.log(ret);
       that.phonenoCallback(ret.return.phoneNumber, e);
     });
   }
+
+
+
+
   phonenoCallback(phoneno, e) {
     console.log("phone no callback");
     console.log(phoneno);

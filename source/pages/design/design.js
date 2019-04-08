@@ -55,7 +55,8 @@ class Content extends AppBase {
     // var that = this;
     var taskapi = new TaskApi();
     // var exampleApi = new ExampleApi();
-    taskapi.newtasklist({}, (newtasklist) => {
+    var id = this.Base.getMyData().memberinfo.id;
+    taskapi.newtasklist({ supervisor: AppBase.dd.id}, (newtasklist) => {
       this.Base.setMyData({
         newtasklist
       })
@@ -81,14 +82,15 @@ class Content extends AppBase {
       //   this.Base.info("请至少上传一张验收签字表图片");
       //   return;
       // }
-      // if (data.date == undefined) {
-      //   this.Base.info("请录入选址完成的时间");
-      //   return;
-      // }
-      // if (data.name == undefined) {
-      //   this.Base.info("请输入物业姓名");
-      //   return;
-      // }
+      if (data.money == undefined) {
+        this.Base.info("请输入站点金额");
+        return;
+      }
+      if (data.date == undefined) {
+        this.Base.info("请录入方案设计完成的时间");
+        return;
+      }
+      
       // if (data.phone == null || data.phone.length != 11 || data.phone[0] != "1") {
       //   this.Base.info("请正确输入物业号码");
       //   return;

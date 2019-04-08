@@ -14,6 +14,10 @@ import {
 import {
   StatusApi
 } from "../../apis/status.api.js";
+import {
+  SupervisorApi
+} from "../../apis/supervisor.api.js";
+
 
 class Content extends AppBase {
   constructor() {
@@ -27,19 +31,25 @@ class Content extends AppBase {
     this.Base.setMyData({
       ctt: 1
     });
+    console.log(AppBase.dd);
+    console.log(555555555);
   }
   onMyShow() {
     var that = this;
     var taskapi = new TaskApi();
-    taskapi.newtasklist({}, (newtasklist) => {
+    var supervisorapi = new SupervisorApi();
+    var id = this.Base.getMyData().memberinfo.id;
+    //console.log(id + "是是是");
+    taskapi.newtasklist({
+      supervisor: AppBase.dd.id
+    }, (newtasklist) => {
       var list = [];
       var list1 = [];
       console.log(newtasklist);
       for (var i = 0; i < newtasklist.length; i++) {
         if (newtasklist[i].status == 'A') {
           list.push(newtasklist[i])
-        } 
-        else if (newtasklist[i].status == 'B') {
+        } else if (newtasklist[i].status == 'B') {
           list1.push(newtasklist[i])
         }
       }
@@ -49,6 +59,8 @@ class Content extends AppBase {
       })
       console.log(list);
     })
+
+    //return;
   }
   guaqi(e) {
     var that = this;
@@ -66,79 +78,70 @@ class Content extends AppBase {
             statusapi.guaqi({
               id: id,
               gq: "A"
-            }, (guaqi) => {
-            })
-          }
-
-          else if (type == 'contract_data') {
+            }, (guaqi) => {})
+          } else if (type == 'contract_data') {
             statusapi.guaqi({
               id: id,
               gq: "B"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'project') {
+          } else if (type == 'project') {
             statusapi.guaqi({
               id: id,
               gq: "C"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'start') {
+          } else if (type == 'start') {
             statusapi.guaqi({
               id: id,
               gq: "D"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'receive') {
+          } else if (type == 'receive') {
             statusapi.guaqi({
               id: id,
               gq: "E"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'allocation') {
+          } else if (type == 'allocation') {
             statusapi.guaqi({
               id: id,
               gq: "F"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'construction') {
+          } else if (type == 'construction') {
             statusapi.guaqi({
               id: id,
               gq: "G"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'open') {
+          } else if (type == 'open') {
             statusapi.guaqi({
               id: id,
               gq: "H"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } 
-          else if (type == 'acceptance') {
+          } else if (type == 'acceptance') {
             statusapi.guaqi({
               id: id,
               gq: "I"
             }, (guaqi) => {
               console.log(guaqi)
             })
-          } wx.showToast({
+          }
+          wx.showToast({
             title: '挂起任务成功',
             icon: 'success',
             duration: 1000 //持续的时间
           })
-          that.onMyShow();
+          this.onMyShow();
         }
       }
     })
@@ -240,16 +243,16 @@ class Content extends AppBase {
             icon: 'success',
             duration: 1000 //持续的时间
           })
-          
+
         }
       }
-      
+
     })
   }
 
 
 
-  
+
   chakan(e) {
     var that = this;
     var taskapi = new TaskApi();
