@@ -32,7 +32,7 @@ class Content extends AppBase {
     var tomorrow = now.getTime() + 24 * 60 * 60 * 1000;
     var aftermonth = tomorrow + 30 * 24 * 60 * 60 * 1000;
     var startdate = this.Base.util.FormatDate(new Date(tomorrow));
-    // var enddate = this.Base.util.FormatDate(new Date(aftermonth));
+    var enddate = this.Base.util.FormatDate(new Date(aftermonth));
     this.Base.setMyData({
       mobile: "",
       realname: "",
@@ -62,7 +62,7 @@ class Content extends AppBase {
       })
     })
     taskapi.hetongtask({
-      id: this.options.id
+      id: this.Base.options.id
     }, (hetongtask) => {
       this.Base.setMyData({
         hetongtask
@@ -135,7 +135,7 @@ class Content extends AppBase {
     }
     var a = this.Base.getMyData().hetongtask;
     var data = {
-      primary_id: id,
+      primary_id: a.id,
       number: a.number,
       supervisor: a.supervisor,
       id: this.Base.getMyData().id,
@@ -147,9 +147,9 @@ class Content extends AppBase {
       date1: this.Base.getMyData().date1
 
     }
-    console.log(data.date1);
     // console.log(data);
-
+    // return
+  
     var timeapi = new TimeApi();
     timeapi.hetongtime(data, (res) => {
       console.log(res)
@@ -174,7 +174,7 @@ class Content extends AppBase {
     }
     var a = this.Base.getMyData().hetongtask;
     var data = {
-      primary_id: id,
+      primary_id: a.id,
       number: a.number,
       supervisor: a.supervisor,
       name: a.name,
@@ -210,7 +210,7 @@ class Content extends AppBase {
     }
     var a = this.Base.getMyData().hetongtask;
     var data = {
-      primary_id: id,
+      primary_id: a.id,
       number: a.number,
       supervisor: a.supervisor,
       name: a.name,
@@ -246,7 +246,7 @@ class Content extends AppBase {
     }
     var a = this.Base.getMyData().hetongtask;
     var data = {
-      primary_id: id,
+      primary_id: a.id,
       number: a.number,
       supervisor: a.supervisor,
       name: a.name,
@@ -270,7 +270,7 @@ class Content extends AppBase {
   }
 
 
-  confirm(e) {
+  finish(e) {
     var that = this;
     var data = this.Base.getMyData();
     var taskapi = new TaskApi();
@@ -280,7 +280,28 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-
+    if (data.date1 == '' || data.date2 == '' || data.date3 == '' || data.date4 == '') {
+      this.Base.info("请录入所有的时间");
+      return;
+    }
+    var a = this.Base.getMyData().hetongtask;
+    var data = {
+      primary_id: a.id,
+      number: a.number,
+      supervisor: a.supervisor,
+      name: a.name,
+      time: a.time,
+      taskname: a.taskname,
+      status: 'C',
+      remark1: this.Base.getMyData().remark1,
+      date1: this.Base.getMyData().date1,
+      remark2: this.Base.getMyData().remark2,
+      date2: this.Base.getMyData().date2,
+      remark3: this.Base.getMyData().remark3,
+      date3: this.Base.getMyData().date3,
+      remark4: this.Base.getMyData().remark4,
+      date4: this.Base.getMyData().date4
+    }
     statusapi.finish({
       id: id,
       wc: "B"
@@ -310,7 +331,7 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.confirm = content.confirm;
+body.finish = content.finish;
 body.changeDate1 = content.changeDate1;
 body.changeDate2 = content.changeDate2;
 body.changeDate3 = content.changeDate3;

@@ -49,7 +49,7 @@
   </view>
 </view>
 <view class='margin-10 '>
-  <view class='f-32 bg-gray padding-10 '>上传照片:</view>
+  <view class='f-32 bg-gray padding-10 '>上传管道照片:</view>
   <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
@@ -80,7 +80,7 @@
   </view>
 </view>
 <view class='margin-10 '>
-  <view class='f-32 bg-gray padding-10'>上传照片:</view>
+  <view class='f-32 bg-gray padding-10'>上传机房面积照片:</view>
   <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>

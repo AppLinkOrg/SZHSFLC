@@ -10,7 +10,7 @@
   </view>
 
   <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted' style='background-color:#03A8F3'>
-    <view class=' text-center  txt-#BFBFBF {{ctt==2?"to-white":""}} top txt-bold  ' bindtap='bindwaitcompleted'>进行中 {{ontasklist.length}}</view>
+    <view class=' text-center  txt-#BFBFBF {{ctt==2?"to-white":""}} top txt-bold ' bindtap='bindwaitcompleted'>进行中 {{ontasklist.length}}</view>
     <view wx:if='{{ctt!=2}}' style='height:4rpx;width:120rpx;' class=''></view>
     <view wx:if='{{ctt==2}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
   </view>

@@ -20,7 +20,10 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ name: "", mobile:""});
+    this.Base.setMyData({
+      name: "",
+      mobile: ""
+    });
   }
   onMyShow() {
     var that = this;
@@ -31,7 +34,19 @@ class Content extends AppBase {
       nameChange: e.detail.value
     });
   }
-  
+
+  mobileChange(e) {
+    this.Base.setMyData({
+      mobileChange: e.detail.value
+    });
+  }
+  // getPhone(e) {
+  //   console.log(e)
+  //   this.Base.setMyData({
+  //     mobile: e.detail.mobile
+  //   });
+  // }
+
   phonenoCallback(phoneno, e) {
     console.log(phoneno);
     this.Base.setMyData({
@@ -44,7 +59,7 @@ class Content extends AppBase {
     console.log(e);
     var data = e.detail.value;
     var name = this.Base.getMyData().nameChange;
-    var mobile = this.Base.getMyData().mobile;
+    var mobile = this.Base.getMyData().mobile || this.Base.getMyData().mobileChange;
     console.log(data);
     var id = that.Base.getMyData().id;
     if (!id) {
@@ -55,29 +70,25 @@ class Content extends AppBase {
       return;
     }
     if (mobile == "") {
-      this.Base.info("请点击绑定手机号");
+      this.Base.info("请输入手机号");
       return;
     }
-  
+
     var api = new MemberApi();
     api.register({
       mobile,
       name
     }, (ret) => {
       console.log(ret)
-           
-        
-      
-          if (ret.code == 0) {
-            AppBase.dd = ret.result;
-            wx.reLaunch({
-              url: '/pages/index/index',
-            })
-          } else {
-            this.Base.info("用户信息不正确");
-          }
-       
-      })
+      if (ret.code == 0) {
+        AppBase.dd = ret.result;
+        wx.reLaunch({
+          url: '/pages/index/index',
+        })
+      } else {
+        this.Base.info("用户信息不正确");
+      }
+    })
   }
 }
 var content = new Content();
@@ -88,4 +99,5 @@ body.getPhone = content.getPhone;
 body.confirm = content.confirm;
 body.phonenoCallback = content.phonenoCallback;
 body.nameChange = content.nameChange;
+body.mobileChange = content.mobileChange;
 Page(body)
