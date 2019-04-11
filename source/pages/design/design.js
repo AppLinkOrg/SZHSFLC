@@ -78,10 +78,6 @@ class Content extends AppBase {
       if (!id) {
         id = that.Base.getMyData().id;
       }
-      // if (this.Base.getMyData().images.length == 0) {
-      //   this.Base.info("请至少上传一张验收签字表图片");
-      //   return;
-      // }
       if (data.money == undefined) {
         this.Base.info("请输入站点金额");
         return;
@@ -90,15 +86,6 @@ class Content extends AppBase {
         this.Base.info("请录入方案设计完成的时间");
         return;
       }
-      
-      // if (data.phone == null || data.phone.length != 11 || data.phone[0] != "1") {
-      //   this.Base.info("请正确输入物业号码");
-      //   return;
-      // }
-      // if (data.mianji == null) {
-      //   this.Base.info("请输入机房面积");
-      //   return;
-      // }
 
       var abc = this.Base.getMyData().fangansjtask;
       var data = {
