@@ -2,79 +2,91 @@
 
 <view class='flex-row flex-center top_title'>
 
-  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcontact' style='background-color:#03A8F3'>
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindcontact' style='background-color:#3189F8'>
     <view class=' text-center   {{ctt==1?"to-white":"" }} top txt-bold text-decoration:line-underline ' bindtap='bindcontact'>新任务 {{newtasklist.length}}</view>
-    <view wx:if='{{ctt!=1}}' style='height:4rpx;width:120rpx;' class=''></view>
+    <view wx:if='{{ctt!=1}}' style='height:4rpx;width:150rpx;' class=''></view>
 
-    <view wx:if='{{ctt==1}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
+    <view wx:if='{{ctt==1}}' style='height:4rpx;width:150rpx;' class='bg-white'></view>
   </view>
+  
 
-  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted' style='background-color:#03A8F3'>
+  <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted' style='background-color:#3189F8'>
     <view class=' text-center  txt-#BFBFBF {{ctt==2?"to-white":""}} top txt-bold ' bindtap='bindwaitcompleted'>进行中 {{ontasklist.length}}</view>
-    <view wx:if='{{ctt!=2}}' style='height:4rpx;width:120rpx;' class=''></view>
-    <view wx:if='{{ctt==2}}' style='height:4rpx;width:120rpx;' class='bg-white'></view>
+    <view wx:if='{{ctt!=2}}' style='height:4rpx;width:150rpx;' class=''></view>
+    <view wx:if='{{ctt==2}}' style='height:4rpx;width:150rpx;' class='bg-white'></view>
   </view>
 </view>
 
-<view style='height:86rpx;'></view>
+<view style='height:75rpx;'></view>
 
 
 <view wx:if='{{ctt==1}}'>
-
-  <view wx:for='{{newtasklist}}' wx:key='k'  class='bg-white padding-bottom-20 margin-bottom-18' style=''>
-
+  <view wx:for='{{newtasklist}}' wx:key='k' class='div'>
     <view class='flex-row flex-center'>
-
-      <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
-      <view class='margin-top-20 txt-bold txt-black'>{{item.name}}</view>
+      <image wx:if='{{item.type=="selectio"}}' class='icon-40' src='{{uploadpath}}resource/{{res.xuanzhi}}'></image>
+      <image wx:if='{{item.type=="contract_data"}}' class='icon-40' src='{{uploadpath}}resource/{{res.hetong}}'></image>
+      <image wx:if='{{item.type=="project"}}' class='icon-40' src='{{uploadpath}}resource/{{res.fangansheji}}'></image>
+      <image wx:if='{{item.type=="start"}}' class='icon-40' src='{{uploadpath}}resource/{{res.kaigongbaogao}}'></image>
+      <image wx:if='{{item.type=="receive"}}' class='icon-40' src='{{uploadpath}}resource/{{res.linghuo}}'></image>
+      <image wx:if='{{item.type=="allocation"}}' class='icon-40' src='{{uploadpath}}resource/{{res.diaohuo}}'></image>
+      <image wx:if='{{item.type=="construction"}}' class='icon-40' src='{{uploadpath}}resource/{{res.shigong}}'></image>
+      <image wx:if='{{item.type=="open"}}' class='icon-40' src='{{uploadpath}}resource/{{res.kaitong}}'></image>
+      <image wx:if='{{item.type=="acceptance"}}' class='icon-40' src='{{uploadpath}}resource/{{res.yanshou}}'></image>
+      <view wx:if='{{item.type=="selectio"}}' class='txt-bold txt-black margin-left-80'>选址</view>
+      <view wx:if='{{item.type=="contract_data"}}' class='txt-bold txt-black margin-left-80'>合同资料</view>
+      <view wx:if='{{item.type=="project"}}' class='txt-bold txt-black margin-left-80'>方案设计</view>
+      <view wx:if='{{item.type=="start"}}' class='txt-bold txt-black margin-left-80'>开工报告</view>
+      <view wx:if='{{item.type=="receive"}}' class='txt-bold txt-black margin-left-80'>领货</view>
+      <view wx:if='{{item.type=="allocation"}}' class='txt-bold txt-black margin-left-80'>调货</view>
+      <view wx:if='{{item.type=="construction"}}' class='txt-bold txt-black margin-left-80'>施工</view>
+      <view wx:if='{{item.type=="open"}}' class='txt-bold txt-black margin-left-80'>开通</view>
+      <view wx:if='{{item.type=="acceptance"}}' class='txt-bold txt-black margin-left-80'>验收</view>
+      <!-- <view style='width:250rpx'></view> -->
+      <button class='h6 txt margin-right-10' style='width:110rpx;border:1rpx solid #03A8F3;' bindtap='linqurenwu' data-type='{{item.type}}' id='{{item.id}}'>领取</button>
     </view>
 
-    <view class='flex-row flex-center'>
-      <view class='icon-25'></view>
-      <view class='margin-left-40 margin-top-20 txt-black h5' style='color:#4A4949'>任务截止时间：</view>
-      <view class='margin-left-20 margin-top-20 txt-black h5' style='color:#4A4949'>{{item.time}}</view>
+    <view class='flex-row flex-center' style='height:100rpx;'>
+      <view class='txt-black' style='color:#4A4949'>{{item.taskname}}</view>
+      <view class='txt-black h5 margin-left-20' style='color:#4A4949'>任务截止时间：</view>
+      <view class='txt-black h5' style='color:#4A4949'>{{item.time}}</view>
+      <button class='h6 a margin-right-10' style='width:110rpx;border:1rpx solid #FF9800' bindtap='guaqi' data-type='{{item.type}}' id='{{item.id}}'>挂起</button>
     </view>
-
-    <view class='flex-row flex-center'>
-      <view class='icon-25'></view>
-      <view class='margin-left-40 margin-top-15 txt-black h5' style='color:#4A4949'>任务名称：</view>
-      <view></view>
-      <view class='margin-left-75 margin-top-15 txt-black h5' style='color:#4A4949'>{{item.taskname}}</view>
-    </view>
-
-    <view class='flex-row flex-center'>
-      <button class='margin-left-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='linqurenwu' data-type='{{item.type}}' id='{{item.id}}'>领取任务</button>
-      <view></view>
-      <button class='margin-right-90 margin-top-20 h5 txt-white' style='width:250rpx;background:#03A8F3' bindtap='guaqi' data-type='{{item.type}}' id='{{item.id}}'>暂时挂起</button>
-    </view>
-
+    
   </view>
-
-
 </view>
 
 <view wx:if='{{ctt==2}}'>
-  <view wx:for='{{ontasklist}}' wx:key='k' url='' class='bg-white padding-bottom-20 margin-bottom-18' style=''>
+  <view wx:for='{{ontasklist}}' wx:key='k' class='div'>
     <view class='flex-row flex-center'>
-      <image class='icon-25 margin-left-20 margin-top-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
-      <view class='margin-top-20 txt-bold txt-black'>{{item.name}}</view>
+      <image wx:if='{{item.type=="selectio"}}' class='icon-40' src='{{uploadpath}}resource/{{res.xuanzhi}}'></image>
+      <image wx:if='{{item.type=="contract_data"}}' class='icon-40' src='{{uploadpath}}resource/{{res.hetong}}'></image>
+      <image wx:if='{{item.type=="project"}}' class='icon-40' src='{{uploadpath}}resource/{{res.fangansheji}}'></image>
+      <image wx:if='{{item.type=="start"}}' class='icon-40' src='{{uploadpath}}resource/{{res.kaigongbaogao}}'></image>
+      <image wx:if='{{item.type=="receive"}}' class='icon-40' src='{{uploadpath}}resource/{{res.linghuo}}'></image>
+      <image wx:if='{{item.type=="allocation"}}' class='icon-40' src='{{uploadpath}}resource/{{res.diaohuo}}'></image>
+      <image wx:if='{{item.type=="construction"}}' class='icon-40' src='{{uploadpath}}resource/{{res.shigong}}'></image>
+      <image wx:if='{{item.type=="open"}}' class='icon-40' src='{{uploadpath}}resource/{{res.kaitong}}'></image>
+      <image wx:if='{{item.type=="acceptance"}}' class='icon-40' src='{{uploadpath}}resource/{{res.yanshou}}'></image>
+      <view wx:if='{{item.type=="selectio"}}' class='txt-bold txt-black margin-left-80'>选址</view>
+      <view wx:if='{{item.type=="contract_data"}}' class='txt-bold txt-black margin-left-80'>合同资料</view>
+      <view wx:if='{{item.type=="project"}}' class='txt-bold txt-black margin-left-80'>方案设计</view>
+      <view wx:if='{{item.type=="start"}}' class='txt-bold txt-black margin-left-80'>开工报告</view>
+      <view wx:if='{{item.type=="receive"}}' class='txt-bold txt-black margin-left-80'>领货</view>
+      <view wx:if='{{item.type=="allocation"}}' class='txt-bold txt-black margin-left-80'>调货</view>
+      <view wx:if='{{item.type=="construction"}}' class='txt-bold txt-black margin-left-80'>施工</view>
+      <view wx:if='{{item.type=="open"}}' class='txt-bold txt-black margin-left-80'>开通</view>
+      <view wx:if='{{item.type=="acceptance"}}' class='txt-bold txt-black margin-left-80'>验收</view>
+      <button class='h6 txt margin-right-10' style='width:160rpx;border:1rpx solid #03A8F3;' bindtap='chakan' data-type='{{item.type}}' id='{{item.id}}'>更多详情</button>
+    </view>
+
+    <view class='flex-row flex-center' style='height:100rpx;'>
+      <view class='txt-black' style='color:#4A4949'>{{item.taskname}}</view>
+      <view class='txt-black h5 margin-left-20' style='color:#4A4949'>任务截止时间：</view>
+      <view class='txt-black h5' style='color:#4A4949'>{{item.time}}</view>
     </view>
 
     <view class='flex-row flex-center'>
-      <view class='icon-25'></view>
-      <view class='margin-left-40 margin-top-20 txt-black h5' style='color:#4A4949'>任务截止时间：</view>
-      <view class='margin-left-20 margin-top-20 txt-black h5' style='color:#4A4949'>{{item.time}}</view>
-    </view>
-
-    <view class='flex-row flex-center'>
-      <view class='icon-25'></view>
-      <view class='margin-left-40 margin-top-15 txt-black h5' style='color:#4A4949'>任务名称：</view>
-      <view></view>
-      <view class='margin-left-75 margin-top-15 txt-black h5' style='color:#4A4949'>{{item.taskname}}</view>
-    </view>
-
-    <view class='flex-row flex-center'>
-      <button class=' margin-top-20 h5 txt-white' style='width:350rpx;background:#03A8F3' bindtap='chakan' data-type='{{item.type}}' id='{{item.id}}'>查看任务信息</button>
+      
     </view>
   </view>
 </view>

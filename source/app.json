@@ -2,7 +2,6 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-   
     "pages/site/site",
     "pages/fillcontract/fillcontract",
     "pages/design/design",
@@ -34,10 +33,10 @@
     }
   },
   "window": {
-    "navigationBarBackgroundColor": "#03A8F3",
+    "navigationBarBackgroundColor": "#3189F8",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
-    "navigationBarTitleText": "数据化室分流程管理",
+    "navigationBarTitleText": "数据化室分管理",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   },

@@ -278,7 +278,7 @@ export class AppBase {
   onPullDownRefresh() {
     console.log("onPullDownRefresh");
     this.onShow();
-    //wx.stopPullDownRefresh();
+    wx.stopPullDownRefresh();
     
   }
   onReachBottom() {

@@ -22,12 +22,21 @@ page{
 .usermotto {
   margin-top: 200px;
 }
-.to-white{
 
-}
 .top_title{
   position: fixed;
   width: 100%;
   z-index: 10;
-  
+}
+.div {
+    background-color: #FFFFFF;
+    width: 300px;
+    padding: 14px;
+    margin: 15px;
+}
+.txt{
+  color:#03A8F3
+}
+.a{
+  color:#FF9800
 }

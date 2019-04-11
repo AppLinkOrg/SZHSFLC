@@ -1,6 +1,6 @@
 <view style='margin-top:160rpx;' class='text-center' >
   <image src='{{uploadpath}}inst/{{instinfo.logo}}' style='' class='icon-75' mode='widthFix'></image>
-  <view class='txt-black'>数字化室分流程</view>
+  <view class='txt-black'>数字化室分管理</view>
 </view>
 
 <view class='padding-40' >

@@ -26,22 +26,23 @@ class Content extends AppBase {
 
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
       ctt: 1
     });
     console.log(AppBase.dd);
-    console.log(555555555);
+    
   }
+  
   onMyShow() {
     var that = this;
     var taskapi = new TaskApi();
     var supervisorapi = new SupervisorApi();
     var id = this.Base.getMyData().memberinfo.id;
-    //console.log(id + "是是是");
+    
     taskapi.newtasklist({
-      supervisor: AppBase.dd.id
+      supervisor: '1'
+    //  AppBase.dd.id
     }, (newtasklist) => {
       var list = [];
       var list1 = [];

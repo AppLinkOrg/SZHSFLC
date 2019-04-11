@@ -65,7 +65,15 @@ class Content extends AppBase {
       id: this.Base.options.id
     }, (hetongtask) => {
       this.Base.setMyData({
-        hetongtask, date1: hetongtask.date1, date2: hetongtask.date2, date3: hetongtask.date3, date4: hetongtask.date4, remark1: hetongtask.remark1, remark2: hetongtask.remark2, remark2: hetongtask.remark2, remark2: hetongtask.remark2
+        hetongtask,
+        date1: hetongtask.date1,
+        date2: hetongtask.date2,
+        date3: hetongtask.date3,
+        date4: hetongtask.date4,
+        remark1: hetongtask.remark1,
+        remark2: hetongtask.remark2,
+        remark2: hetongtask.remark2,
+        remark2: hetongtask.remark2
       })
     })
   }
@@ -129,7 +137,7 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-    if (data.date1 == undefined||data.date1 =='') {
+    if (data.date1 == undefined || data.date1 == '') {
       this.Base.info("请录入合同资料提交的时间");
       return;
     }
@@ -149,7 +157,7 @@ class Content extends AppBase {
     }
     // console.log(data);
     // return
-  
+
     var timeapi = new TimeApi();
     timeapi.hetongtime(data, (res) => {
       console.log(res)
@@ -204,7 +212,7 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-    if (data.date3 == undefined||data.date3=='') {
+    if (data.date3 == undefined || data.date3 == '') {
       this.Base.info("请录入合同双签时间");
       return;
     }
@@ -240,7 +248,7 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-    if (data.date4 == undefined||data.date3=='') {
+    if (data.date4 == undefined || data.date3 == '') {
       this.Base.info("请录入初次租金电费申请时间");
       return;
     }

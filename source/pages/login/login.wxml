@@ -27,7 +27,7 @@
 
 
   <view>
-    <button class='h5 margin-top-40 txt-white' style='background:#03A8F3' bindtap='confirm'>登录</button>
+    <button class='h5 margin-top-40 txt-white' style='background:#3189F8' bindtap='confirm'>登录</button>
   </view>
 </view>
 
