@@ -19,7 +19,7 @@
     <view class=' text-center  flex-row flex-center  top txt-bold text-decoration:line-underline ' bindtap='bindwaitcompleted'>
       <view class='{{ctt==2?"to-white":"" }}'>进行中</view>
       <view class='{{ctt==2?"to-white":"" }}'></view>
-      <view class='{{ctt==2?"to-white":"" }}'>{{ontasklist.length}}</view>
+      <view wx:if='{{ontasklist.length>0}}' class='{{ctt==2?"to-white":"" }}'>{{ontasklist.length}}</view>
     </view>
     <view wx:if='{{ctt!=2}}' style='height:4rpx;width:150rpx;' class=''></view>
     <view wx:if='{{ctt==2}}' style='height:4rpx;width:150rpx;' class='bg-white'></view>
