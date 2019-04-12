@@ -1,101 +1,95 @@
 <!--pages/fillcontract/fillcontract.wxml 填写合同-->
-
-<view class="margin-bottom-15 background">
-  <view class='flex-row flex-center margin-top-40'>
-    <view class='txt-bold txt-black'>{{hetongtask.name_name}}</view>
+<view  style='background:#3189F8;height:150rpx;'>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white'>{{hetongtask.name_name}}</view>
   </view>
 
   <view class='flex-row flex-center margin-top-20'>
-    <view class='  txt-black h5'>任务截止时间：</view>
-    <view class='  txt-black h5'>{{hetongtask.time}}</view>
+    <view class='margin-left-20 txt-bold txt-white h5'>任务截止时间：</view>
+    <view class='margin-left-20 txt-bold txt-white h5'>{{hetongtask.time}}</view>
   </view>
 </view>
 
-<view style='height:10rpx;background:#eeeeee;width:100%'></view>
 
-
-
-<view class="margin-bottom-70">
-  <view class='margin-left-60 margin-top-20'>合同资料提交时间：</view>
-  <view class='flex-row flex-center margin-top-10'>
-    <image class='icon-25 margin-left-30 margin-top-10' src='{{uploadpath}}resource/{{res.timea}}'></image>
-    <view style='width:35rpx;'></view>
+<view class='margin-bottom-50'>
+<view class='div'>
+  <view class='flex-row flex-center'>
+    <view class=''>合同提交时间：</view>
+    <view class='margin-left-25 h5'>
     <picker mode="date" bindchange="changeDate1" value="{{date1}}" start="{{startdate}}" end="{{enddate}}">
-      <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date1==undefined||hetongtask.date1=='')&&(date1==''||date1==undefined)}}">请录入合同资料提交时间</block>
-
+      <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date1==undefined||hetongtask.date1=='')&&(date1==''||date1==undefined)}}">请录入合同提交时间</block>
       <block wx:if="{{hetongtask.date1!=undefined||hetongtask.date1!=''}}">{{date1}}</block>
     </picker>
+    </view>
   </view>
 
-  <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
-  <view class='flex-row margin-bottom-20'>
-    <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark1}}" placeholder='请填写备注信息'>{{remark1}}</input>
-    <button class='margin-top-20 h6 txt-white' bindtap='submit1' style='background:#03A8F3'>提交</button>
-  </view>
-
-
-  <view class='margin-left-60'>合同资料审核完成时间：</view>
-  <view class='flex-row flex-center margin-bottom-10 margin-top-20'>
-    <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.timeb}}'></image>
-    <view style='width:35rpx;'></view>
-    <picker mode="date" bindchange="changeDate2" value="{{date2}}" start="{{startdate}}">
-      <!--end="{{enddate}}" -->
-      <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date2==undefined||hetongtask.date2=='')&&(date2==''||date2==undefined)}}">请录入合同资料审核完成时间</block>
-
-      <block wx:if="{{hetongtask.date2!=undefined||hetongtask.date2!=''||date2!=''||date2!=undefined}}">{{date2}}</block>
-      <!-- <block wx:if="{{hetongtask.date2==undefined||hetongtask.date2==''}}">{{date2}}</block> -->
-
-    </picker>
-  </view>
-  <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
-  <view class='flex-row margin-bottom-20'>
-    <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange2' value="{{remark2}}" placeholder='请填写备注信息'>{{remark2}}</input>
-    <button class='margin-top-20 h6 txt-white' bindtap='submit2' style='background:#03A8F3'>提交</button>
-  </view>
-
-
-
-
-  <view class='margin-left-60'>合同双签时间：</view>
-  <view class='flex-row flex-center margin-bottom-10 margin-top-20'>
-    <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.timec}}'></image>
-    <view style='width:35rpx;'></view>
-    <picker mode="date" bindchange="changeDate3" value="{{date3}}" start="{{startdate}}" end="{{enddate}}">
-      <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date3==undefined||hetongtask.date3=='')&&(date3==''||date3==undefined)}}">请录入合同双签时间</block>
-      <block wx:if="{{hetongtask.date3!=undefined||hetongtask.date3!=''||date3!=''||date3!=undefined}}">{{date3}}</block>
-    </picker>
-  </view>
-  <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
-  <view class='flex-row margin-bottom-20'>
-    <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-    <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remark3}}" placeholder='请填写备注信息'>{{remark3}}</input>
-    <button class='margin-top-20 h6 txt-white' bindtap='submit3' style='background:#03A8F3'>提交</button>
-  </view>
-
-
+  <view class=' padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
   <view>
-    <view class='margin-left-60'>初次租金电费申请时间：</view>
-    <view class='flex-row flex-center margin-bottom-10 margin-top-20'>
-      <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.timed}}'></image>
-      <view style='width:35rpx;'></view>
-      <picker mode="date" bindchange="changeDate4" value="{{date4}}" start="{{startdate}}" end="{{enddate}}">
-        <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date4==undefined||hetongtask.date4=='')&&(date4==''||date4==undefined)}}">请录入初次租金电费申请时间</block>
-        <block wx:if="{{hetongtask.date4!=undefined||hetongtask.date4!=''||date4!=''||date4!=undefined}}">{{date4}}</block>
-      </picker>
-    </view>
-  
-    <view class='margin-left-110 padding-10' style='width:500rpx;border-bottom:1rpx solid #c2c0c4'></view>
-    <view class='flex-row '>
-      <view class='margin-left-110 margin-top-20 h5'>备注:</view>
-      <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange4' value="{{remark4}}" placeholder='请填写备注信息'>{{remark3}}</input>
-      <button class='margin-top-20 h6 txt-white' bindtap='submit4' style='background:#03A8F3'>提交</button>
-    </view>
+    <view class=' margin-top-20 '>备注:</view>
+    <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark1}}" placeholder='请填写备注信息'></textarea>
+    <button class='margin-top-20 h6 txt-white' bindtap='submit1' style='width:300rpx;background:#3189F8'>提交</button>
   </view>
-
-
-
 </view>
 
-<button class='txt-white margin-bottom-60 h5' bindtap='finish' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>
+<view class='div'>
+  <view class='flex-row flex-center'>
+  <view class=''>合同审核时间：</view>
+    <view class='margin-left-25 h5'>
+    <picker mode="date" bindchange="changeDate2" value="{{date2}}" start="{{startdate}}" end="{{enddate}}">
+      <!--end="{{enddate}}" -->
+      <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date2==undefined||hetongtask.date2=='')&&(date2==''||date2==undefined)}}">请录入合同审核时间</block>
+      <block wx:if="{{hetongtask.date2!=undefined||hetongtask.date2!=''}}">{{date2}}</block>
+      <!-- <block wx:if="{{hetongtask.date2==undefined||hetongtask.date2==''}}">{{date2}}</block> -->
+    </picker>
+    </view>
+  </view>
+  <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
+  <view>
+    <view class='margin-top-20'>备注:</view>
+    <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange2' value="{{remark2}}" placeholder='请填写备注信息'></textarea>
+    <button class='margin-top-20 h6 txt-white' bindtap='submit2' style='width:300rpx;background:#3189F8'>提交</button>
+  </view>
+</view>
+
+
+<view class='div'>
+  <view class='flex-row flex-center'>
+  <view class=''>合同双签时间：</view>
+    <view class='margin-left-25 h5'>
+    <picker mode="date" bindchange="changeDate3" value="{{date3}}" start="{{startdate}}" end="{{enddate}}">
+      <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date3==undefined||hetongtask.date3=='')&&(date3==''||date3==undefined)}}">请录入合同双签时间</block>
+      <block wx:if="{{hetongtask.date3!=undefined||hetongtask.date3!=''}}">{{date3}}</block>
+    </picker>
+    </view>
+  </view>
+  <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
+  <view >
+    <view class='margin-top-20 h5'>备注:</view>
+    <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx;background:#F4F4F4; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remake3}}"  placeholder='请填写备注信息'>{{remake3}}</textarea>
+    <button class='margin-top-20 h6 txt-white' bindtap='submit3' style='width:300rpx;background:#3189F8'>提交</button>
+  </view>
+  </view>
+
+  
+  <view class='div'>
+    <view class='flex-row flex-center'>
+    <view class=''>租金电费申请：</view>
+      <view class='margin-left-25 h5'>
+      <picker mode="date" bindchange="changeDate4" value="{{date4}}" start="{{startdate}}" end="{{enddate}}">
+        <block class=' margin-left-25 ' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{(hetongtask.date4==undefined||hetongtask.date4=='')&&(date4==''||date4==undefined)}}">请录入租金电费时间</block>
+        <block wx:if="{{hetongtask.date4!=undefined||hetongtask.date4!=''}}">{{date4}}</block>
+      </picker>
+       </view>
+    </view>
+  
+    <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
+    <view >
+      <view class=' margin-top-20 h5'>备注:</view>
+      <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx;background:#F4F4F4;solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange4' value="{{remark4}}" placeholder='请填写备注信息'></textarea>
+      <button class='margin-top-20 h6 txt-white' bindtap='submit4' style='width:300rpx;background:#3189F8'>提交</button>
+    </view>
+  </view>
+</view>
+
+<button class='txt-white margin-bottom-60 h5' bindtap='finish' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>
+<view style='height:50rpx'></view>

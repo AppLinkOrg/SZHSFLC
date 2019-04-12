@@ -1,26 +1,28 @@
 <!--pages/mine/mine.wxml 我的-->
 
-<view style='width:100%;padding:10px;background:#eeeeee'>
-  <view class='flex-row flex-center padding-50'>
-    <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-50 radius-50'></image>
-    <view class='margin-left-40'>{{name}}</view>
+<view class='' style='background:#3189F8;'>
+
+  <view class='height-100'></view>
+
+  <view class='flex-row flex-column'>
+    <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-60 radius-50'></image>
+    <view class=' txt-white'>督导</view>
   </view>
+  <view class='height-100'></view>
 </view>
 
-<view style='height:5rpx;background:#03A8F3;width:100%'></view>
-
-<view class='margin-left-20 margin-top-60'>
+<view class='margin-left-20 margin-top-40'>
   <navigator url='/pages/finish/finish' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.finish}}'></image>
     <view class='txt-black margin-left-20'>已完成任务</view>
   </navigator>
 
   <navigator url='/pages/hangup/hangup' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
-  <image class='icon-25' src='{{uploadpath}}resource/{{res.hangup}}'></image>
+    <image class='icon-25' src='{{uploadpath}}resource/{{res.hangup}}'></image>
     <view class='txt-black margin-left-20'>挂起任务</view>
   </navigator>
 
-  <navigator url='/pages/overtime/overtime' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'> 
+  <navigator url='/pages/overtime/overtime' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.overtime}}'></image>
     <view class='txt-black margin-left-20'>超时任务</view>
   </navigator>

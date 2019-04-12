@@ -24,6 +24,11 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: '合同资料任务',
+    })
+  }
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
@@ -93,7 +98,7 @@ class Content extends AppBase {
   inputChange3(e) {
     console.log(e);
     this.Base.setMyData({
-      remark3: e.detail.value
+      remake3: e.detail.value
     });
   }
   inputChange4(e) {
@@ -248,7 +253,7 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-    if (data.date4 == undefined || data.date3 == '') {
+    if (data.date4 == undefined || data.date4 == '') {
       this.Base.info("请录入初次租金电费申请时间");
       return;
     }

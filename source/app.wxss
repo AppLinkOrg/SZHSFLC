@@ -24,6 +24,9 @@ page{
 .to-white{
   color:white;
 }
+.to-ww{
+  color:#3189F8;
+}
 .clear-button::after {
   border: 0;
 }
@@ -616,5 +619,10 @@ button[disabled][type=primary] {
 }
 .maintab-item{
   height: 100%;
+}
+.div {
+  background-color: #fff;
+  padding: 14px;
+  margin: 15px;
 }
 

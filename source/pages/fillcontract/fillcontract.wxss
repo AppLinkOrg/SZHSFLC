@@ -1,3 +1,12 @@
 .background{
   background:#3189F8;
 }
+.div {
+    background-color: #FFFFFF;
+    padding: 14px;
+    margin: 12px;
+    /* position: fixed; */
+}
+page{
+  background:#EEEEEE;
+}

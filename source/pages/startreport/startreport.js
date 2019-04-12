@@ -275,6 +275,11 @@ class Content extends AppBase {
       money: e.detail.value
     });
   }
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: '开工报告',
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();

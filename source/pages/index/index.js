@@ -31,18 +31,17 @@ class Content extends AppBase {
       ctt: 1
     });
     console.log(AppBase.dd);
-    
+
   }
-  
+
   onMyShow() {
     var that = this;
     var taskapi = new TaskApi();
     var supervisorapi = new SupervisorApi();
     var id = this.Base.getMyData().memberinfo.id;
-    
     taskapi.newtasklist({
       supervisor: '1'
-    //  AppBase.dd.id
+      //AppBase.dd.id
     }, (newtasklist) => {
       var list = [];
       var list1 = [];
@@ -142,10 +141,11 @@ class Content extends AppBase {
             icon: 'success',
             duration: 1000 //持续的时间
           })
-          this.onMyShow();
+
         }
       }
     })
+    this.onMyShow();
   }
 
   linqurenwu(e) {
@@ -298,6 +298,11 @@ class Content extends AppBase {
       ctt: 1
     })
     this.onMyShow();
+  }
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: '数字化室分管理',
+    })
   }
 }
 var content = new Content();

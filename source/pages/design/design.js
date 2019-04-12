@@ -24,6 +24,11 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: '方案设计',
+    })
+  }
 
   onLoad(options) {
     this.Base.Page = this;
@@ -78,11 +83,11 @@ class Content extends AppBase {
       if (!id) {
         id = that.Base.getMyData().id;
       }
-      if (data.money == undefined) {
+    if (data.money == undefined || data.money == "") {
         this.Base.info("请输入站点金额");
         return;
       }
-      if (data.date == undefined) {
+    if (data.date == undefined || data.date == "") {
         this.Base.info("请录入方案设计完成的时间");
         return;
       }
@@ -94,10 +99,9 @@ class Content extends AppBase {
         supervisor: abc.supervisor,
         name: abc.name,
         time: abc.time,
-        taskname: abc.taskname,
         status: 'C',
-        completiontime: this.Base.getMyData().date,
-        site_amount: this.Base.getMyData().money
+        site_amount: this.Base.getMyData().money,
+        completiontime: this.Base.getMyData().date 
       }
 
       statusapi.finish({

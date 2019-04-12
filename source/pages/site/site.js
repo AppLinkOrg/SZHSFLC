@@ -144,10 +144,7 @@ class Content extends AppBase {
     if (!id) {
       id = that.Base.getMyData().id;
     }
-    // if (this.Base.getMyData().images.length == 0) {
-    //   this.Base.info("请至少上传一张验收签字表图片");
-    //   return;
-    // }
+    
     if (data.date == undefined) {
       this.Base.info("请录入选址完成的时间");
       return;
@@ -156,12 +153,22 @@ class Content extends AppBase {
       this.Base.info("请输入物业姓名");
       return;
     }
-    if (data.phone == null || data.phone.length != 11 || data.phone[0] != "1") {
+    // data.phone[0] != "1"
+    if (data.phone == null || data.phone.length != 11) {
       this.Base.info("请正确输入物业号码");
+      return;
+    }
+
+    if (this.Base.getMyData().images1.length == 0) {
+      this.Base.info("请至少上传一张管道图片");
       return;
     }
     if (data.mianji == null) {
       this.Base.info("请输入机房面积");
+      return;
+    }
+    if (this.Base.getMyData().images2.length == 0) {
+      this.Base.info("请至少上传一张机房面积图片");
       return;
     }
 
@@ -243,12 +250,9 @@ class Content extends AppBase {
       })
     })
 
-
     var api = new TaskApi();
 
 
-
-    console.log(data.mianji+"三十多岁");
     return;
 
 

@@ -8,6 +8,9 @@ import {
 import {
   InstApi
 } from "../../apis/inst.api.js";
+import {
+  TaskApi
+} from "../../apis/task.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -21,6 +24,21 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var taskapi = new TaskApi();
+    var id = this.Base.getMyData().memberinfo.id;
+    taskapi.newtasklist({
+      supervisor: '1'
+      //AppBase.dd.id
+    }, (newtasklist) => {
+      this.Base.setMyData({
+        newtasklist
+      })
+    })
+  }
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: '数字化室分管理',
+    })
   }
 
 }
