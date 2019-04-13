@@ -77,8 +77,8 @@ class Content extends AppBase {
         date4: hetongtask.date4,
         remark1: hetongtask.remark1,
         remark2: hetongtask.remark2,
-        remark2: hetongtask.remark2,
-        remark2: hetongtask.remark2
+        remark3: hetongtask.remark3,
+        remark4: hetongtask.remark4
       })
     })
   }
@@ -98,7 +98,7 @@ class Content extends AppBase {
   inputChange3(e) {
     console.log(e);
     this.Base.setMyData({
-      remake3: e.detail.value
+      remark3: e.detail.value
     });
   }
   inputChange4(e) {
@@ -192,7 +192,7 @@ class Content extends AppBase {
       supervisor: a.supervisor,
       name: a.name,
       time: a.time,
-      taskname: a.taskname,
+      
       status: 'B',
       remark2: this.Base.getMyData().remark2,
       date2: this.Base.getMyData().date2
@@ -228,7 +228,7 @@ class Content extends AppBase {
       supervisor: a.supervisor,
       name: a.name,
       time: a.time,
-      taskname: a.taskname,
+      
       status: 'B',
       remark3: this.Base.getMyData().remark3,
       date3: this.Base.getMyData().date3
@@ -264,7 +264,6 @@ class Content extends AppBase {
       supervisor: a.supervisor,
       name: a.name,
       time: a.time,
-      taskname: a.taskname,
       status: 'B',
       remark4: this.Base.getMyData().remark4,
       date4: this.Base.getMyData().date4
@@ -304,7 +303,6 @@ class Content extends AppBase {
       supervisor: a.supervisor,
       name: a.name,
       time: a.time,
-      taskname: a.taskname,
       status: 'C',
       remark1: this.Base.getMyData().remark1,
       date1: this.Base.getMyData().date1,
@@ -329,14 +327,7 @@ class Content extends AppBase {
       icon: 'success',
       duration: 1000
     })
-    var api = new TaskApi();
-    var req = {
-      // route: JSON.stringify(data.route),
-      date1: data.date1,
-      date2: data.date2,
-      date3: data.date3,
-      date4: data.date4
-    };
+  
   }
 
 }

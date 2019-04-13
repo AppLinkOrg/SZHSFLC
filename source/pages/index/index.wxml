@@ -43,7 +43,7 @@
       <image wx:if='{{item.type=="acceptance"}}' class='icon-40' src='{{uploadpath}}resource/{{res.yanshou}}'></image>
       <view class='txt-bold txt-black margin-left-80'>{{item.name}}</view>
       <!-- <view style='width:250rpx'></view> -->
-      <button class='h6  margin-right-10' style='width:110rpx;border:1rpx solid #03A8F3;' bindtap='linqurenwu' data-type='{{item.type}}' id='{{item.id}}'>领取</button>
+      <button class='h6 txt margin-right-10' style='width:110rpx;border:1rpx solid #03A8F3;' bindtap='linqurenwu' data-type='{{item.type}}' id='{{item.id}}'>领取</button>
     </view>
 
     <view class='flex-row flex-center' style='height:100rpx;'>

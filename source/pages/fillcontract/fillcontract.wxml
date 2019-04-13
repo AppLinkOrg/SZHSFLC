@@ -65,7 +65,7 @@
   <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
   <view >
     <view class='margin-top-20 h5'>备注:</view>
-    <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx;background:#F4F4F4; solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remake3}}"  placeholder='请填写备注信息'>{{remake3}}</textarea>
+    <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx; solid #c2c0c4；background:#F4F4F4;' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remark3}}" placeholder='请填写备注信息'></textarea>
     <button class='margin-top-20 h6 txt-white' bindtap='submit3' style='width:300rpx;background:#3189F8'>提交</button>
   </view>
   </view>
