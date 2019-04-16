@@ -1,5 +1,5 @@
 <!--pages/site/site.wxml  选址-->
-<view class="margin-bottom-15" style='background:#3189F8;height:150rpx;'>
+<view class="margin-bottom-15" style='background:#3189F8;height:220rpx;'>
   <view class='flex-row flex-center margin-top-20'>
   
     <view class='margin-left-20 txt-bold txt-white'>{{taskinfo.name_name}}</view>
@@ -12,8 +12,8 @@
 </view>
 
 
-
-<view class="">
+<view class="div margin-top-1 ddd" >
+<view >
   <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
     <view class='margin-left-20' style='width:250rpx;'>选址完成时间:</view>
     <view class='margin-left-25 h5'>
@@ -47,7 +47,7 @@
   <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
 </view>
 <view class='margin-10 '>
-  <view class='f-32 bg-gray padding-10 '>上传管道照片:</view>
+  <view class='f-32  padding-10 '>上传管道照片:</view>
   <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
@@ -79,7 +79,7 @@
   <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
 </view>
 <view class='margin-10 '>
-  <view class='f-32 bg-gray padding-10'>上传机房面积照片:</view>
+  <view class='f-32  padding-10'>上传机房面积照片:</view>
   <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
@@ -102,5 +102,5 @@
     <view class='flex-1'></view>
   </view>
 </view>
-
-<button class='margin-bottom-40 txt-white h5' bindtap='confirm'  id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>
+</view>
+<button class='margin-bottom-40 txt-white h5' bindtap='confirm'  id='{{datas.id}}' style='width:550rpx;background:#03A8F3;border-radius:20px;'>完成</button>

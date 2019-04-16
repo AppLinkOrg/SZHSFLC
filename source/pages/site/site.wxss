@@ -1,7 +1,10 @@
 /* pages/site/site.wxss */
+page{
+  background-color: #EEEEEE;
+}
 .content {
   width: 100%;
-  background-color: #fff;
+  background-color: #EEEEEE;
 }
 
 .img-list {
@@ -82,7 +85,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background-color: #d9d9d9;
+  background-color: #fff;
 }
 
 .tips {
@@ -95,4 +98,15 @@
   width: 92%;
   margin: auto;
   padding-top: 20rpx;
+}
+.div {
+  background-color: #fff;
+  padding: 14px;
+  margin: 15px;
+}
+.margin-top-1{
+  margin-top:-80rpx;
+}
+.ddd{
+  border-radius:20rpx
 }

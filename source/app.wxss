@@ -625,4 +625,9 @@ button[disabled][type=primary] {
   padding: 14px;
   margin: 15px;
 }
-
+.margin-top-1{
+  margin-top:-80rpx;
+}
+.ddd{
+  border-radius:20rpx
+}

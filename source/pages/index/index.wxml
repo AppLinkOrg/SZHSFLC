@@ -6,8 +6,10 @@
 
     <view class=' text-center flex-row flex-center    top txt-bold text-decoration:line-underline ' bindtap='bindcontact'>
       <view class='{{ctt==1?"to-white":"" }}'>新任务</view>
-      <view  class='{{ctt==1?"to-white":"" }}'></view>
-      <view wx:if='{{newtasklist.length>0}}' class='{{ctt==1?"to-white":"" }}'>{{newtasklist.length}}</view>
+      <view wx:if='{{newtasklist.length>0}}' class='xiaoxi1 text-center flex-row flex-column'>
+      <view class='txt-white h6 nm' style='margin-top:2rpx;padding-right:8rpx;'>{{newtasklist.length}}</view>
+      <image class='num' src='{{uploadpath}}resource/{{res.xiaoxitishi}}'></image>
+      </view>
     </view>
 
     <view wx:if='{{ctt!=1}}' style='height:4rpx;width:150rpx;' class=''></view>
@@ -18,8 +20,10 @@
   <view class='catitem flex-1 bg-white flex-row flex-column padding-20' wx:key="k" bindtap='bindwaitcompleted' style='background-color:#3189F8'>
     <view class=' text-center  flex-row flex-center  top txt-bold text-decoration:line-underline ' bindtap='bindwaitcompleted'>
       <view class='{{ctt==2?"to-white":"" }}'>进行中</view>
-      <view class='{{ctt==2?"to-white":"" }}'></view>
-      <view wx:if='{{ontasklist.length>0}}' class='{{ctt==2?"to-white":"" }}'>{{ontasklist.length}}</view>
+      <view wx:if='{{ontasklist.length>0}}' class='xiaoxi text-center flex-row flex-column'>
+      <view class='txt-white h6 nm' style='margin-top:2rpx;padding-right:8rpx;'>{{ontasklist.length}}</view>
+      <image class='num' src='{{uploadpath}}resource/{{res.xiaoxitishi}}'></image>
+      </view>
     </view>
     <view wx:if='{{ctt!=2}}' style='height:4rpx;width:150rpx;' class=''></view>
     <view wx:if='{{ctt==2}}' style='height:4rpx;width:150rpx;' class='bg-white'></view>
@@ -30,7 +34,7 @@
 <view style='height:75rpx;'></view>
 
 <view wx:if='{{ctt==1}}'>
-  <view wx:for='{{newtasklist}}' wx:key='k' class='div'>
+  <view wx:for='{{newtasklist}}' wx:key='k' class='div ddd'>
     <view class='flex-row flex-center'>
       <image wx:if='{{item.type=="selectio"}}' class='icon-40' src='{{uploadpath}}resource/{{res.xuanzhi}}'></image>
       <image wx:if='{{item.type=="contract_data"}}' class='icon-40' src='{{uploadpath}}resource/{{res.hetong}}'></image>
@@ -65,7 +69,7 @@
 </view>
 
 <view wx:if='{{ctt==2}}'>
-  <view wx:for='{{ontasklist}}' wx:key='k' class='div'>
+  <view wx:for='{{ontasklist}}' wx:key='k' class='div ddd'>
     <view class='flex-row flex-center'>
       <image wx:if='{{item.type=="selectio"}}' class='icon-40' src='{{uploadpath}}resource/{{res.xuanzhi}}'></image>
       <image wx:if='{{item.type=="contract_data"}}' class='icon-40' src='{{uploadpath}}resource/{{res.hetong}}'></image>

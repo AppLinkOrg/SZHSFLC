@@ -44,3 +44,27 @@ page {
 .a {
   color: #ff9800;
 }
+.xiaoxi{
+  position: fixed;
+  z-index: 100;
+  right: 100rpx;
+  top: 7rpx;
+}
+.xiaoxi1{
+  position: fixed;
+  z-index: 100;
+  right: 470rpx;
+  top: 7rpx;
+}
+.num{
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 50%;
+}
+
+.nm{
+  position: absolute;
+  z-index: 120;
+  /* top: 10rpx;
+  right: 101rpx; */
+}

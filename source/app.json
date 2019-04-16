@@ -37,7 +37,7 @@
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "navigationBarTitleText": "数字化室分管理",
-    "backgroundColor": "#eeeeee",
+    "backgroundColor": "#EEEEEE",
     "backgroundTextStyle": "light"
   },
   "tabBar": {

@@ -1,5 +1,5 @@
 <!--pages/fillcontract/fillcontract.wxml 填写合同-->
-<view  style='background:#3189F8;height:150rpx;'>
+<view  style='background:#3189F8;height:220rpx;'>
   <view class='flex-row flex-center margin-top-20'>
     <view class='margin-left-20 txt-bold txt-white'>{{hetongtask.name_name}}</view>
   </view>
@@ -10,9 +10,9 @@
   </view>
 </view>
 
-
+<view class='margin-top-1'>
 <view class='margin-bottom-50'>
-<view class='div'>
+<view class='div ddd'>
   <view class='flex-row flex-center'>
     <view class=''>合同提交时间：</view>
     <view class='margin-left-25 h5'>
@@ -31,7 +31,7 @@
   </view>
 </view>
 
-<view class='div'>
+<view class='div ddd'>
   <view class='flex-row flex-center'>
   <view class=''>合同审核时间：</view>
     <view class='margin-left-25 h5'>
@@ -52,7 +52,7 @@
 </view>
 
 
-<view class='div'>
+<view class='div ddd'>
   <view class='flex-row flex-center'>
   <view class=''>合同双签时间：</view>
     <view class='margin-left-25 h5'>
@@ -71,7 +71,7 @@
   </view>
 
   
-  <view class='div'>
+  <view class='div ddd'>
     <view class='flex-row flex-center'>
     <view class=''>租金电费申请：</view>
       <view class='margin-left-25 h5'>
@@ -90,6 +90,6 @@
     </view>
   </view>
 </view>
-
+</view>
 <button class='txt-white margin-bottom-60 h5' bindtap='finish' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>
 <view style='height:50rpx'></view>

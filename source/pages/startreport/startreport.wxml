@@ -21,7 +21,7 @@
 
 
   <view class='margin-top-20 '>
-    <view class='f-32 bg-gray padding-10 '>上传开工报告照片:</view>
+    <view class='f-32  padding-10 '>上传开工报告照片:</view>
     <view class='flex-row'>
       <view class='flex-1'></view>
       <view class='img-box'>
