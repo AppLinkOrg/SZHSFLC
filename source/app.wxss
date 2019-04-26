@@ -81,6 +81,15 @@ view,navigator,input,text,textarea{
 .flex-5{
   flex:5;
 }
+.flex-6{
+  flex:6;
+}
+.flex-7{
+  flex:7;
+}
+.flex-8{
+  flex:8;
+}
 .text-center{
   text-align: center;
 }
@@ -565,6 +574,10 @@ button[disabled][type=primary] {
   width: 60rpx;
   height: 60rpx;
 }
+.aa {
+  max-width: 80rpx;
+  max-height: 80rpx;
+}
 .icon-40{
   width: 80rpx;
   height: 80rpx;
@@ -627,6 +640,9 @@ button[disabled][type=primary] {
 }
 .margin-top-1{
   margin-top:-80rpx;
+}
+.margin-top-2{
+  margin-top:-120rpx;
 }
 .ddd{
   border-radius:20rpx

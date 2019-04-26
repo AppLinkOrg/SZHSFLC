@@ -25,7 +25,11 @@
     "pages/constructiondetails/constructiondetails",
     "pages/openupdetails/openupdetails",
     "pages/acceptancedetails/acceptancedetails",
-    "pages/taskdetails/taskdetails"
+    "pages/taskdetails/taskdetails",
+    "pages/danyou/danyou",
+    "pages/danyoudetails/danyoudetails",
+    "pages/rctask/rctask",
+    "pages/rctaskdetails/rctaskdetails"
   ],
   "permission": {
     "scope.userLocation": {
@@ -59,5 +63,6 @@
         "selectedIconPath": "images/icons/mine-a.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

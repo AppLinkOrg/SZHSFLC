@@ -40,7 +40,7 @@ class Content extends AppBase {
     var supervisorapi = new SupervisorApi();
     var id = this.Base.getMyData().memberinfo.id;
     taskapi.newtasklist({
-      supervisor: 
+      supervisor:
       AppBase.dd.id
     }, (newtasklist) => {
       var list = [];
@@ -73,7 +73,6 @@ class Content extends AppBase {
       content: '挂起任务可在我的中心查看',
       success: function(res) {
         if (res.confirm) { //这里是点击了确定以后
-
           if (type == 'selectio') {
             statusapi.guaqi({
               id: id,
@@ -132,6 +131,21 @@ class Content extends AppBase {
             statusapi.guaqi({
               id: id,
               gq: "I"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          } else if (type == 'danyou') {
+            statusapi.guaqi({
+              id: id,
+              gq: "J"
+            }, (guaqi) => {
+              console.log(guaqi)
+            })
+          }
+          else if (type == 'rctask') {
+            statusapi.guaqi({
+              id: id,
+              gq: "K"
             }, (guaqi) => {
               console.log(guaqi)
             })
@@ -232,6 +246,22 @@ class Content extends AppBase {
             }, (site) => {
               console.log(site)
             })
+          } else if (type == 'danyou') {
+            url = '/pages/danyou/danyou?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "J"
+            }, (site) => {
+              console.log(site)
+            })
+          } else if (type == 'rctask') {
+            url = '/pages/rctask/rctask?id=' + id
+            statusapi.site({
+              id: id,
+              jx: "K"
+            }, (site) => {
+              console.log(site)
+            })
           }
           console.log(url)
 
@@ -281,6 +311,10 @@ class Content extends AppBase {
       url = '/pages/openup/openup?id=' + id
     } else if (type == 'acceptance') {
       url = '/pages/acceptance/acceptance?id=' + id
+    } else if (type == 'danyou') {
+      url = '/pages/danyou/danyou?id=' + id
+    } else if (type == 'rctask') {
+      url = '/pages/rctask/rctask?id=' + id
     }
     console.log(url)
     wx.navigateTo({
