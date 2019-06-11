@@ -28,6 +28,7 @@
   </view> -->
 
   <view class=''>现场反馈:</view>
+  
   <textarea class='margin-top-15   txt-black h5' style='width:95%;height:400rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark}}" placeholder='请填写现场反馈'></textarea>
   <view style='height:100rpx'></view>
 </view>
