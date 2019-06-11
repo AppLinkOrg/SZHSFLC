@@ -1,0 +1,4 @@
+/* pages/openup/openup.wxss */
+page{
+  background-color:#eeeeee
+}

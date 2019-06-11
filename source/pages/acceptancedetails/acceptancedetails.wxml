@@ -1,0 +1,41 @@
+<!--pages/acceptancedetails/acceptancedetails.wxml 验收报告任务完成详情-->
+
+<view class="margin-left-40 margin-top-20">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>{{yanshoutask.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-30'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75  txt-black h5'>验收</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{yanshoutask.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务完成时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{yanshoutask.updated_date}}</view>
+  </view>
+  <!-- <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>完成单优时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{yanshoutask.sheettime}}</view>
+  </view> -->
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>完成验收时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{yanshoutask.singlefinishtime}}</view>
+  </view>
+   <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>问题报告照片：</view>
+    <image src='{{uploadpath}}acceptance/{{yanshoutask.signphoto1}}' class='image'></image>
+  </view>
+</view>

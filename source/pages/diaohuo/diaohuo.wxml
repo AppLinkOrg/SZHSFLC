@@ -1,0 +1,44 @@
+<!--pages/diaohuo/diaohuo.wxml  调货-->
+
+<view style='background:#3189F8;height:280rpx;'>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white'>{{diaohuotask.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white '>调入站点：</view>
+    <view class='margin-left-20 txt-bold txt-white '>{{diaohuotask.diaoruname}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white '>任务截止时间：</view>
+    <view class='margin-left-20 txt-bold txt-white '>{{diaohuotask.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white'>施工队：</view>
+    <view class='margin-left-20 txt-bold txt-white'>{{diaohuotask.constructor_name}}</view>
+  </view>
+</view>
+
+<view>
+
+  <view class='history-table-wrap'>
+    <view class=" title">
+      <view class="th th1">物料名称</view>
+      <view class="th th2">调货数量</view>
+      <view class="th th3">实际调货数量</view>
+    </view>
+    <view class="table" style='margin-top:77rpx'>
+
+      <view class="tr" wx:for="{{diaohuonumber}}" wx:key='k' wx:for-index="idx">
+        <view class="td td1 h5">{{item.name_name}}</view>
+        <view class="td td2 h5">{{item.number}}</view>
+        <view class="td td3 h5">
+          <input class='h5' id="{{idx}}" bindinput='numbersChange'></input>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<button class='txt-white h5' bindtap='finish' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>

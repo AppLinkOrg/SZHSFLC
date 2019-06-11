@@ -1,0 +1,36 @@
+<!--pages/danyoudetail/designdetail.wxml -->
+<view class="margin-left-40 margin-top-20">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>{{rctask.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-30'>
+    <!-- <view class='icon-25'></view> -->
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-20  txt-black h5'>{{rctask.taskname}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-30'>
+    <!-- <view class='icon-25'></view> -->
+    <view class='margin-left-40 flex-1 txt-black h5'>任务详情：</view>
+    <view></view>
+    <view class='margin-left-20  txt-black h5'>{{rctask.taskinfo}}</view>
+  </view>
+
+
+  <view class='flex-row flex-center margin-top-20'>
+    <!-- <view class='icon-25'></view> -->
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{rctask.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <!-- <view class='icon-25'></view> -->
+    <view class='margin-left-40  txt-black h5'>任务完成时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{rctask.time_dateformat}}</view>
+  </view>
+  <view class='div111  ddd margin-top-20'>
+    <view class='margin-left-40  txt-black h5'>备注：</view>
+    <view class='margin-left-40 margin-top-20 txt-black h5'>{{rctask.remark}}</view>
+  </view>
+</view>

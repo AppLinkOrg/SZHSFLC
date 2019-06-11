@@ -1,0 +1,49 @@
+<!--pages/finish/finish.wxml   已完成任务-->
+<view wx:for='{{newtasklist}}' wx:key='k' class='div ddd' bindtap='chakan' data-type='{{item.type}}' id='{{item.id}}'>
+  <view class='flex-row flex-center'>
+
+    <view class='flex-1'>
+      <view class='flex-row flex-center'>
+        <image wx:if='{{item.type=="selectio"}}' class='aa' src='{{uploadpath}}resource/{{res.xuanzhi}}'></image>
+        <image wx:if='{{item.type=="contract_data"}}' class='aa' src='{{uploadpath}}resource/{{res.hetong}}'></image>
+        <image wx:if='{{item.type=="project"}}' class='aa' src='{{uploadpath}}resource/{{res.fangansheji}}'></image>
+        <image wx:if='{{item.type=="start"}}' class='aa' src='{{uploadpath}}resource/{{res.kaigongbaogao}}'></image>
+        <image wx:if='{{item.type=="receive"}}' class='aa' src='{{uploadpath}}resource/{{res.linghuo}}'></image>
+        <image wx:if='{{item.type=="allocation"}}' class='aa' src='{{uploadpath}}resource/{{res.diaohuo}}'></image>
+        <image wx:if='{{item.type=="construction"}}' class='aa' src='{{uploadpath}}resource/{{res.shigong}}'></image>
+        <image wx:if='{{item.type=="open"}}' class='aa' src='{{uploadpath}}resource/{{res.kaitong}}'></image>
+        <image wx:if='{{item.type=="acceptance"}}' class='aa' src='{{uploadpath}}resource/{{res.yanshou}}'></image>
+        <image wx:if='{{item.type=="danyou"}}' class='aa' src='{{uploadpath}}resource/{{res.yanshou}}'></image>
+        <image wx:if='{{item.type=="rctask"}}' class='aa' src='{{uploadpath}}resource/{{res.rctask}}'></image>
+        <view class='txt-bold txt-black margin-left-80'>{{item.name}}</view>
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view class='flex-row flex-center' style='height:100rpx;'>
+          <view wx:if='{{item.type=="selectio"}}' style='width:140rpx' class='txt-bold txt-black '>选址</view>
+          <view wx:if='{{item.type=="contract_data"}}' style='width:140rpx' class='txt-bold txt-black '>合同资料</view>
+          <view wx:if='{{item.type=="project"}}' style='width:140rpx' class='txt-bold txt-black '>方案设计</view>
+          <view wx:if='{{item.type=="start"}}' style='width:140rpx' class='txt-bold txt-black '>开工报告</view>
+          <view wx:if='{{item.type=="receive"}}' style='width:140rpx' class='txt-bold txt-black '>领货</view>
+          <view wx:if='{{item.type=="allocation"}}' style='width:140rpx' class='txt-bold txt-black'>调货</view>
+          <view wx:if='{{item.type=="construction"}}' style='width:140rpx' class='txt-bold txt-black '>施工</view>
+          <view wx:if='{{item.type=="open"}}' style='width:140rpx' class='txt-bold txt-black '>开通</view>
+          <view wx:if='{{item.type=="acceptance"}}' style='width:140rpx' class='txt-bold txt-black '>验收</view>
+          <view wx:if='{{item.type=="danyou"}}' style='width:140rpx' class='txt-bold txt-black '>单优</view>
+          <view wx:if='{{item.type=="rctask"}}' style='width:140rpx' class='txt-bold txt-black '>日常任务</view>
+          <view class='txt-black h5 margin-left-20' style='color:#4A4949'>任务截止时间：</view>
+          <view class='txt-black h5' style='color:#4A4949'>{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class=''>
+      <image class='icon ' src='{{uploadpath}}resource/{{res.yiwancheng}}'></image>
+    </view>
+
+  </view>
+</view>
+
+
+<!-- <button class='margin-top-30 h5 txt-white' bindtap='chakan' data-type='{{item.type}}' id='{{item.id}}' style='background:#03A8F3;width:200px'>查看详情</button> -->

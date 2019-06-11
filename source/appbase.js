@@ -310,6 +310,7 @@ export class AppBase {
   getMyData() {
     return this.Page.data;
   }
+  
   getPhoneNo(e) {
     var that = this;
     console.log(e);
@@ -478,6 +479,54 @@ export class AppBase {
         //do something
       }
     });
+  }
+
+  uploadImage1(modul, callback, completecallback, count) {
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      count: count,
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        console.log(res.tempFilePaths);
+        //that.setData({
+        //  photos: that.data.photos.concat(res.tempFilePaths)
+        //});
+        var tempFilePaths = res.tempFilePaths
+        for (var i = 0; i < tempFilePaths.length; i++) {
+
+          wx.uploadFile({
+            url: ApiConfig.GetFileUploadAPI(), //仅为示例，非真实的接口地址
+            filePath: tempFilePaths[i],
+            name: 'file',
+            formData: {
+              'module': modul,
+              "field": "file"
+            },
+            success: function (res) {
+              console.log(res);
+              var data = res.data
+              if (data.substr(0, 7) == "success") {
+                data = data.split("|");
+                var photo = data[2];
+                callback(photo, i);
+              } else {
+                console.error(res.data);
+                wx.showToast({
+                  title: '上传失败，请重试',
+                  icon: 'warn',
+                  duration: 2000
+                })
+              }
+              //do something
+            }
+          });
+        }
+        if (completecallback != undefined) {
+          completecallback();
+        }
+      }
+    })
   }
   uploadImage(modul, callback, count = 1, completecallback) {
     wx.chooseImage({

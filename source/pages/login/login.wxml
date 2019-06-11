@@ -1,13 +1,13 @@
 <!--pages/login/login.wxml  首页-->
 
 <view class='padding-60'>
-  <image src='{{uploadpath}}resource/{{res.loginbottom}}' class='icon-50 radius-50'></image>
+  <image src='{{uploadpath}}resource/{{res.touxiang}}' class='icon-50 radius-50'></image>
 
   <view class='height-50'></view>
 
   <view class='txt-black h4 txt-bold '>欢迎使用数字化室分流程管理系统</view>
 
-  <view class='height-50'></view>
+  <view class='height-70'></view>
 
   <view class='flex-row column'>
     <view class='txt-bold txt-black'>用户名</view>
@@ -25,10 +25,10 @@
     </view>
   </view> 
 
-
+<view style='height:80rpx'></view>
   <view>
     <button class='h5 margin-top-40 txt-white' style='background:#3189F8' bindtap='confirm'>登录</button>
   </view>
 </view>
 
-<image class='img' src='{{uploadpath}}resource/{{res.loginbottom}}' mode="widthFix"></image>
+<!-- <image class='img' src='{{uploadpath}}resource/{{res.loginbottom}}' mode="widthFix"></image> -->

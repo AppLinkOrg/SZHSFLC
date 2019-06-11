@@ -83,7 +83,7 @@ class Content extends AppBase {
   
   uploadimg1() {
     var that = this;
-    this.Base.uploadImage("selection", (ret) => {
+    this.Base.uploadImage1("selection", (ret) => {
       console.log(ret)
       var images1 = that.Base.getMyData().images1;
       images1.push(ret);
@@ -110,7 +110,7 @@ class Content extends AppBase {
 
   uploadimg2() {
     var that = this;
-    this.Base.uploadImage("selection", (ret) => {
+    this.Base.uploadImage1("selection", (ret) => {
       console.log(ret)
       var images2 = that.Base.getMyData().images2;
       images2.push(ret);

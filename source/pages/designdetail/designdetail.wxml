@@ -1,0 +1,32 @@
+<!--pages/designdetail/designdetail.wxml 方案设计完成详情-->
+<view class="margin-left-40 margin-top-20">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>{{fangansjtask.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-30'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75  txt-black h5'>方案设计</view>
+  </view>
+
+ 
+
+<view class='flex-row flex-center margin-top-20'>
+  <view class='icon-25'></view>
+  <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+  <view class='margin-left-20  txt-black h5'>{{fangansjtask.time}}</view>
+</view>
+<view class='flex-row flex-center margin-top-20'>
+  <view class='icon-25'></view>
+  <view class='margin-left-40  txt-black h5'>设计完成时间：</view>
+  <view class='margin-left-20  txt-black h5'>{{fangansjtask.completiontime}}</view>
+</view>
+<view class='flex-row flex-center margin-top-20'>
+  <view class='icon-25'></view>
+  <view class='margin-left-40  txt-black h5'>站点金额：</view>
+  <view class='margin-left-75  txt-black h5'>{{fangansjtask.site_amount}}</view>
+</view>
+</view>

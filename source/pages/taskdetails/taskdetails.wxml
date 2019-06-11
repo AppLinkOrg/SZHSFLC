@@ -1,0 +1,142 @@
+<!--pages/taskdetails/taskdetails.wxml-->
+
+<!--pages/site/site.wxml  1.选址-->
+
+<view wx:if='{{task=="A"}}'>
+<view class="margin-bottom-15">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class=' txt-bold txt-black'>后台创建的名称</view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40 margin-top-20 txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20 margin-top-20 txt-black h5'>2月19日 18：30</view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40 margin-top-15 txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75 margin-top-15 txt-black h5'>选址</view>
+  </view>
+</view>
+
+<view style='height:10rpx;background:#eeeeee;width:100%'></view>
+
+<view class="margin-bottom-70">
+  <view class='flex-row flex-center margin-top-20 margin-bottom-10'>
+    <image class='icon-25 margin-left-30 margin-top-20' src='{{uploadpath}}resource/{{res.sitetime}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入选址完成的时间'></input>
+  </view>
+  <view class='flex-row flex-center margin-bottom-10'>
+    <image class='icon-30 margin-left-25' src='{{uploadpath}}resource/{{res.person}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' type='text' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入物业关键人姓名'></input>
+  </view>
+  <view class='flex-row flex-center margin-bottom-10'>
+    <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.phone}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' type='number' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入物业关键人电话'></input>
+  </view>
+
+  <view>
+    <view class='flex-row flex-center margin-bottom-10'>
+      <image class='icon-22 margin-left-30' src='{{uploadpath}}resource/{{res.dot}}'></image>
+      <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入红线内管道'></input>
+    </view>
+    <view class='flex-row flex-center margin-left-80 margin-top-20'>
+      <view class='h5 margin-left-25'>上传图片：</view>
+      <image class='icon-25'></image>
+    </view>
+  </view>
+
+  <view>
+    <view class='flex-row flex-center margin-bottom-10'>
+      <image class='icon-22 margin-left-34' src='{{uploadpath}}resource/{{res.rectangle}}'></image>
+      <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请输入机房面积'></input>
+    </view>
+    <view class='flex-row flex-center margin-left-80 margin-top-20'>
+      <view class='h5 margin-left-25'>上传图片：</view>
+      <image class='icon-25'></image>
+    </view>
+  </view>
+
+</view>
+
+<button class='txt-white h5' style='width:450rpx;background:#03A8F3;'>完成</button>
+</view>
+
+
+
+
+
+
+
+<!--pages/fillcontract/fillcontract.wxml 2.填写合同-->
+<view wx:if='{{task=="B"}}'>
+<view class="margin-bottom-15">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>后台创建的名称</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>2月19日 18：30</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-15'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75  txt-black h5 '>填写合同资料</view>
+  </view>
+</view>
+
+<view style='height:10rpx;background:#eeeeee;width:100%'></view>
+
+<view class="margin-bottom-70">
+  <view class='flex-row flex-center margin-top-20 margin-bottom-10'>
+    <image class='icon-25 margin-left-30 margin-top-20' src='{{uploadpath}}resource/{{res.timea}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入合同资料提交的时间'></input>
+  </view>
+  <view class='flex-row '>
+  <view class='margin-left-110 margin-top-20 h5'>备注:</view>
+  <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+  <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+  </view>
+
+  <view class='flex-row flex-center margin-bottom-10'>
+    <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.timeb}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入合同资料审核完成时间'></input>
+  </view>
+  <view class='flex-row '>
+  <view class='margin-left-110 margin-top-20 h5'>备注:</view>
+  <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+  <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+  </view>
+
+  <view class='flex-row flex-center margin-bottom-10'>
+    <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.timec}}'></image>
+    <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入合同双签时间'></input>
+  </view>
+  <view class='flex-row '>
+  <view class='margin-left-110 margin-top-20 h5'>备注:</view>
+  <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+  <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+  </view>
+
+  <view>
+    <view class='flex-row flex-center margin-bottom-10'>
+      <image class='icon-25 margin-left-30' src='{{uploadpath}}resource/{{res.timed}}'></image>
+      <input class='margin-top-20 margin-left-25 padding-10 txt-black h5' style='width:480rpx;border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请录入初次租金电费申请时间'></input>
+    </view>
+    <view class='flex-row '>
+  <view class='margin-left-110 margin-top-20 h5'>备注:</view>
+  <input class='margin-top-15 margin-left-25  txt-black h5' style='width:380rpx; solid #c2c0c4' placeholder-style='color:#c2c5c8' placeholder='请填写备注信息'></input>
+  <button class='margin-top-20 h6 txt-white' style='background:#03A8F3'>提交</button>
+  </view>
+  </view>
+</view>
+</view>

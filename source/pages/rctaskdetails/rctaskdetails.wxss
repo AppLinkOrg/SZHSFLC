@@ -1,0 +1,6 @@
+/* pages/rctaskdetails/rctaskdetails.wxss */
+.div111 {
+  background-color: #fff;
+  /* padding: 14px; */
+  /* margin: 4px; */
+}

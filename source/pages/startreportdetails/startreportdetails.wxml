@@ -1,0 +1,40 @@
+<!--pages/startreportdetails/startreportdetails.wxml  开工报告任务完成详情-->
+<view class="margin-left-40 margin-top-20">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>{{startreport.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-30'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75  txt-black h5'>开工报告</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{startreport.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务完成时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{startreport.updated_date}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>开工报告金额：</view>
+    <view class='margin-left-20  txt-black h5'>{{startreport.reportamount}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>开工报告照片：</view>
+    <image src='{{uploadpath}}start/{{startreport.startphoto_img1}}' class='image'></image>
+  </view>
+   <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>问题报告照片：</view>
+    <image src='{{uploadpath}}start/{{startreport.problemphoto_img1}}' class='image'></image>
+  </view>
+</view>

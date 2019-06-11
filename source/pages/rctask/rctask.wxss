@@ -1,0 +1,4 @@
+/* pages/rctask/rctask.wxss */
+page{
+  background:#EEEEEE;
+}

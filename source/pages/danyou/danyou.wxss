@@ -1,0 +1,8 @@
+/* pages/danyou/danyou.wxss */
+.background{
+  background:#3189F8;
+}
+
+page{
+  background:#EEEEEE;
+}

@@ -40,8 +40,8 @@ class Content extends AppBase {
     var supervisorapi = new SupervisorApi();
     var id = this.Base.getMyData().memberinfo.id;
     taskapi.newtasklist({
-      supervisor:
-      AppBase.dd.id
+      supervisor:8
+      //AppBase.dd.id
     }, (newtasklist) => {
       var list = [];
       var list1 = [];
@@ -155,7 +155,6 @@ class Content extends AppBase {
             icon: 'success',
             duration: 1000 //持续的时间
           })
-
         }
       }
     })

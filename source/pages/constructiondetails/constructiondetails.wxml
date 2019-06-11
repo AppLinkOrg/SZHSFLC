@@ -1,0 +1,53 @@
+<!--pages/constructiondetails/constructiondetails.wxml  施工任务完成详情-->
+
+<view class=" margin-top-20">
+  <view class='flex-row flex-center margin-top-20'>
+    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>{{shigongtask.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-30'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-20  txt-black h5'>施工</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>施工队：</view>
+    <view class='margin-left-20  txt-black h5'>{{shigongtask.constructor_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{shigongtask.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务完成时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{shigongtask.updated_date}}</view>
+  </view>
+  <view class='flex-row  margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>现场工艺照片：</view>
+    <image src='{{uploadpath}}construction/{{shigongtask.technologyphoto1}}' class='image'></image>
+  </view>
+</view>
+
+<view class='history-table-wrap'>
+  <view class=" title">
+    <view class="th th1">物料名称</view>
+    <view class="th th2">物料数量</view>
+    <view class="th th3">实际使用数量</view>
+  </view>
+  <view class="table" style='margin-top:77rpx'>
+
+    <view class="tr" wx:for="{{shigongnumber}}" wx:key='k' wx:for-index="idx">
+      <view class="td td1 h6">{{item.material_name}}</view>
+      <view class="td td2 h6">{{item.number}}</view>
+      <view class="td td3 h6">{{item.numbers}}</view>
+    </view>
+  </view>
+</view>

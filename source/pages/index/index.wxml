@@ -56,11 +56,11 @@
     </view>
 
     <view class='flex-row flex-center' style='height:100rpx;'>
-      <view wx:if='{{item.type=="selectio"}}' style='width:130rpx' class='txt-bold txt-black '>选址</view>
+      <view wx:if='{{item.type=="selectio"}}' style='width:130rpx' class='txt-bold txt-black '> 选址</view>
       <view wx:if='{{item.type=="contract_data"}}' style='width:130rpx' class='txt-bold txt-black '>合同资料</view>
       <view wx:if='{{item.type=="project"}}' style='width:130rpx' class='txt-bold txt-black '>方案设计</view>
       <view wx:if='{{item.type=="start"}}' style='width:130rpx' class='txt-bold txt-black '>开工报告</view>
-      <view wx:if='{{item.type=="receive"}}' style='width:130rpx' class='txt-bold txt-black '>领货</view>
+      <view wx:if='{{item.type=="receive"}}' style='width:130rpx' class='txt-bold txt-black '> 领货</view>
       <view wx:if='{{item.type=="allocation"}}' style='width:130rpx' class='txt-bold txt-black'>调货</view>
       <view wx:if='{{item.type=="construction"}}' style='width:130rpx' class='txt-bold txt-black '>施工</view>
       <view wx:if='{{item.type=="open"}}' style='width:130rpx' class='txt-bold txt-black '>开通</view>

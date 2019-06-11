@@ -1,0 +1,36 @@
+<!--pages/danyou/danyou.wxml 日常任务-->
+
+<view style='background:#3189F8;height:220rpx;'>
+  <view class='flex-row  margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white h5 '>任务名称：</view>
+    <view class='margin-left-20 txt-bold txt-white h5 flex-1'>{{rctask.taskname}}</view>
+  </view>
+  <view class='flex-row  margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white h5 '>任务详情：</view>
+    <view class='margin-left-20 txt-bold txt-white h5 flex-1'>{{rctask.taskinfo}}</view>
+  </view>
+
+  <view class='flex-row  margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white h5 '>任务截止时间：</view>
+    <view class='margin-left-20 txt-bold txt-white h5 flex-1'>{{rctask.time}}</view>
+  </view>
+</view>
+
+<view class='div  ddd'>
+  <!-- <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
+    <view class='margin-left-20' style='width:250rpx;'>站点单优时间:</view>
+    <view class=' h5'>
+      <picker mode="date" bindchange="changeDate" value="{{date}}" start="{{startdate}}" end="{{enddate}}">
+        <block placeholder-style='color:#c2c5c8' wx:if="{{date==undefined}}">请录入单优时间</block>
+        <block wx:if="{{date!=undefined}}">{{date}}</block>
+      </picker>
+    </view>
+  </view> -->
+
+  <view class=''>现场反馈:</view>
+  <textarea class='margin-top-15   txt-black h5' style='width:95%;height:400rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark}}" placeholder='请填写现场反馈'></textarea>
+  <view style='height:100rpx'></view>
+</view>
+<view class='height-50'></view>
+
+<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>

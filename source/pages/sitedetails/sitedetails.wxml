@@ -1,0 +1,58 @@
+<!--pages/sitedetails/sitedetails.wxml  选址任务完成详情-->
+
+<view class="margin-left-10 margin-top-20">
+  <view class='flex-row flex-center margin-top-40'>
+    <image class='icon-20 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <view class='txt-bold txt-black'>{{taskinfo.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-30'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view></view>
+    <view class='margin-left-75  txt-black h5'>选址</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{taskinfo.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>选址完成时间：</view>
+    <view class='margin-left-20  txt-black h5'>{{taskinfo.location_time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>物业姓名：</view>
+    <view class='margin-left-75  txt-black h5'>{{taskinfo.property_name}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>物业电话：</view>
+    <view class='margin-left-75  txt-black h5'>{{taskinfo.property_phone}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>红内线管道：</view>
+    <view class='margin-left-50  txt-black h5'>{{taskinfo.guandao}}</view>
+  </view>
+  <view class='flex-row  margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>管道图片：</view>
+    <image src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img1}}' class='image margin-left-40'></image>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>机房面积：</view>
+    <view class='margin-left-75  txt-black h5'>{{taskinfo.mianji}}</view>
+  </view>
+
+  <view class='flex-row  margin-top-20'>
+    <view class='icon-25'></view>
+    <view class='margin-left-40  txt-black h5'>机房图片：</view>
+    <image src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img1}}' class='image margin-left-40'></image>
+  </view>
+</view>

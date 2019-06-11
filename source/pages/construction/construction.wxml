@@ -1,0 +1,74 @@
+<!--pages/construction/construction.wxml   施工-->
+
+<view style='background:#3189F8;height:220rpx;'>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white'>{{shigongtask.name_name}}</view>
+  </view>
+
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white '>任务截止时间：</view>
+    <view class='margin-left-20 txt-bold txt-white '>{{shigongtask.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white'>施工队：</view>
+    <view class='margin-left-20 txt-bold txt-white'>{{shigongtask.constructor_name}}</view>
+  </view>
+</view>
+
+
+<view class='flex-row flex-center '>
+  <view class='margin-10 '>
+    <view class='f-32 bg-gray padding-10 '>上传现场照片:</view>
+    <view class='flex-row'>
+      <view class='flex-1'></view>
+      <view class='img-box'>
+        <view class='img-list'>
+          <view class='' wx:for="{{images}}" wx:key="index">
+            <image src='{{uploadpath}}construction/{{item}}' bindlongpress="shangcphoto" id='{{index}}' class='image' mode='aspectFill'></image>
+          </view>
+          <view class='chooseimg' bindtap='uploadimg' wx:if="{{images.length<6}}">
+            <view class="weui-uploader__input-box"></view>
+          </view>
+        </view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <view class='tips'>长按可删除</view>
+          <view class='flex-1'></view>
+        </view>
+
+      </view>
+      <view class='flex-1'></view>
+    </view>
+  </view>
+</view>
+
+<view>
+  <view class='margin-left-20 margin-top-20'>材料使用清单:</view>
+
+  <view class='history-table-wrap'>
+    <view class=" title">
+      <view class="th th1 ">物料名称</view>
+      <view class="th th2 ">物料数量</view>
+      <view class="th th3 ">实际使用数量</view>
+    </view>
+    <view class="table" style='margin-top:73rpx'>
+
+      <view class="tr" wx:for="{{shigongnumber}}" wx:key='k' wx:for-index="idx">
+        <view class="td td1 h5">{{item.name_name}}</view>
+        <view class="td td2 h5">{{item.number}}</view>
+        <!-- bindinput='numbersChange' -->
+        <view class="td td3 h5">
+          <input class='h5' id="{{idx}}" bindinput='numbersChange'  name='shuliang'></input>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class='height-50'></view>
+
+<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>
+<view class='height-50'></view>
