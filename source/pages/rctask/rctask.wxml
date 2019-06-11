@@ -16,7 +16,7 @@
   </view>
 </view>
 
-<view class='div  ddd'>
+<view class='div ddd'>
   <!-- <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
     <view class='margin-left-20' style='width:250rpx;'>站点单优时间:</view>
     <view class=' h5'>
