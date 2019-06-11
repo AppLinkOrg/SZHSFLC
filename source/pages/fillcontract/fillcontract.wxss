@@ -10,3 +10,7 @@
 page{
   background:#EEEEEE;
 }
+.hehe{
+  margin:20rpx;
+  padding:20rpx;
+}

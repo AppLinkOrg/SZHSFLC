@@ -1,17 +1,30 @@
 <!--pages/danyou/danyou.wxml单优-->
 
-<view style='background:#3189F8;height:220rpx;'>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>{{danyoutask.name_name}}</view>
-  </view>
+<view style='background:#3189F8;min-height:220rpx;'>
+  <view class='margin-left-20'>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class='txt-bold txt-white'>{{danyoutask.name_name}}</view>
+    </view>
 
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white h5'>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white h5'>{{danyoutask.time}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>施工队：</view>
-    <view class='margin-left-20 txt-bold txt-white'>{{danyoutask.constructor_name}}</view>
+    <view class='flex-row flex-wrap' wx:if='{{danyoutask.taskdetails!=""}}'>
+      <view class='margin-top-20 txt-bold txt-white'>任务详情：</view>
+      <view class='hezi'>
+        <view class='txt-white h5 '>{{danyoutask.taskdetails}}</view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <button class='fuzhi h6 txt-white' style='border-radius:20px;' bindtap='copy'>复制</button>
+        </view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center '>
+      <view class=' txt-bold txt-white '>任务截止时间：</view>
+      <view class=' txt-bold txt-white '>{{danyoutask.time}}</view>
+    </view>
+    <view class='flex-row flex-center margin-top-20 margin-bottom-100 '>
+      <view class=' txt-bold txt-white'>施工队：</view>
+      <view class=' txt-bold txt-white'>{{danyoutask.constructor_name}}</view>
+    </view>
   </view>
 </view>
 
@@ -27,7 +40,7 @@
   </view>
   <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
   <view class='margin-left-20 margin-top-20 '>备注:</view>
-        <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:200rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark}}" placeholder='请填写备注信息'></textarea>
+  <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:200rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark}}" placeholder='请填写备注信息'></textarea>
   <view style='height:100rpx'></view>
   <!-- <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
     <view class='margin-left-20' style='width:250rpx;'>站点验收时间:</view>

@@ -32,18 +32,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     var now = new Date();
-    var tomorrow = now.getTime() + 24 * 60 * 60 * 1000;
-    var aftermonth = tomorrow + 30 * 24 * 60 * 60 * 1000;
-    var startdate = this.Base.util.FormatDate(new Date(tomorrow));
-    var enddate = this.Base.util.FormatDate(new Date(aftermonth));
-    this.Base.setMyData({
-      mobile: "",
-      realname: "",
-      remark: "",
-      startdate: startdate,
-      enddate: enddate
-    });
-    console.log('tomorrow:' + enddate)
     this.Base.setMyData({
       id: this.options.id,
       images: []
@@ -100,7 +88,7 @@ class Content extends AppBase {
       id = that.Base.getMyData().id;
     }
     if (data.remark == undefined || data.remark == "") {
-      this.Base.info("请填写备注信息");
+      this.Base.info("请填写现场反馈");
       return;
     }
 
@@ -108,12 +96,12 @@ class Content extends AppBase {
     var data = {
       primary_id: id,
       number: abc.number,
-      taskinfo:abc.taskinfo,
+      taskinfo: abc.taskinfo,
       supervisor: abc.supervisor,
       name: abc.name,
+      taskname: abc.taskname,
       time: abc.time,
       status: 'C',
-      // sheettime: this.Base.getMyData().date,
       remark: this.Base.getMyData().remark
     }
     statusapi.finish({
@@ -122,6 +110,7 @@ class Content extends AppBase {
     }, (finish) => {
       console.log(finish)
     })
+
 
     var photoapi = new PhotoApi();
     photoapi.rctaskinfo(data, (res) => {
@@ -136,11 +125,30 @@ class Content extends AppBase {
       duration: 1000
     })
   }
+
+  copy(e) {
+    var that = this;
+    var data = this.Base.getMyData.rctask.taskdetails;
+    wx.setClipboardData({
+      data: data,
+      success(res) {
+        console.log(res)
+        // console.log("啦啦啦")
+      }
+    })
+    wx.showToast({
+      title: '复制成功',
+      icon: 'success',
+    })
+  }
 }
+
+
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.confirm = content.confirm;
 body.inputChange1 = content.inputChange1;
+body.copy = content.copy;
 Page(body)

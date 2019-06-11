@@ -82,6 +82,7 @@ class Content extends AppBase {
       var data = {
         primary_id: abc[i].id,
         name: abc[i].name,
+        taskdetails: abc[i].taskdetails,
         number: abc[i].number,
         numbers: abc[i].numbers,
         linghuo: abc[i].linghuo,
@@ -137,12 +138,27 @@ class Content extends AppBase {
       title: '领货任务',
     })
   }
+  copy(e) {
+    var that = this;
+    var data = this.Base.getMyData().linghuotask.taskdetails;
+    wx.setClipboardData({
+      data: data,
+      success(res) {
+        console.log(res)
+        // console.log("啦啦啦")
+      }
+    })
+    wx.showToast({
+      title: '复制成功',
+      icon: 'success',
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.confirm = content.confirm;
-// body.huowuChange = content.huowuChange;
+body.copy = content.copy;
 body.numbersChange = content.numbersChange;
 Page(body)

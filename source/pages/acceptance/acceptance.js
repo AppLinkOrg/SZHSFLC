@@ -32,18 +32,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     var now = new Date();
-    var tomorrow = now.getTime() + 24 * 60 * 60 * 1000;
-    var aftermonth = tomorrow + 30 * 24 * 60 * 60 * 1000;
-    var startdate = this.Base.util.FormatDate(new Date(tomorrow));
-    var enddate = this.Base.util.FormatDate(new Date(aftermonth));
-    this.Base.setMyData({
-      mobile: "",
-      realname: "",
-      remark: "",
-      startdate: startdate,
-      enddate: enddate
-    });
-    console.log('tomorrow:' + enddate)
     this.Base.setMyData({
       id: this.options.id,
       images: []
@@ -182,6 +170,22 @@ class Content extends AppBase {
       duration: 1000
     })
   }
+
+  copy(e) {
+    var that = this;
+    var data = this.Base.getMyData().yanshoutask.taskdetails;
+    wx.setClipboardData({
+      data: data,
+      success(res) {
+        console.log(res)
+        // console.log("啦啦啦")
+      }
+    })
+    wx.showToast({
+      title: '复制成功',
+      icon: 'success',
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -192,4 +196,5 @@ body.shangcphoto = content.shangcphoto;
 body.confirm = content.confirm;
 body.changeDate1 = content.changeDate1;
 body.changeDate2 = content.changeDate2;
+body.copy = content.copy;
 Page(body)

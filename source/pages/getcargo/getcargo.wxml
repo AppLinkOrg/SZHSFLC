@@ -1,23 +1,36 @@
 <!--pages/getcargo/getcargo.wxml 领货-->
-<view style='background:#3189F8;height:280rpx;'>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>{{linghuotask.name_name}}</view>
-  </view>
-  
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white'>{{linghuotask.time}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>施工队：</view>
-    <view class='margin-left-20 txt-bold txt-white'>{{linghuotask.constructor_name}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20 '>
-    <view class='margin-left-20 txt-bold txt-white '>货物单号：</view>
-    <view class='padding-10 txt-bold txt-white' style='width:480rpx;' placeholder-style='color:#c2c5c8'>{{linghuotask.huowunumber}}</view>
+<view style='background:#3189F8;min-height:280rpx;'>
+
+  <view class='margin-left-20'>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class=' txt-bold txt-white'>{{linghuotask.name_name}}</view>
+    </view>
+    
+    <view class='flex-row flex-wrap' wx:if='{{linghuotask.taskdetails!=""}}'>
+      <view class='margin-top-20 txt-bold txt-white '>任务详情：</view>
+      <view class='hezi'>
+        <view class='txt-white h5 '>{{linghuotask.taskdetails}}</view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <button class='fuzhi h6 txt-white' style='border-radius:20px;'>复制</button>
+        </view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center '>
+      <view class=' txt-bold txt-white'>任务截止时间：</view>
+      <view class=' txt-bold txt-white'>{{linghuotask.time}}</view>
+    </view>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class=' txt-bold txt-white'>施工队：</view>
+      <view class=' txt-bold txt-white'>{{linghuotask.constructor_name}}</view>
+    </view>
+    <view class='flex-row flex-center margin-top-20  margin-bottom-50'>
+      <view class=' txt-bold txt-white '>货物单号：</view>
+      <view class='txt-bold txt-white' style='width:480rpx;' placeholder-style='color:#c2c5c8'>{{linghuotask.huowunumber}}</view>
+    </view>
   </view>
 </view>
-
 
 <view>
   <view class='history-table-wrap'>
@@ -41,4 +54,4 @@
 
 <button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>
 
-<view class='height-50'></view>
+<view style='height:80rpx'></view>

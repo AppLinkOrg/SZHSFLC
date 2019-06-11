@@ -1,36 +1,48 @@
 <!--pages/site/site.wxml  方案设计-->
-<view style='background:#3189F8;height:220rpx;'>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>{{fangansjtask.name_name}}</view>
-  </view>
+<view style='background:#3189F8;min-height:220rpx;'>
+  <view class='margin-left-20'>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class=' txt-bold txt-white'>{{fangansjtask.name_name}}</view>
+    </view>
+    <view class='flex-row flex-wrap' wx:if='{{fangansjtask.taskdetails!=""}}'>
+      <view class='margin-top-20 txt-bold txt-white h5 '>任务详情：</view>
+      <view class='hezi'>
+        <view class='txt-white h5 '>{{fangansjtask.taskdetails}}</view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <button class='fuzhi h6 txt-white' style='border-radius:20px;' bindtap='copy'>复制</button>
+        </view>
+      </view>
+    </view>
 
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white h5'>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white h5'>{{fangansjtask.time}}</view>
+    <view class='flex-row flex-center margin-top-20 margin-bottom-100'>
+      <view class=' txt-bold txt-white h5'>任务截止时间：</view>
+      <view class=' txt-bold txt-white h5'>{{fangansjtask.time}}</view>
+    </view>
   </view>
 
 </view>
 
 
-<view class="div margin-top-1 ddd" >
-<view class="margin-bottom-80">
-  <view class='flex-row flex-center margin-top-10 margin-bottom-20 txt-gray h5'>
-    <view class='margin-left-20' style='width:250rpx;'>站点金额:</view>
-    <input class=' margin-left-25  txt-black h5' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额' value='{{money}}' bindinput='changeMoney'></input>
-  </view>
-  <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
+<view class="div margin-top-1 ddd">
+  <view class="margin-bottom-80">
+    <view class='flex-row flex-center margin-top-10 margin-bottom-20 txt-gray h5'>
+      <view class='margin-left-20' style='width:250rpx;'>站点金额:</view>
+      <input class=' margin-left-25  txt-black h5' placeholder-style='color:#c2c5c8' placeholder='请输入站点金额' value='{{money}}' bindinput='changeMoney'></input>
+    </view>
+    <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
 
-  <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
+    <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
 
-    <view class='margin-left-20' style='width:250rpx;'>方案设计时间:</view>
-    <view class='margin-left-25 h5'>
-    <picker mode="date" bindchange="changeDate" value="{{date}}" start="{{startdate}}" end="{{enddate}}">
-      <block class='padding-10 ' style='border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{date==undefined}}">请录入方案设计完成时间</block>
-      <block wx:if="{{date!=undefined}}">{{date}}</block>
-    </picker>
+      <view class='margin-left-20' style='width:250rpx;'>方案设计时间:</view>
+      <view class='margin-left-25 h5'>
+        <picker mode="date" bindchange="changeDate" value="{{date}}" start="{{startdate}}" end="{{enddate}}">
+          <block class='padding-10 ' style='border-bottom:1rpx solid #c2c0c4' placeholder-style='color:#c2c5c8' wx:if="{{date==undefined}}">请录入方案设计完成时间</block>
+          <block wx:if="{{date!=undefined}}">{{date}}</block>
+        </picker>
+      </view>
+    </view>
+    <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
   </view>
-</view>
-<view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
-</view>
 </view>
 <button class='txt-white h5 margin-top-40' bindtap='confirm' id='{{datas.id}}' style='width:550rpx;background:#03A8F3;border-radius:20px;'>完成</button>

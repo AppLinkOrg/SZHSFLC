@@ -32,18 +32,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     var now = new Date();
-    var tomorrow = now.getTime() + 24 * 60 * 60 * 1000;
-    var aftermonth = tomorrow + 30 * 24 * 60 * 60 * 1000;
-    var startdate = this.Base.util.FormatDate(new Date(tomorrow));
-    var enddate = this.Base.util.FormatDate(new Date(aftermonth));
-    this.Base.setMyData({
-      mobile: "",
-      realname: "",
-      remark: "",
-      startdate: startdate,
-      enddate: enddate
-    });
-    console.log('tomorrow:' + enddate)
     this.Base.setMyData({
       id: this.options.id,
       images: []
@@ -51,7 +39,6 @@ class Content extends AppBase {
     this.setData({
       user_id: options.user_id
     })
-
     console.log(this.data.user_id)
   }
 
@@ -89,7 +76,7 @@ class Content extends AppBase {
       remark: e.detail.value
     });
   }
-  
+
   confirm(e) {
     var that = this;
     var data = this.Base.getMyData();
@@ -103,13 +90,14 @@ class Content extends AppBase {
       this.Base.info("请录入站点完成单优的时间");
       return;
     }
-  
+
     var abc = this.Base.getMyData().danyoutask;
     var data = {
       primary_id: id,
       number: abc.number,
       supervisor: abc.supervisor,
       name: abc.name,
+      taskdetails: abc.taskdetails,
       time: abc.time,
       status: 'C',
       sheettime: this.Base.getMyData().date,
@@ -135,6 +123,22 @@ class Content extends AppBase {
       duration: 1000
     })
   }
+  copy(e) {
+    var that = this;
+    var data = this.Base.getMyData().danyoutask.taskdetails;
+    wx.setClipboardData({
+      data: data,
+      success(res) {
+        console.log(res)
+        // console.log("啦啦啦")
+      }
+    })
+    wx.showToast({
+      title: '复制成功',
+      icon: 'success',
+    })
+  }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -143,4 +147,5 @@ body.onMyShow = content.onMyShow;
 body.confirm = content.confirm;
 body.changeDate = content.changeDate;
 body.inputChange1 = content.inputChange1;
+body.copy = content.copy;
 Page(body)

@@ -1,12 +1,26 @@
 <!--pages/fillcontract/fillcontract.wxml 填写合同-->
-<view style='background:#3189F8;height:220rpx;'>
+<view style='background:#3189F8;min-height:220rpx;'>
+ <view class='margin-left-20'>
   <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>{{hetongtask.name_name}}</view>
+    <view class='txt-bold txt-white'>{{hetongtask.name_name}}</view>
   </view>
 
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white h5'>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white h5'>{{hetongtask.time}}</view>
+ 
+    <view class='flex-row flex-wrap' wx:if='{{hetongtask.taskdetails!=""}}'>
+      <view class=' margin-top-20 txt-bold txt-white '>任务详情：</view>
+      <view class='hezi'>
+        <view class=' txt-white h5 '>{{hetongtask.taskdetails}}</view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <button class='fuzhi h6 txt-white' style='border-radius:20px;' bindtap='copy'>复制</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='margin-left-20 flex-row flex-center margin-top-20 margin-bottom-100'>
+    <view class=' txt-bold txt-white h5'>任务截止时间：</view>
+    <view class=' txt-bold txt-white h5'>{{hetongtask.time}}</view>
   </view>
 </view>
 
@@ -23,11 +37,11 @@
         </view>
       </view>
 
-      <view class=' padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
+      <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
       <view>
         <view class=' margin-top-20 '>备注:</view>
-        <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark1}}" placeholder='请填写备注信息'></textarea>
-        <button class='margin-top-20 h6 txt-white' bindtap='submit1' style='width:300rpx;background:#3189F8'>提交</button>
+        <textarea class='hehe  txt-black h5' style='width:89%;height:100rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange1' value="{{remark1}}" placeholder='请填写备注信息'></textarea>
+        <button class='margin-top-20 margin-bottom-20 h6 txt-white' bindtap='submit1' style='width:300rpx;background:#3189F8'>提交</button>
       </view>
     </view>
 
@@ -46,8 +60,8 @@
       <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
       <view>
         <view class='margin-top-20'>备注:</view>
-        <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx; solid #c2c0c4;background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange2' value="{{remark2}}" placeholder='请填写备注信息'></textarea>
-        <button class='margin-top-20 h6 txt-white' bindtap='submit2' style='width:300rpx;background:#3189F8'>提交</button>
+        <textarea class='hehe txt-black h5' style='width:89%;height:100rpx; solid #c2c0c4; background:#F4F4F4' placeholder-style='color:#c2c5c8' bindinput='inputChange2' value="{{remark2}}" placeholder='请填写备注信息'></textarea>
+        <button class='margin-top-20 margin-bottom-20 h6 txt-white' bindtap='submit2' style='width:300rpx;background:#3189F8'>提交</button>
       </view>
     </view>
 
@@ -65,8 +79,8 @@
       <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
       <view>
         <view class='margin-top-20 h5'>备注:</view>
-        <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx; solid #c2c0c4；background:#F4F4F4;' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remark3}}" placeholder='请填写备注信息'></textarea>
-        <button class='margin-top-20 h6 txt-white' bindtap='submit3' style='width:300rpx;background:#3189F8'>提交</button>
+        <textarea class='hehe  txt-black h5' style='width:89%;height:100rpx; solid #c2c0c4;background:#F4F4F4;' placeholder-style='color:#c2c5c8' bindinput='inputChange3' value="{{remark3}}" placeholder='请填写备注信息'></textarea>
+        <button class='margin-top-20 margin-bottom-20 h6 txt-white' bindtap='submit3' style='width:300rpx;background:#3189F8'>提交</button>
       </view>
     </view>
 
@@ -85,8 +99,8 @@
       <view class='padding-10' style='width:95%;border-bottom:1rpx solid #c2c0c4'></view>
       <view>
         <view class=' margin-top-20 h5'>备注:</view>
-        <textarea class='margin-top-15 margin-left-25  txt-black h5' style='width:95%;height:100rpx;background:#F4F4F4;solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange4' value="{{remark4}}" placeholder='请填写备注信息'></textarea>
-        <button class='margin-top-20 h6 txt-white' bindtap='submit4' style='width:300rpx;background:#3189F8'>提交</button>
+        <textarea class='hehe  txt-black h5' style='width:89%;height:100rpx;background:#F4F4F4;solid #c2c0c4' placeholder-style='color:#c2c5c8' bindinput='inputChange4' value="{{remark4}}" placeholder='请填写备注信息'></textarea>
+        <button class='margin-top-20 margin-bottom-20 h6 txt-white' bindtap='submit4' style='width:300rpx;background:#3189F8'>提交</button>
       </view>
     </view>
   </view>

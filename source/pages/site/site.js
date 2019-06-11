@@ -34,18 +34,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     var now = new Date();
-    var tomorrow = now.getTime() + 24 * 60 * 60 * 1000;
-    var aftermonth = tomorrow + 30 * 24 * 60 * 60 * 1000;
-    var startdate = this.Base.util.FormatDate(new Date(tomorrow));
-    var enddate = this.Base.util.FormatDate(new Date(aftermonth));
-    this.Base.setMyData({
-      mobile: "",
-      realname: "",
-      remark: "",
-      startdate: startdate,
-      enddate: enddate
-    });
-    console.log('tomorrow:' + enddate)
+   
     this.Base.setMyData({
       id: this.options.id,
       images1: [],
@@ -199,6 +188,7 @@ class Content extends AppBase {
       primary_id: id,
       number: abc.number,
       supervisor: abc.supervisor,
+      taskdetails: abc.taskdetails,
       name: abc.name,
       time: abc.time,
       taskname: abc.taskname,
@@ -288,6 +278,21 @@ class Content extends AppBase {
     });
   }
 
+  copy(e){
+    var that = this;
+    var data = this.Base.getMyData.taskinfo.taskdetails;
+    wx.getClipboardData({
+      data:data,
+      seccess(res){
+         console.log(res)
+      }
+    })
+    wx.showToast({
+      title: '复制成功',
+      icon: 'success',
+    })
+  }
+
 }
 
 var content = new Content();
@@ -304,4 +309,5 @@ body.nameChange = content.nameChange;
 body.phoneChange = content.phoneChange;
 body.guandaoChange = content.guandaoChange;
 body.mianjiChange = content.mianjiChange;
+body.copy = content.copy;
 Page(body)

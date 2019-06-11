@@ -1,24 +1,37 @@
 <!--pages/openup/openup.wxml  开通-->
 
-<view  style='background:#3189F8;height:220rpx;'>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>{{kaitongtask.name_name}}</view>
-  </view>
+<view style='background:#3189F8;min-height:220rpx;'>
+  <view class='margin-left-20'>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class=' txt-bold txt-white'>{{kaitongtask.name_name}}</view>
+    </view>
+    
+    <view class='flex-row flex-wrap' wx:if='{{kaitongtask.taskdetails!=""}}'>
+      <view class='margin-top-20 txt-bold txt-white '>任务详情：</view>
+      <view class='hezi'>
+        <view class='txt-white h5 '>{{kaitongtask.taskdetails}}</view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <button class='fuzhi h6 txt-white' style='border-radius:20px;' bindtap='copy'>复制</button>
+        </view>
+      </view>
+    </view>
 
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white h5'>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white h5'>{{kaitongtask.time}}</view>
+    <view class='flex-row flex-center margin-top-20 margin-bottom-100'>
+      <view class=' txt-bold txt-white '>任务截止时间：</view>
+      <view class=' txt-bold txt-white '>{{kaitongtask.time}}</view>
+    </view>
   </view>
 </view>
 
 <view class='div margin-top-1 ddd'>
-<view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
+  <view class='flex-row flex-center margin-top-10 margin-bottom-20  txt-gray h5'>
     <view class='margin-left-20' style='width:250rpx;'>站点开通时间:</view>
     <view class='margin-left-25 h5'>
-    <picker mode="date" bindchange="changeDate" value="{{date}}" start="{{startdate}}" end="{{enddate}}">
-      <block  placeholder-style='color:#c2c5c8' wx:if="{{date==undefined}}">请录入站点开通的时间</block>
-      <block wx:if="{{date!=undefined}}">{{date}}</block>
-    </picker>
+      <picker mode="date" bindchange="changeDate" value="{{date}}" start="{{startdate}}" end="{{enddate}}">
+        <block placeholder-style='color:#c2c5c8' wx:if="{{date==undefined}}">请录入站点开通的时间</block>
+        <block wx:if="{{date!=undefined}}">{{date}}</block>
+      </picker>
     </view>
   </view>
   <view class='margin-bottom-40' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>

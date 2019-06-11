@@ -1,17 +1,30 @@
 <!--pages/construction/construction.wxml   施工-->
 
-<view style='background:#3189F8;height:220rpx;'>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>{{shigongtask.name_name}}</view>
-  </view>
+<view style='background:#3189F8;min-height:220rpx;'>
+  <view class='margin-left-20'>
+    <view class='flex-row flex-center margin-top-20'>
+      <view class=' txt-bold txt-white'>{{shigongtask.name_name}}</view>
+    </view>
 
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white '>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white '>{{shigongtask.time}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='margin-left-20 txt-bold txt-white'>施工队：</view>
-    <view class='margin-left-20 txt-bold txt-white'>{{shigongtask.constructor_name}}</view>
+    <view class='flex-row flex-wrap' wx:if='{{shigongtask.taskdetails!=""}}'>
+      <view class='margin-top-20 txt-bold txt-white '>任务详情：</view>
+      <view class='hezi'>
+        <view class='txt-white h5 '>{{shigongtask.taskdetails}}</view>
+        <view class='flex-row'>
+          <view class='flex-1'></view>
+          <button class='fuzhi h6 txt-white' style='border-radius:20px;' bindtap='copy'>复制</button>
+        </view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center margin-top-20'>
+      <view class=' txt-bold txt-white '>任务截止时间：</view>
+      <view class=' txt-bold txt-white '>{{shigongtask.time}}</view>
+    </view>
+    <view class='flex-row flex-center margin-top-20 margin-bottom-50'>
+      <view class=' txt-bold txt-white'>施工队：</view>
+      <view class=' txt-bold txt-white'>{{shigongtask.constructor_name}}</view>
+    </view>
   </view>
 </view>
 
@@ -58,7 +71,7 @@
         <view class="td td2 h5">{{item.number}}</view>
         <!-- bindinput='numbersChange' -->
         <view class="td td3 h5">
-          <input class='h5' id="{{idx}}" bindinput='numbersChange'  name='shuliang'></input>
+          <input class='h5' id="{{idx}}" bindinput='numbersChange' name='shuliang'></input>
         </view>
       </view>
     </view>

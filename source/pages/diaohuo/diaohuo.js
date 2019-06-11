@@ -80,6 +80,7 @@ class Content extends AppBase {
       var data = {
         primary_id: abc[i].id,
         name: abc[i].name,
+        taskdetails: abc[i].taskdetails,
         number: abc[i].number,
         numbers: abc[i].numbers,
         diaohuo: abc[i].diaohuo,
@@ -132,6 +133,21 @@ class Content extends AppBase {
       title: '调货任务',
     })
   }
+  copy(e) {
+    var that = this;
+    var data = this.Base.getMyData().diaohuotask.taskdetails;
+    wx.setClipboardData({
+      data: data,
+      success(res) {
+        console.log(res)
+        // console.log("啦啦啦")
+      }
+    })
+    wx.showToast({
+      title: '复制成功',
+      icon: 'success',
+    })
+  }
 }
 
 var content = new Content();
@@ -140,4 +156,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.finish = content.finish;
 body.numbersChange = content.numbersChange;
+body.copy = content.copy;
 Page(body)
