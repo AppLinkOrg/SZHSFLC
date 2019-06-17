@@ -28,7 +28,7 @@ export class AppBase {
   static InstInfo = {};
   static dd = {};
   unicode = "szhsflc";
-  needauth = false;
+  needauth = true;
 
   pagetitle = null;
   app = null;
@@ -287,7 +287,7 @@ export class AppBase {
   checkPermission() {
     var memberapi = new MemberApi();
     var that = this;
-    memberapi.info({}, (info) => {
+    memberapi.register({}, (info) => {
       if (info.mobile == "" && this.Base.needauth == true) {
         wx.navigateTo({
           url: '/pages/auth/auth',

@@ -82,6 +82,10 @@ class Content extends AppBase {
       console.log(ret)
       if (ret.code == 0) {
         AppBase.dd = ret.result;
+        wx.setStorage({
+          key: "userinfo",
+          data: ret.result
+        })
         wx.reLaunch({
           url: '/pages/index/index',
         })

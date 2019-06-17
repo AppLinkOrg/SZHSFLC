@@ -31,7 +31,14 @@ class Content extends AppBase {
       ctt: 1
     });
     console.log(AppBase.dd);
-
+    var userinfo = wx.getStorageSync('userinfo')
+    console.log(userinfo);
+    AppBase.dd = userinfo;
+    if (userinfo==''){
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
   }
 
   onMyShow() {
