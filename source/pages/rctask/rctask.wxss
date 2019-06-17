@@ -14,3 +14,6 @@ page {
 .fuzhi {
   background: rgb(255, 139, 140);
 }
+.fuzhi-hover {
+  background: rgb(240, 173, 174);
+}

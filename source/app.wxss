@@ -15,6 +15,9 @@ page {
   background: orange;
 }
 
+.fuzhi-hover {
+  background: rgb(240, 173, 174);
+}
 .clear-button {
   padding: 0rpx;
   font-size: unset;

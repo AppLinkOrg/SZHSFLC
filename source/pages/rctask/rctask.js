@@ -128,11 +128,12 @@ class Content extends AppBase {
 
   copy(e) {
     var that = this;
-    var data = this.Base.getMyData.rctask.taskdetails;
+    var data = this.Base.getMyData().rctask.taskinfo;
+    console.log(data)
     wx.setClipboardData({
       data: data,
       success(res) {
-        console.log(res)
+        // console.log(res)
         // console.log("啦啦啦")
       }
     })

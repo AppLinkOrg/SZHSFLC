@@ -280,7 +280,7 @@ class Content extends AppBase {
 
   copy(e){
     var that = this;
-    var data = this.Base.getMyData.taskinfo.taskdetails;
+    var data = this.Base.getMyData().taskinfo.taskdetails;
     wx.getClipboardData({
       data:data,
       seccess(res){

@@ -12,7 +12,7 @@
         <view class='txt-white h5 '>{{danyoutask.taskdetails}}</view>
         <view class='flex-row'>
           <view class='flex-1'></view>
-          <button class='fuzhi h6 txt-white' style='border-radius:20px;' bindtap='copy'>复制</button>
+          <button class='fuzhi h6 txt-white' hover-class='fuzhi-hover' style='border-radius:20px;' bindtap='copy'>复制</button>
         </view>
       </view>
     </view>
