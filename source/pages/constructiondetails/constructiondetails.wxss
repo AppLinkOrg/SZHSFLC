@@ -70,6 +70,7 @@
   color: black;
 }
 .image{
-  width: 200rpx;
-  height: 200rpx;
+  margin:10rpx;
+  width: 130rpx;
+  height: 130rpx;
 }

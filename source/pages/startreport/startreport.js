@@ -62,15 +62,16 @@ class Content extends AppBase {
   }
   uploadimg1() {
     var that = this;
-    this.Base.uploadImage("photo", (ret) => {
+    this.Base.uploadImage1("start", (ret) => {
       console.log(ret)
       var images1 = that.Base.getMyData().images1;
       images1.push(ret);
       that.Base.setMyData({
         images1
       });
-    });
+    },undefined,6);
   }
+
 
   shangcphoto1(e) {
     var that = this;
@@ -89,7 +90,7 @@ class Content extends AppBase {
 
   uploadimg2() {
     var that = this;
-    this.Base.uploadImage("photo", (ret) => {
+    this.Base.uploadImage1("start", (ret) => {
       console.log(ret)
       var images2 = that.Base.getMyData().images2;
       images2.push(ret);
@@ -126,10 +127,10 @@ class Content extends AppBase {
     //   this.Base.info("请至少上传一张验收签字表图片");
     //   return;
     // }
-    if (data.money == undefined) {
-      this.Base.info("请输入站点金额");
-      return;
-    }
+    // if (data.money == undefined) {
+    //   this.Base.info("请输入站点金额");
+    //   return;
+    // }
 
 
     var images1 = that.Base.getMyData().images1;
@@ -159,8 +160,8 @@ class Content extends AppBase {
       name: abc.name,
       time: abc.time,
       taskname: abc.taskname,
+      reportamount: abc.reportamount,
       status: 'C',
-      reportamount: this.Base.getMyData().money,
       startphoto_img1: startphoto_img1,
       startphoto_img2: startphoto_img2,
       startphoto_img3: startphoto_img3,
@@ -206,64 +207,7 @@ class Content extends AppBase {
     };
   }
 
-  uploadimg1() {
-    var that = this;
-    this.Base.uploadImage("start", (ret) => {
-      console.log(ret)
-      var images1 = that.Base.getMyData().images1;
-      images1.push(ret);
-      that.Base.setMyData({
-        images1
-      });
-    });
-  }
-
-  shangcphoto1(e) {
-    var that = this;
-    var seq = e.currentTarget.id;
-    var images1 = that.Base.getMyData().images1;
-    var imgs = [];
-    for (var i = 0; i < images1.length; i++) {
-      if (seq != i) {
-        imgs.push(images1[i]);
-      }
-    }
-    that.Base.setMyData({
-      images1: imgs
-    });
-  }
-
-  uploadimg2() {
-    var that = this;
-    this.Base.uploadImage("start", (ret) => {
-      console.log(ret)
-      var images2 = that.Base.getMyData().images2;
-      images2.push(ret);
-      that.Base.setMyData({
-        images2
-      });
-    });
-  }
-  shangcphoto2(e) {
-    var that = this;
-    var seq = e.currentTarget.id;
-    var images2 = that.Base.getMyData().images2;
-    var imgs = [];
-    for (var i = 0; i < images2.length; i++) {
-      if (seq != i) {
-        imgs.push(images2[i]);
-      }
-    }
-    that.Base.setMyData({
-      images2: imgs
-    });
-  }
-  changeMoney(e) {
-    console.log(e);
-    this.Base.setMyData({
-      money: e.detail.value
-    });
-  }
+  
   setPageTitle(instinfo) {
     wx.setNavigationBarTitle({
       title: '开工报告',

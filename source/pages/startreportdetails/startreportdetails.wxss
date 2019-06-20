@@ -1,5 +1,7 @@
 /* pages/startreportdetails/startreportdetails.wxss */
-.image{
-  width: 200rpx;
-  height: 200rpx;
+
+.image {
+  margin: 10rpx;
+  width: 130rpx;
+  height: 130rpx;
 }

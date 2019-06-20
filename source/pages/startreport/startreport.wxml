@@ -6,7 +6,7 @@
     </view>
 
     <view class='flex-row flex-wrap' wx:if='{{startreport.taskdetails!=""}}'>
-      <view class=' margin-top-20 txt-bold txt-white h5 '>任务详情：</view>
+      <view class=' margin-top-20 txt-bold txt-white  '>任务详情：</view>
       <view class='hezi'>
         <view class=' txt-white h5 '>{{startreport.taskdetails}}</view>
         <view class='flex-row'>
@@ -16,19 +16,19 @@
       </view>
     </view>
   </view>
-  <view class='flex-row flex-center margin-top-20 margin-bottom-100'>
-    <view class='margin-left-20 txt-bold txt-white h5'>任务截止时间：</view>
-    <view class='margin-left-20 txt-bold txt-white h5'>{{startreport.time}}</view>
+  <view class='flex-row flex-center margin-top-20'>
+    <view class='margin-left-20 txt-bold txt-white '>任务截止时间：</view>
+    <view class='margin-left-20  txt-white '>{{startreport.time}}</view>
   </view>
+
+  <view class='flex-row flex-center margin-top-10 margin-bottom-80'>
+  <view class='margin-left-20  txt-bold txt-white'>开工报告金额：</view>
+  <view class='margin-left-20  txt-white '>{{startreport.reportamount}}</view>
+  <!-- <input class='padding-10 txt-black h5 margin-left-20' bindchange="changeMoney" value="{{money}}" placeholder-style='color:#c2c5c8' placeholder='请输入开工报告金额'></input> -->
+</view>
 </view>
 
 
-<view class='flex-row flex-center margin-top-10 margin-bottom-100 txt-gray h5'>
-  <view class='margin-left-20' style='width:250rpx;'>开工报告金额:</view>
-  <input class='padding-10 txt-black h5 margin-left-20' bindchange="changeMoney" value="{{money}}" placeholder-style='color:#c2c5c8' placeholder='请输入开工报告金额'></input>
-</view>
-
-<view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
 
 
 <view class='margin-top-20 '>
@@ -56,8 +56,10 @@
   </view>
 </view>
 
+<view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
+
 <view class='margin-10 '>
-  <view class='f-32 bg-gray padding-10 '>上传问题报告照片:</view>
+  <view class='f-32 padding-10 '>上传问题报告照片:</view>
   <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
@@ -84,4 +86,4 @@
 
 <view class='height-20'></view>
 
-<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>
+<button class='txt-white h5 margin-bottom-40' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>

@@ -83,5 +83,5 @@
 
 <view class='height-50'></view>
 
-<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>
+<button class='txt-white h5 margin-bottom-40' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#3189F8;'>完成</button>
 <view class='height-50'></view>

@@ -59,10 +59,10 @@
   </view>
   <view class='flex-1'></view>
 </view> -->
-  <view class='margin-10 '>
+  <view class=''>
     <view class='f-32  padding-10 '>上传验收签字表:</view>
     <view class='flex-row'>
-      <view class='flex-1'></view>
+      <!-- <view class='flex-1'></view> -->
       <view class='img-box'>
         <view class='img-list'>
           <view class='' wx:for="{{images}}" wx:key="index">
@@ -80,10 +80,10 @@
         </view>
 
       </view>
-      <view class='flex-1'></view>
+      <!-- <view class='flex-1'></view> -->
     </view>
   </view>
 </view>
 <view class='height-50'></view>
 
-<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>
+<button class='txt-white h5 margin-bottom-40' bindtap='confirm' id='{{datas.id}}' style='width:450rpx;background:#03A8F3;'>完成</button>

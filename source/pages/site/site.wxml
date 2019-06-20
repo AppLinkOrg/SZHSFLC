@@ -8,7 +8,7 @@
 
 
     <view class='flex-row flex-wrap' wx:if='{{taskinfo.taskdetails!=""}}'>
-      <view class='  margin-top-20 txt-bold txt-white  '>任务详情：</view>
+      <view class='  margin-top-20 txt-bold txt-white'>任务详情：</view>
       <view class='hezi'>
         <view class=' txt-white h5 '>{{taskinfo.taskdetails}}</view>
         <view class='flex-row'>
@@ -83,7 +83,7 @@
       <view class='flex-1'></view>
     </view>
   </view>
-
+<view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
 
   <view>
     <view class='flex-row flex-center margin-top-10 margin-bottom-20'>
@@ -92,7 +92,7 @@
     </view>
     <view class='' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
   </view>
-  <view class='margin-10 '>
+  <view class=' '>
     <view class='f-32  padding-10'>上传机房面积照片:</view>
     <view class='flex-row'>
       <view class='flex-1'></view>

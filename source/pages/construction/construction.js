@@ -158,6 +158,7 @@ class Content extends AppBase {
         supervisor: ab.supervisor,
         name: ab.name,
         time: ab.time,
+        taskdetails: ab.taskdetails,
         status: 'C',
         technologyphoto1: technologyphoto1,
         technologyphoto2: technologyphoto2,
@@ -167,14 +168,7 @@ class Content extends AppBase {
         technologyphoto6: technologyphoto6,
       }
 
-      // return
-
     }
-
-    // this.Base.setMyData({ sss})
-    // console.log("啊啊啊");
-    // console.log(this.Base.getMyData().sss);
-    // console.log("啊啊啊");
 
 
     statusapi.finish({
@@ -184,18 +178,6 @@ class Content extends AppBase {
       console.log(finish)
     })
 
-
-    //return;
-
-    //var da = this.Base.getMyData().abc;
-
-    // console.log("搜索");
-    // console.log(abc);
-    // console.log("手术室");
-    // console.log(sss);
-    // console.log("搜索");
-
-    //  return;
 
 
     photoapi.shigongphoto(aaa, (res) => {

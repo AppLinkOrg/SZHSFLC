@@ -36,4 +36,4 @@
   </view>
   <view class='margin-bottom-40' style='width:100%;border-bottom:1rpx solid #c2c0c4'></view>
 </view>
-<button class='txt-white h5' bindtap='confirm' id='{{datas.id}}' style='width:550rpx;background:#03A8F3;border-radius:20rpx'>完成</button>
+<button class='txt-white h5 margin-bottom-40' bindtap='confirm' id='{{datas.id}}' style='width:550rpx;background:#03A8F3;border-radius:20rpx'>完成</button>

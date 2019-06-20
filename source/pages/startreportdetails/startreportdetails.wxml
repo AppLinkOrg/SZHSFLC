@@ -1,40 +1,75 @@
 <!--pages/startreportdetails/startreportdetails.wxml  开工报告任务完成详情-->
-<view class="margin-left-40 margin-top-20">
+<view class="margin-left-20 margin-top-20">
   <view class='flex-row flex-center margin-top-40'>
-    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <image class='icon-25 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
     <view class='txt-bold txt-black'>{{startreport.name_name}}</view>
   </view>
 
   <view class='flex-row flex-center margin-top-30'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view class='  txt-black h5' style='width:196rpx;'>任务名称：</view>
     <view></view>
-    <view class='margin-left-75  txt-black h5'>开工报告</view>
+    <view class='  txt-black h5'>开工报告</view>
+  </view>
+
+  <view class='flex-row  margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='  txt-black h5' style='width:196rpx;'>任务详情：</view>
+    <view class=' flex-wrap txt-black h5' style='width:460rpx;'>{{startreport.taskdetails}}</view>
   </view>
 
   <view class='flex-row flex-center margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
-    <view class='margin-left-20  txt-black h5'>{{startreport.time}}</view>
+    <view class='  txt-black h5'>任务截止时间：</view>
+    <view class='  txt-black h5'>{{startreport.time}}</view>
   </view>
   <view class='flex-row flex-center margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务完成时间：</view>
-    <view class='margin-left-20  txt-black h5'>{{startreport.updated_date}}</view>
+    <view class='  txt-black h5'>任务完成时间：</view>
+    <view class='  txt-black h5'>{{startreport.updated_date}}</view>
   </view>
   <view class='flex-row flex-center margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>开工报告金额：</view>
-    <view class='margin-left-20  txt-black h5'>{{startreport.reportamount}}</view>
+    <view class='  txt-black h5'>开工报告金额：</view>
+    <view class='  txt-black h5'>{{startreport.reportamount}}</view>
   </view>
-  <view class='flex-row flex-center margin-top-20'>
+  <view class='flex-row flex-wrap margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>开工报告照片：</view>
-    <image src='{{uploadpath}}start/{{startreport.startphoto_img1}}' class='image'></image>
+    <view class='txt-black h5'>开工报告照片：</view>
+    <view style='width:60vw'>
+      <image wx:for='{{startreport.startphoto_img1!=""&startreport.startphoto_img1!="undefined"}}' src='{{uploadpath}}start/{{startreport.startphoto_img1}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.startphoto_img1}}'></image>
+
+      <image wx:for='{{startreport.startphoto_img2!=""&startreport.startphoto_img2!="undefined"}}' src='{{uploadpath}}start/{{startreport.startphoto_img2}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.startphoto_img2}}'></image>
+
+      <image wx:for='{{startreport.startphoto_img3!=""&startreport.startphoto_img3!="undefined"}}' src='{{uploadpath}}start/{{startreport.startphoto_img3}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.startphoto_img3}}'></image>
+
+      <image wx:for='{{startreport.startphoto_img4!=""&startreport.startphoto_img4!="undefined"}}' src='{{uploadpath}}start/{{startreport.startphoto_img4}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.startphoto_img4}}'></image>
+
+      <image wx:for='{{startreport.startphoto_img5!=""&startreport.startphoto_img5!="undefined"}}' src='{{uploadpath}}start/{{startreport.startphoto_img5}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.startphoto_img5}}'></image>
+
+      <image wx:for='{{startreport.startphoto_img6!=""&startreport.startphoto_img6!="undefined"}}' src='{{uploadpath}}start/{{startreport.startphoto_img6}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.startphoto_img6}}'></image>
+
+    </view>
   </view>
-   <view class='flex-row flex-center margin-top-20'>
+
+  <view class='flex-row flex-wrap margin-top-20 margin-bottom-40'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>问题报告照片：</view>
-    <image src='{{uploadpath}}start/{{startreport.problemphoto_img1}}' class='image'></image>
+    <view class='txt-black h5'>问题报告照片：</view>
+    <view style='width:60vw'>
+      <image wx:for='{{startreport.problemphoto_img1!=""&startreport.problemphoto_img1!="undefined"}}' src='{{uploadpath}}start/{{startreport.problemphoto_img1}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.problemphoto_img1}}'></image>
+
+      <image wx:for='{{startreport.problemphoto_img2!=""&startreport.problemphoto_img2!="undefined"}}' src='{{uploadpath}}start/{{startreport.problemphoto_img2}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.problemphoto_img2}}'></image>
+
+      <image wx:for='{{startreport.problemphoto_img3!=""&startreport.problemphoto_img3!="undefined"}}' src='{{uploadpath}}start/{{startreport.problemphoto_img3}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.problemphoto_img3}}'></image>
+
+      <image wx:for='{{startreport.problemphoto_img4!=""&startreport.problemphoto_img4!="undefined"}}' src='{{uploadpath}}start/{{startreport.problemphoto_img4}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.problemphoto_img4}}'></image>
+
+      <image wx:for='{{startreport.problemphoto_img5!=""&startreport.problemphoto_img5!="undefined"}}' src='{{uploadpath}}start/{{startreport.problemphoto_img5}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.problemphoto_img5}}'></image>
+
+      <image wx:for='{{startreport.problemphoto_img6!=""&startreport.problemphoto_img6!="undefined"}}' src='{{uploadpath}}start/{{startreport.problemphoto_img6}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}start/{{startreport.problemphoto_img6}}'></image>
+
+
+    </view>
   </view>
+
 </view>

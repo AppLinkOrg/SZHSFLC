@@ -31,7 +31,8 @@ class Content extends AppBase {
     var taskapi = new TaskApi();
     var id = this.Base.getMyData().memberinfo.id;
     taskapi.newtasklist({
-      supervisor: AppBase.dd.id
+      supervisor: 
+      AppBase.dd.id
     }, (newtasklist) => {
       var list = [];
       for (var i = 0; i < newtasklist.length; i++) {

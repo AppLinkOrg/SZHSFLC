@@ -1,58 +1,101 @@
 <!--pages/sitedetails/sitedetails.wxml  选址任务完成详情-->
 
-<view class="margin-left-10 margin-top-20">
+<view class="margin-left-20 margin-top-20">
   <view class='flex-row flex-center margin-top-40'>
-    <image class='icon-20 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <image class='icon-20 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
     <view class='txt-bold txt-black'>{{taskinfo.name_name}}</view>
   </view>
 
-  <view class='flex-row flex-center margin-top-30'>
+  <view class='flex-row flex-center margin-top-30 '>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view class='  txt-black h5' style='width:196rpx;'>任务名称：</view>
     <view></view>
-    <view class='margin-left-75  txt-black h5'>选址</view>
+    <view class='  txt-black h5'>选址</view>
   </view>
 
-  <view class='flex-row flex-center margin-top-20'>
+  <view class='flex-row  margin-top-20 '>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
-    <view class='margin-left-20  txt-black h5'>{{taskinfo.time}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>选址完成时间：</view>
-    <view class='margin-left-20  txt-black h5'>{{taskinfo.location_time}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>物业姓名：</view>
-    <view class='margin-left-75  txt-black h5'>{{taskinfo.property_name}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>物业电话：</view>
-    <view class='margin-left-75  txt-black h5'>{{taskinfo.property_phone}}</view>
-  </view>
-  <view class='flex-row flex-center margin-top-20'>
-    <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>红内线管道：</view>
-    <view class='margin-left-50  txt-black h5'>{{taskinfo.guandao}}</view>
-  </view>
-  <view class='flex-row  margin-top-20'>
-    <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>管道图片：</view>
-    <image src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img1}}' class='image margin-left-40'></image>
+    <view class='  txt-black h5' style='width:196rpx;'>任务详情：</view>
+    <view class='flex-wrap txt-black h5' style='width:460rpx;'>{{taskinfo.taskdetails}}</view>
   </view>
 
-  <view class='flex-row flex-center margin-top-20'>
+  <view class='flex-row flex-center margin-top-20 '>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>机房面积：</view>
-    <view class='margin-left-75  txt-black h5'>{{taskinfo.mianji}}</view>
+    <view class='  txt-black h5'>任务截止时间：</view>
+    <view class='  txt-black h5'>{{taskinfo.time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='  txt-black h5'>选址完成时间：</view>
+    <view class='  txt-black h5'>{{taskinfo.location_time}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='  txt-black h5' style='width:196rpx;'>物业姓名：</view>
+    <view class='  txt-black h5'>{{taskinfo.property_name}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='  txt-black h5' style='width:196rpx;'>物业电话：</view>
+    <view class='  txt-black h5'>{{taskinfo.property_phone}}</view>
+  </view>
+  <view class='flex-row flex-center margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='  txt-black h5' style='width:196rpx;'>红内线管道：</view>
+    <view class='  txt-black h5'>{{taskinfo.guandao}}</view>
+  </view>
+  <view class='flex-row flex-wrap  margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='txt-black h5'>管道图片：</view>
+    <view style='width:70vw'>
+      <image wx:for='{{taskinfo.xuanzhiphoto_img1!=""&taskinfo.xuanzhiphoto_img1!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img1}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img1}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img2!=""&taskinfo.xuanzhiphoto_img2!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img2}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img2}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img3!=""&taskinfo.xuanzhiphoto_img3!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img3}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img3}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img4!=""&taskinfo.xuanzhiphoto_img4!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img4}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img4}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img5!=""&taskinfo.xuanzhiphoto_img5!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img5}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img5}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img6!=""&taskinfo.xuanzhiphoto_img6!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img6}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img6}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img7!=""&taskinfo.xuanzhiphoto_img7!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img7}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img7}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img8!=""&taskinfo.xuanzhiphoto_img8!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img8}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img8}}'></image>
+
+      <image wx:for='{{taskinfo.xuanzhiphoto_img9!=""&taskinfo.xuanzhiphoto_img9!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img9}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.xuanzhiphoto_img9}}'></image>
+
+    </view>
   </view>
 
-  <view class='flex-row  margin-top-20'>
+  <view class='flex-row flex-center margin-top-20 '>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>机房图片：</view>
-    <image src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img1}}' class='image margin-left-40'></image>
+    <view class='txt-black h5'>机房面积：</view>
+    <view class='txt-black h5'>{{taskinfo.mianji}}</view>
+  </view>
+
+  <view class='flex-row  margin-top-20 margin-bottom-40'>
+    <view class='icon-25'></view>
+    <view class='txt-black h5'>机房图片：</view>
+    <view style='width:70vw'>
+      <image wx:for='{{taskinfo.mianjiphoto_img1!=""&taskinfo.mianjiphoto_img1!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img1}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img1}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img2!=""&taskinfo.mianjiphoto_img2!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img2}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img2}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img3!=""&taskinfo.mianjiphoto_img3!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img3}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img3}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img4!=""&taskinfo.mianjiphoto_img4!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img4}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img4}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img5!=""&taskinfo.mianjiphoto_img5!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img5}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img5}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img6!=""&taskinfo.mianjiphoto_img6!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img6}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img6}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img7!=""&taskinfo.mianjiphoto_img7!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img7}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img7}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img8!=""&taskinfo.mianjiphoto_img8!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img8}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img8}}'></image>
+
+      <image wx:for='{{taskinfo.mianjiphoto_img9!=""&taskinfo.mianjiphoto_img9!="undefined"}}' src='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img9}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}selection/{{taskinfo.mianjiphoto_img9}}'></image>
+    </view>
   </view>
 </view>

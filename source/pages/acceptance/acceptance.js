@@ -46,8 +46,9 @@ class Content extends AppBase {
   onMyShow() {
     // var that = this;
     var taskapi = new TaskApi();
+    var photoapi = new PhotoApi();
     // var exampleApi = new ExampleApi();
-    var id = this.Base.getMyData().memberinfo.id;
+    //var memberinfo = this.Base.getMyData().memberinfo;
     taskapi.newtasklist({
       supervisor: AppBase.dd.id
     }, (newtasklist) => {
@@ -60,6 +61,13 @@ class Content extends AppBase {
     }, (yanshoutask) => {
       this.Base.setMyData({
         yanshoutask
+      })
+    })
+    photoapi.yanshouphone({
+      id: this.options.id
+    }, (yanshouphone) => {
+      this.Base.setMyData({
+        yanshouphone
       })
     })
   }
@@ -79,7 +87,7 @@ class Content extends AppBase {
   }
   uploadimg() {
     var that = this;
-    this.Base.uploadImage("acceptance", (ret) => {
+    this.Base.uploadImage1("acceptance", (ret) => {
       console.log(ret)
       var images = that.Base.getMyData().images;
       images.push(ret);
@@ -136,13 +144,12 @@ class Content extends AppBase {
     var abc = this.Base.getMyData().yanshoutask;
     var data = {
       primary_id: id,
-      number: abc.number,
       supervisor: abc.supervisor,
+      shigongdui: abc.shigongdui,
+      number: abc.number,
       name: abc.name,
       time: abc.time,
       status: 'C',
-      sheettime: this.Base.getMyData().date1,
-      singlefinishtime: this.Base.getMyData().date2,
       signphoto1: signphoto1,
       signphoto2: signphoto2,
       signphoto3: signphoto3,
@@ -150,6 +157,11 @@ class Content extends AppBase {
       signphoto5: signphoto5,
       signphoto6: signphoto6,
     }
+    // console.log("地方阿斯蒂芬")
+    // console.log(data);
+    // console.log("地方阿斯蒂芬")
+
+
     statusapi.finish({
       id: id,
       wc: "I"
@@ -164,6 +176,7 @@ class Content extends AppBase {
         url: '/pages/finish/finish',
       })
     })
+    return;
     wx.showToast({
       title: '完成',
       icon: 'success',

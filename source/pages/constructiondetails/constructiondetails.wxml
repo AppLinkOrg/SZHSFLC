@@ -2,37 +2,56 @@
 
 <view class=" margin-top-20">
   <view class='flex-row flex-center margin-top-20'>
-    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.arrows}}'></image>
+    <image class='icon-25 ' src='{{uploadpath}}resource/{{res.arrows}}'></image>
     <view class='txt-bold txt-black'>{{shigongtask.name_name}}</view>
   </view>
 
   <view class='flex-row flex-center margin-top-30'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务名称：</view>
+    <view class='  txt-black h5' style='width:196rpx;'>任务名称：</view>
     <view></view>
-    <view class='margin-left-20  txt-black h5'>施工</view>
+    <view class='  txt-black h5'>施工</view>
+  </view>
+
+  <view class='flex-row  margin-top-20 '>
+    <view class='icon-25'></view>
+    <view class='  txt-black h5' style='width:196rpx;'>任务详情：</view>
+    <view class=' flex-wrap txt-black h5' style='width:460rpx;'>{{shigongtask.taskdetails}}</view>
   </view>
 
   <view class='flex-row flex-center margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>施工队：</view>
-    <view class='margin-left-20  txt-black h5'>{{shigongtask.constructor_name}}</view>
+    <view class='  txt-black h5' style='width:196rpx;'>施工队：</view>
+    <view class='  txt-black h5'>{{shigongtask.constructor_name}}</view>
   </view>
 
   <view class='flex-row flex-center margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务截止时间：</view>
-    <view class='margin-left-20  txt-black h5'>{{shigongtask.time}}</view>
+    <view class='  txt-black h5'>任务截止时间：</view>
+    <view class='  txt-black h5'>{{shigongtask.time}}</view>
   </view>
   <view class='flex-row flex-center margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>任务完成时间：</view>
-    <view class='margin-left-20  txt-black h5'>{{shigongtask.updated_date}}</view>
+    <view class='  txt-black h5'>任务完成时间：</view>
+    <view class='  txt-black h5'>{{shigongtask.updated_date}}</view>
   </view>
   <view class='flex-row  margin-top-20'>
     <view class='icon-25'></view>
-    <view class='margin-left-40  txt-black h5'>现场工艺照片：</view>
-    <image src='{{uploadpath}}construction/{{shigongtask.technologyphoto1}}' class='image'></image>
+    <view class='  txt-black h5'>现场工艺照片：</view>
+    <view style='width:60vw'>
+      <image wx:for='{{shigongtask.technologyphoto1!=""&shigongtask.technologyphoto1!="undefined"}}' src='{{uploadpath}}construction/{{shigongtask.technologyphoto1}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}construction/{{shigongtask.technologyphoto1}}'></image>
+
+      <image wx:for='{{shigongtask.technologyphoto2!=""&shigongtask.technologyphoto2!="undefined"}}' src='{{uploadpath}}construction/{{shigongtask.technologyphoto2}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}construction/{{shigongtask.technologyphoto2}}'></image>
+
+      <image wx:for='{{shigongtask.technologyphoto3!=""&shigongtask.technologyphoto3!="undefined"}}' src='{{uploadpath}}construction/{{shigongtask.technologyphoto3}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}construction/{{shigongtask.technologyphoto3}}'></image>
+
+      <image wx:for='{{shigongtask.technologyphoto4!=""&shigongtask.technologyphoto4!="undefined"}}' src='{{uploadpath}}construction/{{shigongtask.technologyphoto4}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}construction/{{shigongtask.technologyphoto4}}'></image>
+
+      <image wx:for='{{shigongtask.technologyphoto5!=""&shigongtask.technologyphoto5!="undefined"}}' src='{{uploadpath}}construction/{{shigongtask.technologyphoto5}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}construction/{{shigongtask.technologyphoto5}}'></image>
+
+      <image wx:for='{{shigongtask.technologyphoto6!=""&shigongtask.technologyphoto6!="undefined"}}' src='{{uploadpath}}construction/{{shigongtask.technologyphot6}}' class='image' bindtap='viewPhoto' id='{{uploadpath}}construction/{{shigongtask.technologyphoto6}}'></image>
+
+    </view>
   </view>
 </view>
 
